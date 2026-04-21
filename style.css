@@ -405,43 +405,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
 }
 
 /* Hero hint circle */
-.hero__hint {
-  position: absolute; bottom: 24px; left: 24px;
-  width: 88px; height: 88px;
-  z-index: 4;
-  will-change: opacity;
-  pointer-events: none;
-  opacity: .45;
-}
-.hero__hint-svg {
-  width: 100%; height: 100%;
-  overflow: visible;
-  animation: heroHintSpin 12s linear infinite;
-  transform-origin: 50% 50%;
-}
-@keyframes heroHintSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-.hero__hint-text {
-  fill: rgba(255,255,255,.55);
-  font-family: var(--font);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: .08em;
-  direction: ltr;
-  unicode-bidi: bidi-override;
-}
-.hero__hint-arrow {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: rgba(255,255,255,.55);
-}
-
 /* ─── LOGOS STRIP ─────────────────────────────────────────── */
 .logos {
   background: var(--bg2);

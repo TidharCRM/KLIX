@@ -15,20 +15,6 @@
     updateProgress();
   }
 
-  // ── HERO HINT fade-out on scroll ─────────────────────────────
-  var heroHint = document.getElementById('hero-hint');
-  var heroPin  = document.getElementById('hero-pin');
-  if (heroHint && heroPin) {
-    function updateHeroHint() {
-      var maxScroll = heroPin.offsetHeight - window.innerHeight;
-      if (maxScroll <= 0) return;
-      var p = Math.max(0, Math.min(1, window.scrollY / maxScroll));
-      heroHint.style.opacity = Math.max(0, (1 - p * 5) * 0.45).toFixed(3);
-    }
-    window.addEventListener('scroll', updateHeroHint, { passive: true });
-    updateHeroHint();
-  }
-
   // ── NAV: blur on scroll ──────────────────────────────────────
   var nav = document.getElementById('nav');
   if (nav) {
