@@ -671,87 +671,72 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
 
 /* ─── TESTIMONIALS ────────────────────────────────────────── */
 .testi {
-  background: var(--bg);
+  background: var(--bg2);
   padding-bottom: 80px;
 }
-.testi__deck {
-  position: relative;
-  height: 340px;
-  max-width: 600px;
-  margin: 0 auto 32px;
-  cursor: grab;
-  user-select: none;
+.testi__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+  border-top: 1px solid var(--border);
 }
-.testi__deck:active { cursor: grabbing; }
-
 .tcard {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius);
-  padding: 36px;
+  padding: 40px 32px 40px 0;
+  background: none;
+  border-top: 2px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-right: none;
+  border-bottom: none;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  will-change: transform, opacity;
-  transition: transform .45s cubic-bezier(.22,.9,.3,1), opacity .45s cubic-bezier(.22,.9,.3,1);
-  border: 1px solid var(--border);
+  gap: 18px;
+  margin-top: -1px;
+  position: relative;
+  transition: border-top-color .25s;
 }
-
-/* Pastel card colors — pop against dark bg */
-.tcard[data-i="0"] { background: #FFF4E0; color: #111; }
-.tcard[data-i="1"] { background: #FFE4E6; color: #111; }
-.tcard[data-i="2"] { background: #E0F0E7; color: #111; }
-.tcard[data-i="3"] { background: #E6E9FA; color: #111; }
-.tcard[data-i="4"] { background: #FFE8D4; color: #111; }
-.tcard[data-i="5"] { background: #DCEDF7; color: #111; }
-
+.tcard:nth-child(3n) { border-left: none; }
+.tcard:hover { border-top-color: var(--blue); }
+.tcard::before {
+  content: '\201C';
+  position: absolute;
+  top: 28px;
+  left: 8px;
+  font-size: 72px;
+  font-family: var(--font-heading);
+  line-height: 1;
+  color: rgba(255,106,44,.07);
+  pointer-events: none;
+}
 .tcard__stars {
-  font-size: 18px;
-  color: #F59E0B;
-  letter-spacing: 2px;
+  font-size: 14px;
+  color: var(--blue);
+  letter-spacing: 3px;
 }
 .tcard__text {
   font-size: 15px;
-  line-height: 1.65;
+  line-height: 1.7;
   margin: 0;
   flex: 1;
+  color: var(--gray);
 }
 .tcard__author {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
 }
 .tcard__author strong {
   font-size: 14px;
   font-weight: 700;
+  color: var(--white);
 }
 .tcard__author span {
   font-size: 12px;
-  opacity: .65;
+  color: var(--gray-2);
 }
-
-.testi__nav {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 16px;
-}
-.testi__btn {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gray);
-  transition: background .2s, color .2s, border-color .2s;
-}
-.testi__btn:hover {
-  background: var(--blue);
-  color: var(--white);
-  border-color: var(--blue);
-}
-.testi__arrow { width: 20px; height: 20px; }
-.testi__arrow--flip { transform: scaleX(-1); }
 
 /* ─── FAQ ─────────────────────────────────────────────────── */
 .faq {
@@ -1165,6 +1150,9 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
   .plan--featured { transform: scale(1); }
   .plan--featured:hover { transform: translateY(-4px); }
   .clients__types { grid-template-columns: 1fr; }
+  .testi__grid { grid-template-columns: repeat(2, 1fr); }
+  .tcard:nth-child(3n) { border-left: 1px solid var(--border); }
+  .tcard:nth-child(2n) { border-left: none; }
 }
 
 @media (max-width: 680px) {
@@ -1179,7 +1167,8 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
   .hero__title { font-size: 26px; }
   .hero__sub { font-size: 13px; }
   .hero__content { padding-top: 64px; }
-  .testi__deck { height: 380px; }
+  .testi__grid { grid-template-columns: 1fr; }
+  .tcard { border-left: none; padding-left: 0; }
   .contact__box { padding: 36px 24px; }
   .foot__inner { grid-template-columns: 1fr; }
   .stats__inner { flex-direction: column; align-items: center; }
@@ -1205,7 +1194,7 @@ html::after {
 /* ─── SECTION ORB SYSTEM ─────────────────────────────────── */
 /* lift inner content above orbs */
 .section-heading, .cards, .plans__inner, .clients__inner,
-.philosophy__grid, .stats__inner, .testi__deck, .testi__nav,
+.philosophy__grid, .stats__inner, .testi__grid,
 .faq__list, .contact__box, .foot__inner, .logos__track, .logos__label {
   position: relative;
   z-index: 1;
