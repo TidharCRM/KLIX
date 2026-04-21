@@ -76,7 +76,7 @@
     elements.forEach(function (el) { obs.observe(el); });
   })();
 
-  // ── PATH SCROLL ANIMATION (scroll-lock, bidirectional) ───────
+  // ── PATH SCROLL ANIMATION (one-shot, forward only) ───────────
   (function () {
     var pin       = document.getElementById('path-pin');
     var marker    = document.getElementById('path-marker');
@@ -85,9 +85,7 @@
     var nodeEls   = document.querySelectorAll('.path__node');
     if (!pin || !marker || !trackPath || !progPath) return;
 
-    var p = 0, locked = false, touchY = 0, progLen = 0;
-    var lastScrollY = window.scrollY;
-    var passedFwd = false, passedBwd = false;
+    var p = 0, locked = false, completed = false, touchY = 0, progLen = 0;
     var rafPending = false;
     var SENS = 0.0012;
     var thresholds = [0, 0.25, 0.5, 0.75, 1.0];
@@ -128,35 +126,35 @@
     }
 
     function lock() {
-      if (locked) return;
+      if (locked || completed) return;
       locked = true;
+      window.scrollTo(0, pin.offsetTop);
       document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
       window.addEventListener('wheel',      onWheel,      { passive: false });
       window.addEventListener('touchstart', onTouchStart, { passive: true  });
       window.addEventListener('touchmove',  onTouchMove,  { passive: false });
+      window.addEventListener('keydown',    onKey,        { passive: false });
     }
 
-    function unlock(forward) {
+    function unlock() {
       if (!locked) return;
       locked = false;
+      completed = true;
       document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
       window.removeEventListener('wheel',      onWheel);
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove',  onTouchMove);
-      if (forward) {
-        passedFwd = true; passedBwd = false;
-        window.scrollTo(0, pin.offsetTop + pin.offsetHeight + 100);
-      } else {
-        passedBwd = true; passedFwd = false;
-        window.scrollTo(0, pin.offsetTop - 100);
-      }
+      window.removeEventListener('keydown',    onKey);
+      window.scrollTo(0, pin.offsetTop + pin.offsetHeight);
     }
 
     function addDelta(dy) {
-      p = Math.max(0, Math.min(1, p + dy * SENS));
+      if (dy <= 0) return; // forward only — no yo-yo
+      p = Math.min(1, p + dy * SENS);
       scheduleRender();
-      if (p >= 1 && dy > 0) { unlock(true); }
-      else if (p <= 0 && dy < 0) { unlock(false); }
+      if (p >= 1) unlock();
     }
 
     function onWheel(e) {
@@ -175,20 +173,26 @@
       addDelta(dy);
     }
 
-    window.addEventListener('scroll', function () {
-      var sy = window.scrollY;
-      var dir = sy >= lastScrollY ? 1 : -1;
-      lastScrollY = sy;
-      if (locked) return;
-      var rect = pin.getBoundingClientRect();
-      var ih = window.innerHeight;
-      // entering section scrolling down
-      if (dir > 0 && !passedFwd && rect.top >= -60 && rect.top <= 0) {
-        p = 0; render(); lock();
+    function onKey(e) {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ' || e.key === 'Spacebar') {
+        e.preventDefault();
+        addDelta(120);
+      } else if (e.key === 'ArrowUp' || e.key === 'PageUp' || e.key === 'Home') {
+        e.preventDefault();
       }
-      // entering section scrolling up
-      else if (dir < 0 && !passedBwd && rect.bottom >= ih && rect.bottom <= ih + 60) {
-        p = 1; render(); lock();
+    }
+
+    // If the page loads already past the pin, mark completed and draw full state
+    if (pin.getBoundingClientRect().bottom <= 1) {
+      completed = true;
+      p = 1;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (locked || completed) return;
+      var rect = pin.getBoundingClientRect();
+      if (rect.top < 1 && rect.bottom > 1) {
+        p = 0; render(); lock();
       }
     }, { passive: true });
 
