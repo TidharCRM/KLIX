@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KLIX — סוכנות שיווק דיגיטלי פרמיום</title>
+  <meta name="description" content="KLIX — סוכנות שיווק דיגיטלי פרמיום. אסטרטגיה, קמפיינים, ואנליטיקה שמניעים תוצאות אמיתיות." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+
+<body>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- TOP NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo" aria-label="KLIX">
+        <img src="logo.png" alt="KLIX" class="nav__logo-img" />
+      </a>
+      <ul class="nav__links">
+        <li><a href="#content">דלג לתוכן</a></li>
+        <li><a href="#how-it-works">איך זה עובד?</a></li>
+        <li><a href="#plans">מסלולים</a></li>
+        <li><a href="#clients">הלקוחות שלנו</a></li>
+        <li><a href="#testimonials">חוות דעת</a></li>
+        <li><a href="#contact" class="nav__cta-link">צור קשר</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-pin" id="hero-pin">
+    <section id="hero" class="hero">
+      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
+      <div class="hero__content" id="hero-content">
+        <h1 class="hero__title">להצליח בדיגיטל<br />צריך יותר מקמפיינים —<br />צריך שותף אמיתי</h1>
+        <div class="hero__divider"></div>
+        <p class="hero__sub">KLIX מנהלת את השיווק הדיגיטלי שלך מקצה לקצה — אסטרטגיה, קמפיינים, תוכן ואנליטיקה, בתשלום חודשי קבוע ונוח</p>
+        <p class="hero__sub">אפס עלות הקמה | ניהול צמוד | מעטפת ללא הגבלה | קידום אורגני | עדכוני עיצוב</p>
+        <div class="hero__cta-group">
+          <a href="#contact" class="hero__cta">בואו נדבר</a>
+          <a href="#plans" class="hero__cta-ghost">המסלולים שלנו</a>
+        </div>
+      </div>
+      <div class="hero__hint" id="hero-hint" aria-hidden="true">
+        <svg class="hero__hint-svg" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path id="hero-hint-circle" fill="none" d="M 70,70 m -55,0 a 55,55 0 1,0 110,0 a 55,55 0 1,0 -110,0" />
+          <text class="hero__hint-text" dy="3.5">
+            <textPath xlink:href="#hero-hint-circle" startOffset="0" textLength="345" lengthAdjust="spacing">הטמל יללג · הטמל יללג · הטמל יללג ·</textPath>
+          </text>
+        </svg>
+        <span class="hero__hint-arrow">↓</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- LOGO STRIP -->
+  <section class="logos" aria-label="לקוחות ומותגים">
+    <p class="logos__label">עובדים עם המותגים המובילים</p>
+    <div class="logos__track" aria-hidden="true">
+      <div class="logos__inner">
+        <span class="logos__item">BrandOne</span>
+        <span class="logos__item">TechCorp</span>
+        <span class="logos__item">MediaGroup</span>
+        <span class="logos__item">StartupX</span>
+        <span class="logos__item">RetailPlus</span>
+        <span class="logos__item">FinanceHub</span>
+        <span class="logos__item">BrandOne</span>
+        <span class="logos__item">TechCorp</span>
+        <span class="logos__item">MediaGroup</span>
+        <span class="logos__item">StartupX</span>
+        <span class="logos__item">RetailPlus</span>
+        <span class="logos__item">FinanceHub</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS — horizontal scroll path -->
+  <div class="path-pin" id="path-pin">
+    <section id="how-it-works" class="path">
+
+      <div class="path__header">
+        <h2 class="path__heading">איך אנחנו עושים את זה?</h2>
+      </div>
+
+      <div class="path__stage" id="path-stage">
+        <svg class="path__svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path id="snake-track"
+                d="M 90,50 L 10,50"
+                fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+          <path id="snake-progress"
+                d="M 90,50 L 10,50"
+                fill="none" stroke="#FF4A00" stroke-width="0.5"/>
+        </svg>
+
+        <!-- 01 — below -->
+        <div class="path__node path__node--below" style="left:90%;top:50%" data-i="0">
+          <div class="path__node-dot"></div>
+          <div class="path__node-content">
+            <span class="path__node-num">01</span>
+            <h3 class="path__node-title">בוחרים מסלול</h3>
+            <p class="path__node-desc">שיחת הבנת צרכים ובחירת המסלול המקיף ביותר לעסק.</p>
+          </div>
+        </div>
+
+        <!-- 02 — above -->
+        <div class="path__node path__node--above" style="left:70%;top:50%" data-i="1">
+          <div class="path__node-dot"></div>
+          <div class="path__node-content">
+            <span class="path__node-num">02</span>
+            <h3 class="path__node-title">אפיון הפרויקט</h3>
+            <p class="path__node-desc">אסטרטגיה, בנייה, פיתוח ותוכן — שלב אחר שלב.</p>
+          </div>
+        </div>
+
+        <!-- 03 — below -->
+        <div class="path__node path__node--below" style="left:50%;top:50%" data-i="2">
+          <div class="path__node-dot"></div>
+          <div class="path__node-content">
+            <span class="path__node-num">03</span>
+            <h3 class="path__node-title">היחידה התפעולית</h3>
+            <p class="path__node-desc">הצוות מעצב ובונה את הפרויקט ברמה הגבוהה ביותר.</p>
+          </div>
+        </div>
+
+        <!-- 04 — above -->
+        <div class="path__node path__node--above" style="left:30%;top:50%" data-i="3">
+          <div class="path__node-dot"></div>
+          <div class="path__node-content">
+            <span class="path__node-num">04</span>
+            <h3 class="path__node-title">טאצ׳ אישי</h3>
+            <p class="path__node-desc">התאמות אחרונות ותכנון קידום — פרט אחרי פרט.</p>
+          </div>
+        </div>
+
+        <!-- 05 — below -->
+        <div class="path__node path__node--below" style="left:10%;top:50%" data-i="4">
+          <div class="path__node-dot"></div>
+          <div class="path__node-content">
+            <span class="path__node-num">05</span>
+            <h3 class="path__node-title">יוצאים לדרך</h3>
+            <p class="path__node-desc">נהיה המוח והביצוע מאחורי כל משימה — יחד.</p>
+          </div>
+        </div>
+
+        <div class="path__marker" id="path-marker"></div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="cards-section">
+    <div class="section-heading">
+      <h2 class="section-heading__title">מה אנחנו עושים</h2>
+      <p class="section-heading__sub">מעטפת שיווקית מלאה — ללא הגבלה, ללא תשלום נוסף</p>
+    </div>
+    <div class="cards">
+      <article class="bigcard">
+        <div class="bigcard__icon"></div>
+        <div class="bigcard__body">
+          <h3 class="bigcard__title">מעצבים</h3>
+          <p>קמפיין, דפי נחיתה, באנרים — עיצוב ללא הגבלה בכל שלב.</p>
+        </div>
+      </article>
+      <article class="bigcard">
+        <div class="bigcard__icon"></div>
+        <div class="bigcard__body">
+          <h3 class="bigcard__title">כותבים</h3>
+          <p>תוכן קמפיין, מאמרי SEO, עדכונים שוטפים — הכל כלול.</p>
+        </div>
+      </article>
+      <article class="bigcard">
+        <div class="bigcard__icon"></div>
+        <div class="bigcard__body">
+          <h3 class="bigcard__title">מלווים</h3>
+          <p>מנהל פרויקטים ייעודי, זמין לכם בכל עת.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section id="plans" class="plans">
+    <div class="plans__inner">
+      <h2>מסלולים</h2>
+      <div class="plans__grid">
+        <div class="plan">
+          <h3>שיווק בסיסי</h3>
+          <div class="plan__price">789 ₪<span>לחודש + מע"מ</span></div>
+          <ul>
+            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
+            <li>מעטפת ליווי, אחסון, טיפול בתקלות ותחזוקה יום יומית ללא הגבלה</li>
+            <li>אפליקציה לטלפון הנייד לניהול ההזמנות, הלקוחות והמוצרים בקמפיין</li>
+            <li>דומיין (כתובת קמפיין) ללא עלות</li>
+            <li>הדרכות וסדנאות להצלחת העסק</li>
+          </ul>
+          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
+          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        </div>
+        <div class="plan plan--featured">
+          <h3>שיווק מורחב</h3>
+          <div class="plan__price">1,520 ₪<span>לחודש + מע"מ</span></div>
+          <ul>
+            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
+            <li>מעטפת ליווי לקמפיין, אחסון, טיפול בתקלות ותחזוקה יום יומית ללא הגבלה</li>
+            <li>אפליקציה לטלפון הנייד לניהול ההזמנות, הלקוחות והמוצרים בקמפיין</li>
+            <li>דומיין (כתובת קמפיין) ללא עלות</li>
+            <li>הדרכות וסדנאות להצלחת העסק</li>
+            <li>קידום אורגני SEO בגוגל לקמפיין</li>
+            <li>מאמרים וקישורים חיצוניים</li>
+          </ul>
+          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
+          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        </div>
+        <div class="plan">
+          <h3>שיווק מורחב + SEO</h3>
+          <div class="plan__price">2,980 ₪<span>לחודש + מע"מ</span></div>
+          <ul>
+            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
+            <li>מעטפת ליווי לקמפיין, אחסון, טיפול בתקלות ותחזוקה יום יומית ללא הגבלה</li>
+            <li>אפליקציה לטלפון הנייד לניהול ההזמנות, הלקוחות והמוצרים בקמפיין</li>
+            <li>דומיין (כתובת קמפיין) ללא עלות</li>
+            <li>הדרכות וסדנאות להצלחת העסק</li>
+            <li>קידום אורגני SEO בגוגל לקמפיין</li>
+            <li>מאמרים וקישורים חיצוניים</li>
+          </ul>
+          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
+          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section id="clients" class="clients">
+    <div class="clients__inner">
+      <h2>הלקוחות שלנו</h2>
+      <div class="clients__types">
+        <div class="client-type">
+          <h3>לכל הלקוחות שלנו</h3>
+          <p>קמפייני שיווק דיגיטלי מצליחים דורשים עדכון מתמיד.</p>
+          <p>ב-KLIX אנחנו מטפלים בעדכון שוטף של הקמפיינים, התכנים וחוויית המשתמש, כדי להבטיח חוויית שיווק מושכת ויחס המרה חיובי.</p>
+          <p>עם המודל ההפוך, הקמפיין עובד בשבילכם כל הזמן, במטרה להמיר לידים.</p>
+          <a href="#contact" class="client-type__cta">לשיחה עם נציג</a>
+        </div>
+        <div class="client-type">
+          <h3>קמפייני תוכן</h3>
+          <p>קמפיין תוכן הוא כלי עוצמתי לפיתוח העסק, אך כדי שלא יאבד רלוונטיות ודירוג בגוגל, חשוב לשמור אותו מעודכן, חדשני ותואם לתקופה.</p>
+          <p>ב-KLIX אנו מטפלים בכל תכני הקמפיין באופן שוטף, כך שהתדמית שלכם נשארת תמיד אטרקטיבית.</p>
+          <a href="#contact" class="client-type__cta">לשיחה עם נציג</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY — 3 pillars -->
+  <section id="about" class="philosophy">
+    <div class="section-heading section-heading--light">
+      <h2 class="section-heading__title">למה KLIX?</h2>
+      <p class="section-heading__sub">לא ספקים. שותפים אמיתיים.</p>
+    </div>
+    <div class="philosophy__grid">
+      <div class="philosophy__card">
+        <div class="philosophy__icon">🧠</div>
+        <h3 class="philosophy__title">חושבים אסטרטגיה</h3>
+        <p class="philosophy__desc">לפני שאנחנו מוציאים שקל אחד, אנחנו מבינים לאיפה צריך להגיע ולמה.</p>
+      </div>
+      <div class="philosophy__card">
+        <div class="philosophy__icon">📈</div>
+        <h3 class="philosophy__title">מחליטים לפי דאטה</h3>
+        <p class="philosophy__desc">כל החלטה מגובה בנתונים. לא ניחושים, לא אינטואיציה — עובדות.</p>
+      </div>
+      <div class="philosophy__card">
+        <div class="philosophy__icon">🤝</div>
+        <h3 class="philosophy__title">שותפים, לא ספקים</h3>
+        <p class="philosophy__desc">ההצלחה שלכם היא ההצלחה שלנו. כי ככה זה אמור לעבוד.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats__inner">
+      <div class="stats__item">
+        <span class="stats__num">$10M+</span>
+        <span class="stats__lbl">בניהול תקציבי מדיה</span>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num">150+</span>
+        <span class="stats__lbl">לקוחות עסקיים</span>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num">97%</span>
+        <span class="stats__lbl">שיעור שימור לקוחות</span>
+      </div>
+      <div class="stats__item">
+        <span class="stats__num">0</span>
+        <span class="stats__lbl">עמלת מדיה נוספת</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="testi">
+    <div class="section-heading section-heading--light">
+      <h2 class="section-heading__title">מה אומרים הלקוחות</h2>
+    </div>
+    <div class="testi__deck" id="testi-deck">
+      <article class="tcard" data-i="0">
+        <div class="tcard__stars" aria-label="5 מתוך 5">★★★★★</div>
+        <p class="tcard__text">KLIX לא רק ניהלו לנו קמפיינים — הם שינו את הדרך שבה אנחנו חושבים על שיווק. התוצאות דיברו בעד עצמן.</p>
+        <div class="tcard__author"><strong>יוסי כהן</strong><span>מנכ"ל, TechStart</span></div>
+      </article>
+      <article class="tcard" data-i="1">
+        <div class="tcard__stars" aria-label="5 מתוך 5">★★★★★</div>
+        <p class="tcard__text">מהשיחה הראשונה הרגשתי שהם באמת מבינים את העסק שלנו. לא ספקים — שותפים. ממליץ בחום.</p>
+        <div class="tcard__author"><strong>מיכל לוי</strong><span>מנהלת שיווק, RetailPlus</span></div>
+      </article>
+      <article class="tcard" data-i="2">
+        <div class="tcard__stars" aria-label="5 מתוך 5">★★★★★</div>
+        <p class="tcard__text">בתוך 3 חודשים ראינו עלייה של 40% בהמרות. לא ידעתי שאפשר לקבל כזו שקיפות ומקצועיות.</p>
+        <div class="tcard__author"><strong>אבי שמש</strong><span>בעלים, MediaGroup</span></div>
+      </article>
+      <article class="tcard" data-i="3">
+        <div class="tcard__stars" aria-label="5 מתוך 5">★★★★★</div>
+        <p class="tcard__text">הצוות של KLIX תמיד זמין, תמיד עם תשובות. הדיווחים הם ברמה אחרת — שקיפות מלאה בכל שלב.</p>
+        <div class="tcard__author"><strong>דנה פרידמן</strong><span>VP Marketing, FinanceHub</span></div>
+      </article>
+      <article class="tcard" data-i="4">
+        <div class="tcard__stars" aria-label="5 מתוך 5">★★★★★</div>
+        <p class="tcard__text">ניסיתי 3 סוכנויות לפני KLIX. ההבדל הוא שמישהו כאן באמת אכפת לו מהתוצאות שלי.</p>
+        <div class="tcard__author"><strong>רון גולדברג</strong><span>יזם, StartupX</span></div>
+      </article>
+      <article class="tcard" data-i="5">
+        <div class="tcard__stars" aria-label="5 מתוך 5">★★★★★</div>
+        <p class="tcard__text">תהליך עבודה ברור, מנהל חשבון שיודע מה הוא עושה, ותוצאות שמצדיקות כל שקל. פשוט עובד.</p>
+        <div class="tcard__author"><strong>שרה בן דוד</strong><span>מנכ"לית, BrandOne</span></div>
+      </article>
+    </div>
+    <div class="testi__nav">
+      <button id="t-prev" class="testi__btn" aria-label="הקודם">
+        <svg class="testi__arrow" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button id="t-next" class="testi__btn" aria-label="הבא">
+        <svg class="testi__arrow testi__arrow--flip" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <div class="faq__head">
+      <h2 class="faq__title">כל מה שרציתם לדעת על המודל ההפוך</h2>
+    </div>
+    <div class="faq__list">
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false"><span>למה אתם לא גובים תשלום על הקמת הקמפיין?</span><span class="faq__icon">↓</span></button>
+        <div class="faq__a"><p>אנחנו מאמינים במודל ההפוך — ההצלחה שלכם היא ההצלחה שלנו. לכן אנחנו לא גובים עלויות הקמה, אלא מתמקדים בשירות חודשי איכותי.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false"><span>איך מתנהלים מולכם ברמה החודשית?</span><span class="faq__icon">↓</span></button>
+        <div class="faq__a"><p>אנו מספקים מעטפת ליווי מלאה ללא הגבלה, כולל טיפול בתקלות, תחזוקה יום יומית, ועדכונים שוטפים. הכל כלול במחיר החודשי.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false"><span>מה כוללת המעטפת והליווי המקיף?</span><span class="faq__icon">↓</span></button>
+        <div class="faq__a"><p>המעטפת כוללת עיצוב, כתיבה, ניהול, אחסון, טיפול בתקלות, הדרכות וסדנאות להצלחת העסק שלכם.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false"><span>האם ניתן לבצע שינויים בקמפיין לאחר ההקמה?</span><span class="faq__icon">↓</span></button>
+        <div class="faq__a"><p>כן, אנו מאפשרים שינויי עיצוב בכל שלב וללא הגבלה, כחלק מהמודל ההפוך.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false"><span>האם המודל ההפוך מתאים לכל העסקים?</span><span class="faq__icon">↓</span></button>
+        <div class="faq__a"><p>המודל מתאים לעסקים שרוצים שירות שיווק דיגיטלי מקיף ללא עלויות נוספות, עם התמקדות בהצלחה לטווח ארוך.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false"><span>כמה זמן לוקח להקים קמפיין?</span><span class="faq__icon">↓</span></button>
+        <div class="faq__a"><p>תהליך ההקמה לוקח בדרך כלל 2-4 שבועות, תלוי במורכבות הקמפיין והצרכים שלכם.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q" aria-expanded="false"><span>איך מצטרפים לתהליך?</span><span class="faq__icon">↓</span></button>
+        <div class="faq__a"><p>פשוט צרו קשר איתנו דרך הטופס או בוואטסאפ, ונקבע שיחת היכרות לבחירת המסלול המתאים.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section id="contact" class="contact">
+    <div class="contact__box">
+      <h2 class="contact__title">מוכנים להתחיל?<br /><em>בואו נדבר.</em></h2>
+      <p class="contact__sub">השאירו פרטים ונחזור אליכם תוך 24 שעות</p>
+      <form class="leadf" id="lead-form" action="https://formspree.io/f/placeholder" method="POST" novalidate>
+        <label class="leadf__row"><span>שם מלא</span><input type="text" name="name" required autocomplete="name" placeholder="השם שלך" /></label>
+        <label class="leadf__row"><span>חברה</span><input type="text" name="company" placeholder="שם החברה" /></label>
+        <label class="leadf__row"><span>טלפון</span><input type="tel" name="phone" required autocomplete="tel" placeholder="05X-XXXXXXX" /></label>
+        <label class="leadf__row"><span>אימייל</span><input type="email" name="email" autocomplete="email" placeholder="your@email.com" /></label>
+        <button class="leadf__btn" type="submit" id="lead-submit">שלחו לי פרטים</button>
+      </form>
+      <div class="leadf__ok" id="lead-success" hidden>✓ קיבלנו! נחזור אליכם בקרוב</div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="foot__inner">
+      <div class="foot__contact">
+        <h3>צור קשר</h3>
+        <p>סניף ראשי<br />משה לוי 14, ראשון-לציון</p>
+        <p>קפצו אלינו<br />
+          <a href="#">ניווט ב-Waze</a><br />
+          <a href="#">ניווט ב-Google Maps</a>
+        </p>
+        <p>אנחנו ברשתות<br />
+          <a href="#">Facebook</a> <a href="#">Instagram</a> <a href="#">Youtube</a> <a href="#">Linkedin</a> <a href="#">Whatsapp</a> <a href="#">Envelope</a>
+        </p>
+        <p>5852*<br />03-381-1170</p>
+      </div>
+      <div class="foot__nav">
+        <h3>ניווט אתר</h3>
+        <ul>
+          <li><a href="#how-it-works">איך זה עובד?</a></li>
+          <li><a href="#clients">לקוחות שלנו</a></li>
+          <li><a href="#plans">מסלולים</a></li>
+          <li><a href="#faq">שאלות ותשובות</a></li>
+          <li><a href="#contact">צור קשר</a></li>
+        </ul>
+      </div>
+      <div class="foot__topics">
+        <h3>נושאים</h3>
+        <ul>
+          <li><a href="#">שיווק דיגיטלי</a></li>
+          <li><a href="#">עיצוב</a></li>
+          <li><a href="#">SEO</a></li>
+          <li><a href="#">קמפיינים</a></li>
+          <li><a href="#">אנליטיקה</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <p class="foot__copy">כל הזכויות שמורות © 2026 | KLIX — סוכנות שיווק דיגיטלי</p>
+    </div>
+    <div class="foot__credit">
+      פותח באהבה על ידי
+      <a href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20%D7%91%D7%90%D7%AA%D7%99%20%D7%9E%D7%93%D7%A3%20%D7%94%D7%A0%D7%97%D7%99%D7%AA%D7%94%20%D7%A9%D7%9C%20KLIX"
+        target="_blank" rel="noopener" class="foot__klix">KLIX</a>
+    </div>
+  </footer>
+
+  <script src="script.js?v=2"></script>
+</body>
+
+</html>
