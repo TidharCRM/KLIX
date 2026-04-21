@@ -674,41 +674,92 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
   background: var(--bg2);
   padding-bottom: 80px;
 }
-.testi__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px 40px;
-  border-top: 1px solid var(--border);
-}
-.tcard {
-  padding: 40px 32px 40px 0;
-  background: none;
-  border-top: 2px solid var(--border);
-  border-left: 1px solid var(--border);
-  border-right: none;
-  border-bottom: none;
+
+/* Marquee container — clips overflow, fades edges */
+.testi__marquee {
+  overflow: hidden;
+  direction: ltr;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-top: -1px;
-  position: relative;
-  transition: border-top-color .25s;
+  gap: 16px;
+  padding-bottom: 8px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%);
 }
-.tcard:nth-child(3n) { border-left: none; }
-.tcard:hover { border-top-color: var(--blue); }
+.testi__marquee:hover .testi__track { animation-play-state: paused; }
+
+/* Each row is a flex strip that scrolls */
+.testi__track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+}
+.testi__track--fwd { animation: testi-fwd 50s linear infinite; }
+.testi__track--rev { animation: testi-rev 50s linear infinite; }
+
+@keyframes testi-fwd {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes testi-rev {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .testi__track { animation: none !important; }
+}
+
+/* Each set of cards — padding-inline-end equals the gap so
+   50% of the track width lands exactly at the set boundary */
+.testi__set {
+  display: flex;
+  gap: 20px;
+  padding-inline-end: 20px;
+}
+
+/* Individual card */
+.tcard {
+  direction: rtl;
+  flex-shrink: 0;
+  width: 320px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-top: 2px solid rgba(255,106,44,.15);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  transition: border-top-color .3s,
+              transform .35s cubic-bezier(.22,.9,.3,1),
+              box-shadow .35s;
+}
+.tcard:hover {
+  border-top-color: var(--blue);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,.5),
+              0 0 0 1px rgba(255,106,44,.22),
+              0 0 40px rgba(255,106,44,.07);
+}
+
+/* Pulsing quote mark */
 .tcard::before {
   content: '\201C';
   position: absolute;
-  top: 28px;
-  left: 8px;
-  font-size: 72px;
+  top: 16px;
+  right: 20px;
+  font-size: 80px;
   font-family: var(--font-heading);
   line-height: 1;
-  color: rgba(255,106,44,.07);
   pointer-events: none;
+  animation: quoteGlow 3s ease-in-out infinite;
+  animation-delay: var(--q-delay, 0s);
 }
+@keyframes quoteGlow {
+  0%, 100% { color: rgba(255,106,44,.07); text-shadow: none; }
+  50%       { color: rgba(255,106,44,.22); text-shadow: 0 0 20px rgba(255,106,44,.3); }
+}
+
 .tcard__stars {
   font-size: 14px;
   color: var(--blue);
@@ -725,7 +776,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding-top: 20px;
+  padding-top: 18px;
   border-top: 1px solid var(--border);
 }
 .tcard__author strong {
@@ -1150,9 +1201,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
   .plan--featured { transform: scale(1); }
   .plan--featured:hover { transform: translateY(-4px); }
   .clients__types { grid-template-columns: 1fr; }
-  .testi__grid { grid-template-columns: repeat(2, 1fr); }
-  .tcard:nth-child(3n) { border-left: 1px solid var(--border); }
-  .tcard:nth-child(2n) { border-left: none; }
 }
 
 @media (max-width: 680px) {
@@ -1167,8 +1215,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
   .hero__title { font-size: 26px; }
   .hero__sub { font-size: 13px; }
   .hero__content { padding-top: 64px; }
-  .testi__grid { grid-template-columns: 1fr; }
-  .tcard { border-left: none; padding-left: 0; }
   .contact__box { padding: 36px 24px; }
   .foot__inner { grid-template-columns: 1fr; }
   .stats__inner { flex-direction: column; align-items: center; }
@@ -1194,7 +1240,7 @@ html::after {
 /* ─── SECTION ORB SYSTEM ─────────────────────────────────── */
 /* lift inner content above orbs */
 .section-heading, .cards, .plans__inner, .clients__inner,
-.philosophy__grid, .stats__inner, .testi__grid,
+.philosophy__grid, .stats__inner, .testi__marquee,
 .faq__list, .contact__box, .foot__inner, .logos__track, .logos__label {
   position: relative;
   z-index: 1;

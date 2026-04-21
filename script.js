@@ -25,6 +25,22 @@
     updateNav();
   }
 
+  // ── TESTIMONIALS MARQUEE ─────────────────────────────────────
+  (function () {
+    document.querySelectorAll('.testi__track').forEach(function (track) {
+      var set = track.querySelector('.testi__set');
+      if (!set) return;
+      // Stagger quote-mark pulse so cards don't all glow in sync
+      Array.from(set.querySelectorAll('.tcard')).forEach(function (card, i) {
+        card.style.setProperty('--q-delay', '-' + (i * 0.5).toFixed(1) + 's');
+      });
+      // Clone the set for seamless infinite loop
+      var clone = set.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    });
+  })();
+
   // ── SCROLL REVEAL ────────────────────────────────────────────
   (function () {
     if (!('IntersectionObserver' in window)) return;
