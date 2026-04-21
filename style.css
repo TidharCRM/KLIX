@@ -216,6 +216,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
   font-weight: 600;
   letter-spacing: .06em;
   transition: color .15s;
+  white-space: nowrap;
 }
 .nav__links a:hover { color: var(--white); }
 .nav__links a.is-active { color: var(--blue); }
@@ -229,6 +230,9 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
   letter-spacing: .03em;
   box-shadow: 0 6px 20px rgba(57,95,255,.35);
   transition: all .2s ease !important;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 1;
 }
 .nav__cta-link:hover {
   background: linear-gradient(135deg, #2752E3 0%, #1F3DB0 100%);
@@ -1344,11 +1348,14 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
 }
 
 @media (max-width: 680px) {
-  .nav__inner { padding: 0 20px; }
-  .nav__links { gap: 16px; }
+  .nav__inner { padding: 0 14px; }
+  .nav__links { gap: 12px; }
   .nav__links li:nth-child(1),
   .nav__links li:nth-child(2),
-  .nav__links li:nth-child(3) { display: none; }
+  .nav__links li:nth-child(3),
+  .nav__links li:nth-child(4),
+  .nav__links li:nth-child(5) { display: none; }
+  .nav__cta-link { padding: 9px 18px; font-size: 12px; }
   .hero__title { font-size: 26px; }
   .hero__sub { font-size: 13px; }
   .hero__content { padding-top: 64px; }
