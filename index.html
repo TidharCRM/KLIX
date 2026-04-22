@@ -8,7 +8,7 @@
   <meta name="description" content="KLIX — סוכנות שיווק דיגיטלי פרמיום. אסטרטגיה, קמפיינים, ואנליטיקה שמניעים תוצאות אמיתיות." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 
 <body>
@@ -506,36 +506,22 @@
         <button class="admin-btn" id="admin-close" type="button">סגור</button>
       </div>
       <p class="admin-note">
-        השינויים נשמרים ב-Firebase — מיד גלויים לכל הגולשים בכל המכשירים.
+        השינויים נשמרים ב-Supabase — מיד גלויים לכל הגולשים בכל המכשירים.
         כאשר אין פרויקטים, תוצג רשימת ברירת-המחדל מה-HTML.
       </p>
     </div>
   </div>
 
-  <!-- FIREBASE + ADMIN LOGIC -->
+  <!-- SUPABASE + ADMIN LOGIC -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-    import { getDatabase, ref as dbRef, push, set, onValue, remove, query, orderByChild, serverTimestamp }
-      from "https://www.gstatic.com/firebasejs/10.12.5/firebase-database.js";
-    import { getStorage, ref as storageRef, uploadBytes, getDownloadURL, deleteObject }
-      from "https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js";
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyCJnNZDJObHLmt6f6jOks0Nb8c0aidUeb0",
-      authDomain: "klix-14d43.firebaseapp.com",
-      databaseURL: "https://klix-14d43-default-rtdb.firebaseio.com",
-      projectId: "klix-14d43",
-      storageBucket: "klix-14d43.firebasestorage.app",
-      messagingSenderId: "321669724221",
-      appId: "1:321669724221:web:b5913b8030b7f91041d254",
-      measurementId: "G-HGVPFN414P"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const storage = getStorage(app);
-    const worksRef = dbRef(db, 'works');
+    const SUPABASE_URL      = 'https://emmffvzrdqcvnwjkqdtv.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVtbWZmdnpyZHFjdm53amtxZHR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NDQ3NjYsImV4cCI6MjA5MjQyMDc2Nn0.hsv4xIl6sPL6Wj9lVdMUQFaeDw7qCLmODLqn6ufLo7A';
     const ADMIN_PW = '5678';
+    const BUCKET   = 'screenshots';
+
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     const esc = (s) => String(s).replace(/[&<>"']/g,
       c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -544,7 +530,7 @@
     const cardHTML = (w) =>
       `<a class="work" href="${esc(w.url)}" target="_blank" rel="noopener">
         <div class="work__frame">
-          <img class="work__shot" src="${esc(w.imageUrl)}" alt="${esc(w.title)}" loading="lazy" />
+          <img class="work__shot" src="${esc(w.image_url)}" alt="${esc(w.title)}" loading="lazy" />
           <span class="work__ext" aria-hidden="true">↗</span>
         </div>
         <div class="work__meta">
@@ -560,33 +546,37 @@
       if (!listEl) return;
       listEl.innerHTML = currentWorks.length
         ? currentWorks.map(w =>
-            `<li class="admin-item" data-id="${esc(w.id)}" data-path="${esc(w.imagePath || '')}">
-              <img class="admin-item__thumb" src="${esc(w.imageUrl)}" alt="" />
+            `<li class="admin-item" data-id="${esc(w.id)}" data-path="${esc(w.image_path || '')}">
+              <img class="admin-item__thumb" src="${esc(w.image_url)}" alt="" />
               <div class="admin-item__meta">
                 <p class="admin-item__title">${esc(w.title)}</p>
                 <p class="admin-item__domain">${esc(w.domain)}</p>
               </div>
               <button class="admin-item__del" type="button">מחק</button>
             </li>`).join('')
-        : '<li class="admin-empty">עדיין אין פרויקטים ב-Firebase. יוצגו ברירות המחדל מה-HTML עד שתוסיף ראשון.</li>';
+        : '<li class="admin-empty">עדיין אין פרויקטים ב-Supabase. יוצגו ברירות המחדל מה-HTML עד שתוסיף ראשון.</li>';
     }
 
-    // Subscribe to Realtime Database — live grid + admin list
-    try {
-      const worksQuery = query(worksRef, orderByChild('createdAt'));
-      onValue(worksQuery, (snap) => {
-        const data = snap.val() || {};
-        currentWorks = Object.entries(data)
-          .map(([id, v]) => ({ id, ...v }))
-          .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-        if (currentWorks.length) {
-          grid.innerHTML = currentWorks.map(cardHTML).join('');
-        }
-        renderAdminList();
-      }, (err) => {
-        console.error('RTDB listen error:', err);
-      });
-    } catch (e) { console.error(e); }
+    async function loadWorks() {
+      const { data, error } = await supabase
+        .from('works')
+        .select('*')
+        .order('created_at', { ascending: false });
+      if (error) { console.error('Supabase select:', error); return; }
+      currentWorks = data || [];
+      if (currentWorks.length) {
+        grid.innerHTML = currentWorks.map(cardHTML).join('');
+      }
+      renderAdminList();
+    }
+
+    await loadWorks();
+
+    // Live sync — refetch on any works-table change
+    supabase
+      .channel('works-live')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'works' }, () => loadWorks())
+      .subscribe();
 
     // Admin UI wiring
     const gear     = document.getElementById('admin-gear');
@@ -618,7 +608,7 @@
     panel?.addEventListener('click', (e) => { if (e.target === panel) hidePanel(); });
     pwBox?.addEventListener('click', (e) => { if (e.target === pwBox) hidePw(); });
 
-    // Downscale to max 1280px, JPEG q=0.85, keeps Storage bill tiny
+    // Downscale to max 1280px, JPEG q=0.85 — keeps storage/bandwidth low
     function resizeImage(file, maxW = 1280, quality = 0.85) {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -648,21 +638,31 @@
       btn.textContent = 'מעלה…';
       try {
         const fd = new FormData(form);
-        const title = fd.get('title').trim();
+        const title  = fd.get('title').trim();
         const domain = fd.get('domain').trim();
-        const url = fd.get('url').trim();
-        const file = fd.get('image');
+        const url    = fd.get('url').trim();
+        const file   = fd.get('image');
         if (!file || !file.size) throw new Error('חסר צילום מסך');
+
         const blob = await resizeImage(file);
-        const fname = 'screenshots/' + Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.jpg';
-        const sref = storageRef(storage, fname);
-        await uploadBytes(sref, blob, { contentType: 'image/jpeg' });
-        const imageUrl = await getDownloadURL(sref);
-        const newRef = push(worksRef);
-        await set(newRef, {
-          title, domain, url, imageUrl, imagePath: fname, createdAt: serverTimestamp()
-        });
+        const path = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.jpg';
+
+        const { error: upErr } = await supabase
+          .storage
+          .from(BUCKET)
+          .upload(path, blob, { contentType: 'image/jpeg', upsert: false });
+        if (upErr) throw upErr;
+
+        const { data: pub } = supabase.storage.from(BUCKET).getPublicUrl(path);
+        const image_url = pub.publicUrl;
+
+        const { error: insErr } = await supabase
+          .from('works')
+          .insert({ title, domain, url, image_url, image_path: path });
+        if (insErr) throw insErr;
+
         form.reset();
+        await loadWorks();
       } catch (err) {
         console.error(err);
         alert('שגיאה: ' + (err.message || err));
@@ -680,15 +680,20 @@
       const path = li.dataset.path;
       if (!confirm('למחוק את "' + (li.querySelector('.admin-item__title')?.textContent || '') + '"?')) return;
       try {
-        if (path) { try { await deleteObject(storageRef(storage, path)); } catch(_) {} }
-        await remove(dbRef(db, 'works/' + id));
+        if (path) {
+          const { error: stErr } = await supabase.storage.from(BUCKET).remove([path]);
+          if (stErr) console.warn('storage delete:', stErr);
+        }
+        const { error: dbErr } = await supabase.from('works').delete().eq('id', id);
+        if (dbErr) throw dbErr;
+        await loadWorks();
       } catch (err) {
         alert('שגיאה במחיקה: ' + (err.message || err));
       }
     });
   </script>
 
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 
 </html>
