@@ -8,7 +8,7 @@
   <meta name="description" content="KLIX — סוכנות שיווק דיגיטלי פרמיום. אסטרטגיה, קמפיינים, ואנליטיקה שמניעים תוצאות אמיתיות." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=6" />
 </head>
 
 <body>
@@ -27,7 +27,7 @@
       <ul class="nav__links">
         <li><a href="#content">דלג לתוכן</a></li>
         <li><a href="#plans">מסלולים</a></li>
-        <li><a href="#clients">הלקוחות שלנו</a></li>
+        <li><a href="#works">ההצלחות שלנו</a></li>
         <li><a href="#testimonials">חוות דעת</a></li>
         <li><a href="#contact" class="nav__cta-link">צור קשר</a></li>
       </ul>
@@ -175,6 +175,60 @@
           <p>ב-KLIX אנו מטפלים בכל תכני הקמפיין באופן שוטף, כך שהתדמית שלכם נשארת תמיד אטרקטיבית.</p>
           <a href="#contact" class="client-type__cta">לשיחה עם נציג</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS / KLIX SUCCESSES — portfolio grid
+       ══════════════════════════════════════════════════════════════
+       To add a new project: copy one <a class="work">…</a> block,
+       drop the screenshot into works/<name>.jpg (or .png / .webp),
+       and update the href + image src + title.
+       That's it — no JS, no config.
+       ══════════════════════════════════════════════════════════════ -->
+  <section id="works" class="works">
+    <div class="works__inner">
+      <div class="section-heading section-heading--light">
+        <h2 class="section-heading__title">ההצלחות שלנו</h2>
+        <p class="section-heading__sub">פרויקטים חיים שהקמנו ומקדמים — הקליקו על כל אחד כדי לבקר</p>
+      </div>
+      <div class="works__grid">
+
+        <!-- ── WORK ITEM ── (duplicate this block per project) -->
+        <a class="work" href="https://klix-nu.vercel.app" target="_blank" rel="noopener">
+          <div class="work__frame">
+            <img class="work__shot" src="works/placeholder.svg" alt="KLIX" loading="lazy" />
+            <span class="work__ext" aria-hidden="true">↗</span>
+          </div>
+          <div class="work__meta">
+            <h3 class="work__title">KLIX</h3>
+            <p class="work__domain">klix-nu.vercel.app</p>
+          </div>
+        </a>
+
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <div class="work__frame">
+            <img class="work__shot" src="works/placeholder.svg" alt="פרויקט לדוגמה" loading="lazy" />
+            <span class="work__ext" aria-hidden="true">↗</span>
+          </div>
+          <div class="work__meta">
+            <h3 class="work__title">שם הפרויקט</h3>
+            <p class="work__domain">example.com</p>
+          </div>
+        </a>
+
+        <a class="work" href="#" target="_blank" rel="noopener">
+          <div class="work__frame">
+            <img class="work__shot" src="works/placeholder.svg" alt="פרויקט לדוגמה" loading="lazy" />
+            <span class="work__ext" aria-hidden="true">↗</span>
+          </div>
+          <div class="work__meta">
+            <h3 class="work__title">שם הפרויקט</h3>
+            <p class="work__domain">example.com</p>
+          </div>
+        </a>
+        <!-- ── END WORK ITEM ── -->
+
       </div>
     </div>
   </section>
@@ -377,6 +431,7 @@
         <h3>ניווט אתר</h3>
         <ul>
           <li><a href="#clients">לקוחות שלנו</a></li>
+          <li><a href="#works">ההצלחות שלנו</a></li>
           <li><a href="#plans">מסלולים</a></li>
           <li><a href="#faq">שאלות ותשובות</a></li>
           <li><a href="#contact">צור קשר</a></li>
@@ -403,7 +458,7 @@
     </div>
   </footer>
 
-  <script src="script.js?v=5"></script>
+  <script src="script.js?v=6"></script>
 </body>
 
 </html>
