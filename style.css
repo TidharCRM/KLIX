@@ -336,9 +336,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(10,13,16,.55) 0%,
-    rgba(10,13,16,.65) 60%,
-    rgba(10,13,16,.92) 100%);
+    rgba(10,13,16,.25) 0%,
+    rgba(10,13,16,.35) 60%,
+    rgba(10,13,16,.60) 100%);
   z-index: 1;
   pointer-events: none;
 }
