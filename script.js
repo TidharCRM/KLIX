@@ -203,7 +203,8 @@
       '.plan', '.work',
       '.faq__title', '.faq__sub', '.faq__item',
       '.contact__title', '.contact__sub', '.leadf__row', '.leadf__btn',
-      '.logos__label'
+      '.logos__label',
+      '.pain__eyebrow', '.pain__title', '.pain__beat', '.pain__highlight', '.pain__zuck-card'
     ];
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -223,7 +224,7 @@
 
   // ── STATS COUNT-UP ───────────────────────────────────────────
   (function () {
-    var items = document.querySelectorAll('.stats__num[data-target]');
+    var items = document.querySelectorAll('.stats__num[data-target], .pain__counter-num[data-target]');
     if (!items.length || !('IntersectionObserver' in window)) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -258,6 +259,38 @@
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   });
+
+  // ── 3D TILT + CURSOR GLOW ON CARDS ───────────────────────────
+  (function () {
+    if (!window.matchMedia) return;
+    if (window.matchMedia('(hover: none)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var TILT_MAX = 5; // degrees
+    var cards = document.querySelectorAll('.scard, .why__card');
+    cards.forEach(function (card) {
+      card.classList.add('has-tilt');
+      var rafId = null;
+      var pendingX = 0, pendingY = 0;
+      function apply() {
+        card.style.setProperty('--rx', ((pendingY - 0.5) * -TILT_MAX * 2).toFixed(2) + 'deg');
+        card.style.setProperty('--ry', ((pendingX - 0.5) *  TILT_MAX * 2).toFixed(2) + 'deg');
+        card.style.setProperty('--mx', (pendingX * 100).toFixed(1) + '%');
+        card.style.setProperty('--my', (pendingY * 100).toFixed(1) + '%');
+        rafId = null;
+      }
+      card.addEventListener('pointermove', function (e) {
+        var rect = card.getBoundingClientRect();
+        pendingX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+        pendingY = Math.max(0, Math.min(1, (e.clientY - rect.top)  / rect.height));
+        if (!rafId) rafId = requestAnimationFrame(apply);
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  })();
 
   // ── CONTACT FORM ─────────────────────────────────────────────
   var form    = document.getElementById('lead-form');

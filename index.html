@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KLIX — דף עסק דיגיטלי שמכפיל אחוזי סגירה</title>
   <meta name="description" content="דף עסק דיגיטלי שמחמם את הלידים שלך לפני שהם מגיעים לוואטסאפ — ומכפיל את אחוזי הסגירה שלך." />
-  <link rel="stylesheet" href="style.css?v=13" />
+  <link rel="stylesheet" href="style.css?v=15" />
 </head>
 
 <body>
@@ -85,13 +85,64 @@
 
   <!-- PAIN -->
   <section id="pain" class="pain">
+    <div class="pain__bg" aria-hidden="true">
+      <div class="pain__orb pain__orb--1"></div>
+      <div class="pain__orb pain__orb--2"></div>
+      <div class="pain__grid"></div>
+    </div>
     <div class="pain__inner">
-      <h2 class="pain__title">אתה משלם על כל ליד פעמיים.</h2>
-      <div class="pain__body">
-        <p>פעם ראשונה — למטא, על הקמפיין.</p>
-        <p>פעם שנייה — בזמן ובאנרגיה שאתה משקיע בלשכנע כל ליד קר מחדש מי אתה, מה אתה עושה, ולמה שווה לעבוד איתך.</p>
-        <p>הלידים מגיעים אליך לוואטסאפ בלי שום רקע. שואלים "כמה זה עולה?" לפני שהם בכלל יודעים מה אתה נותן. מבקשים הצעת מחיר ונעלמים.</p>
-        <p class="pain__highlight">זה לא בעיה של הקמפיין. זו בעיה של מה שקורה בין הקמפיין לוואטסאפ.</p>
+      <div class="pain__stage">
+        <div class="pain__zuck-scene">
+          <div class="pain__zuck-card">
+            <span class="pain__zuck-chip">💸 מקבל את הכסף שלך</span>
+            <div class="pain__zuck-photo-wrap">
+              <img src="zuck.png" alt="מארק צוקרברג" class="pain__zuck-photo" />
+              <span class="pain__zuck-ring" aria-hidden="true"></span>
+            </div>
+            <div class="pain__zuck-name">מארק צוקרברג</div>
+            <div class="pain__zuck-role">Meta · Facebook Ads</div>
+            <div class="pain__counter">
+              <div class="pain__counter-top">
+                <span class="pain__counter-prefix">₪</span>
+                <span class="pain__counter-num" data-target="247500">0</span>
+              </div>
+              <div class="pain__counter-label">שילמת השנה למטא · שווי משוער</div>
+              <div class="pain__counter-bar"><span></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pain__content">
+          <span class="pain__eyebrow">הבעיה האמיתית</span>
+          <h2 class="pain__title">
+            אתה משלם על כל ליד<br />
+            <em class="pain__title-em">פעמיים.</em>
+          </h2>
+          <div class="pain__body">
+            <div class="pain__beat">
+              <span class="pain__beat-num">01</span>
+              <div class="pain__beat-text">
+                <strong>פעם ראשונה — לצוקרברג</strong>, על הקמפיין.
+              </div>
+            </div>
+            <div class="pain__beat">
+              <span class="pain__beat-num">02</span>
+              <div class="pain__beat-text">
+                <strong>פעם שנייה — בזמן ובאנרגיה</strong> שאתה משקיע בלשכנע כל ליד קר מחדש מי אתה, מה אתה עושה, ולמה שווה לעבוד איתך.
+              </div>
+            </div>
+            <div class="pain__beat">
+              <span class="pain__beat-num">03</span>
+              <div class="pain__beat-text">
+                הלידים מגיעים אליך לוואטסאפ <strong>בלי שום רקע</strong>. שואלים "כמה זה עולה?" לפני שהם בכלל יודעים מה אתה נותן. מבקשים הצעת מחיר — ונעלמים.
+              </div>
+            </div>
+          </div>
+          <p class="pain__highlight">
+            זו לא בעיה של הקמפיין.<br />
+            זו בעיה של <em>מה שקורה בין הקמפיין לוואטסאפ</em>.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -1156,6 +1207,6 @@
     });
   </script>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
