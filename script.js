@@ -5,7 +5,7 @@
   (function () {
     var TOTAL        = 97;
     var LOGO_FRAME   = 82;
-    var SCROLL_TOT   = 2500; // virtual px to complete animation
+    var SCROLL_TOT   = 1400; // virtual px to complete animation
     var TOUCH_SCALE  = 2;    // multiplier for forward touch swipe
     var canvas    = document.getElementById('hero-canvas');
     if (!canvas) return;
