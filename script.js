@@ -40,12 +40,29 @@
       if (accumDelta >= SCROLL_TOT) unlock();
     }
 
+    function lock() {
+      locked = true;
+      accumDelta = SCROLL_TOT; // re-entering from below: start at last frame
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('wheel',      onWheel,      { passive: false });
+      window.addEventListener('touchstart', onTouchStart, { passive: true  });
+      window.addEventListener('touchmove',  onTouchMove,  { passive: false });
+    }
+
+    function onScrollBack() {
+      if (window.scrollY === 0) {
+        window.removeEventListener('scroll', onScrollBack);
+        lock();
+      }
+    }
+
     function unlock() {
       locked = false;
       window.removeEventListener('wheel',      onWheel);
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove',  onTouchMove);
       document.body.style.overflow = '';
+      window.addEventListener('scroll', onScrollBack, { passive: true });
     }
 
     function onWheel(e) {
