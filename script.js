@@ -33,9 +33,15 @@
       ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
     }
 
+    function getIdx(accum) {
+      var t = accum / SCROLL_TOT;
+      var eased = t < 0.6 ? (t / 0.6) * 0.5 : 0.5 + ((t - 0.6) / 0.4) * 0.5;
+      return Math.round(eased * (TOTAL - 1));
+    }
+
     function advance(delta) {
       accumDelta = Math.max(0, Math.min(SCROLL_TOT, accumDelta + delta));
-      var idx = Math.round((accumDelta / SCROLL_TOT) * (TOTAL - 1));
+      var idx = getIdx(accumDelta);
       if (idx !== currentFrame) { currentFrame = idx; drawFrame(idx); }
       if (accumDelta >= SCROLL_TOT) unlock();
     }
