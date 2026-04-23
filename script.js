@@ -64,21 +64,23 @@
       window.addEventListener('touchmove',  onTouchMove,  { passive: false });
     }
 
-    function onScrollBack() {
+    function onScrollAfterUnlock() {
+      var heroEl  = document.getElementById('hero');
+      var heroBtm = heroEl ? heroEl.offsetTop + heroEl.offsetHeight : 0;
+      setLogoState(window.scrollY < heroBtm);
       if (window.scrollY === 0) {
-        window.removeEventListener('scroll', onScrollBack);
+        window.removeEventListener('scroll', onScrollAfterUnlock);
         lock();
       }
     }
 
     function unlock() {
       locked = false;
-      setLogoState(false);
       window.removeEventListener('wheel',      onWheel);
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove',  onTouchMove);
       document.body.style.overflow = '';
-      window.addEventListener('scroll', onScrollBack, { passive: true });
+      window.addEventListener('scroll', onScrollAfterUnlock, { passive: true });
     }
 
     function onWheel(e) {
