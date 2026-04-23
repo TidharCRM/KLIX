@@ -39,7 +39,7 @@
 
     function getIdx(accum) {
       var t = Math.min(1, accum / SCROLL_TOT);
-      return Math.round(t * t * (TOTAL - 1)); // ease-in: slow start → fast end
+      return Math.round(Math.pow(t, 1.5) * (TOTAL - 1)); // gentle ease-in
     }
 
     function setLogoState(showHero) {
@@ -96,7 +96,7 @@
       e.preventDefault();
       var delta = touchStartY - e.touches[0].clientY;
       touchStartY = e.touches[0].clientY;
-      advance(delta * TOUCH_SCALE);
+      advance(delta > 0 ? delta * TOUCH_SCALE : delta); // scale only forward
     }
 
     for (var i = 1; i <= TOTAL; i++) {
