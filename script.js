@@ -3,13 +3,16 @@
 
   // ── HERO SCROLL ANIMATION ────────────────────────────────────
   (function () {
-    var TOTAL = 97;
+    var TOTAL      = 97;
+    var SCROLL_TOT = 4000; // virtual px needed to complete animation
     var canvas = document.getElementById('hero-canvas');
-    var pin    = document.getElementById('hero-pin');
-    if (!canvas || !pin) return;
-    var ctx = canvas.getContext('2d');
+    if (!canvas) return;
+    var ctx    = canvas.getContext('2d');
     var frames = new Array(TOTAL);
     var currentFrame = 0;
+    var accumDelta   = 0;
+    var locked       = true;
+    var touchStartY  = 0;
 
     function pad(n) { return n < 10 ? '00' + n : n < 100 ? '0' + n : '' + n; }
 
@@ -30,30 +33,51 @@
       ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
     }
 
-    function onScroll() {
-      var scrolled = window.scrollY - pin.offsetTop;
-      var range    = pin.offsetHeight - window.innerHeight;
-      var progress = Math.max(0, Math.min(1, scrolled / range));
-      var idx = Math.round(progress * (TOTAL - 1));
-      if (idx !== currentFrame) {
-        currentFrame = idx;
-        drawFrame(idx);
-      }
+    function advance(delta) {
+      accumDelta = Math.max(0, Math.min(SCROLL_TOT, accumDelta + delta));
+      var idx = Math.round((accumDelta / SCROLL_TOT) * (TOTAL - 1));
+      if (idx !== currentFrame) { currentFrame = idx; drawFrame(idx); }
+      if (accumDelta >= SCROLL_TOT) unlock();
+    }
+
+    function unlock() {
+      locked = false;
+      window.removeEventListener('wheel',      onWheel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove',  onTouchMove);
+      document.body.style.overflow = '';
+    }
+
+    function onWheel(e) {
+      e.preventDefault();
+      advance(e.deltaY);
+    }
+
+    function onTouchStart(e) {
+      touchStartY = e.touches[0].clientY;
+    }
+
+    function onTouchMove(e) {
+      e.preventDefault();
+      var delta = touchStartY - e.touches[0].clientY;
+      touchStartY = e.touches[0].clientY;
+      advance(delta);
     }
 
     for (var i = 1; i <= TOTAL; i++) {
       (function (index) {
         var img = new Image();
-        img.onload = function () {
-          if (index === 1) resize();
-        };
+        img.onload = function () { if (index === 1) resize(); };
         img.src = 'hero-frames/' + pad(index) + '.jpg';
         frames[index - 1] = img;
       })(i);
     }
 
-    window.addEventListener('resize', resize, { passive: true });
-    window.addEventListener('scroll', onScroll, { passive: true });
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('wheel',      onWheel,      { passive: false });
+    window.addEventListener('touchstart', onTouchStart, { passive: true  });
+    window.addEventListener('touchmove',  onTouchMove,  { passive: false });
+    window.addEventListener('resize',     resize,       { passive: true  });
     resize();
   })();
 

@@ -314,12 +314,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
 }
 
 /* ─── HERO ────────────────────────────────────────────────── */
-#hero-pin {
-  height: 500vh;
-}
 .hero {
-  position: sticky;
-  top: 0;
+  position: relative;
   height: 100svh;
   display: flex;
   flex-direction: column;
