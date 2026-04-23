@@ -4,7 +4,7 @@
   // ── HERO SCROLL ANIMATION ────────────────────────────────────
   (function () {
     var TOTAL      = 97;
-    var SCROLL_TOT = 4000; // virtual px needed to complete animation
+    var SCROLL_TOT = 1500; // virtual px needed to complete animation
     var canvas = document.getElementById('hero-canvas');
     if (!canvas) return;
     var ctx    = canvas.getContext('2d');
