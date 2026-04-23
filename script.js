@@ -4,10 +4,13 @@
   // ── HERO SCROLL ANIMATION ────────────────────────────────────
   (function () {
     var TOTAL      = 97;
+    var LOGO_FRAME = 82; // frame at which nav logo fades out + hero logo fades in
     var SCROLL_TOT = 700; // virtual px needed to complete animation
-    var canvas = document.getElementById('hero-canvas');
+    var canvas    = document.getElementById('hero-canvas');
     if (!canvas) return;
-    var ctx    = canvas.getContext('2d');
+    var ctx       = canvas.getContext('2d');
+    var heroLogo  = document.getElementById('hero-logo');
+    var navLogo   = document.querySelector('.nav__logo');
     var frames = new Array(TOTAL);
     var currentFrame = 0;
     var accumDelta   = 0;
@@ -39,10 +42,16 @@
       return Math.round(eased * (TOTAL - 1));
     }
 
+    function setLogoState(showHero) {
+      if (heroLogo) heroLogo.classList.toggle('is-visible', showHero);
+      if (navLogo)  navLogo.style.opacity = showHero ? '0' : '';
+    }
+
     function advance(delta) {
       accumDelta = Math.max(0, Math.min(SCROLL_TOT, accumDelta + delta));
       var idx = getIdx(accumDelta);
       if (idx !== currentFrame) { currentFrame = idx; drawFrame(idx); }
+      setLogoState(idx >= LOGO_FRAME);
       if (accumDelta >= SCROLL_TOT) unlock();
     }
 
@@ -64,6 +73,7 @@
 
     function unlock() {
       locked = false;
+      setLogoState(false);
       window.removeEventListener('wheel',      onWheel);
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove',  onTouchMove);

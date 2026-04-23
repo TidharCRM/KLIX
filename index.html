@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KLIX — סוכנות שיווק דיגיטלי פרמיום</title>
-  <meta name="description" content="KLIX — סוכנות שיווק דיגיטלי פרמיום. אסטרטגיה, קמפיינים, ואנליטיקה שמניעים תוצאות אמיתיות." />
-  <link rel="stylesheet" href="style.css?v=11" />
+  <title>KLIX — דף עסק דיגיטלי שמכפיל אחוזי סגירה</title>
+  <meta name="description" content="דף עסק דיגיטלי שמחמם את הלידים שלך לפני שהם מגיעים לוואטסאפ — ומכפיל את אחוזי הסגירה שלך." />
+  <link rel="stylesheet" href="style.css?v=12" />
 </head>
 
 <body>
@@ -28,11 +28,11 @@
         <img src="logo.png" alt="KLIX" class="nav__logo-img" />
       </a>
       <ul class="nav__links" id="nav-links">
-        <li><a href="#services">שירותים</a></li>
-        <li><a href="#plans">מסלולים</a></li>
-        <li><a href="#works">עבודות</a></li>
+        <li><a href="#solution">הפתרון</a></li>
+        <li><a href="#how">איך זה עובד</a></li>
+        <li><a href="#works">דוגמאות</a></li>
         <li><a href="#testimonials">חוות דעת</a></li>
-        <li><a href="#contact" class="nav__cta-link">צור קשר</a></li>
+        <li><a href="#contact" class="nav__cta-link">דברו איתנו</a></li>
       </ul>
       <button class="nav__burger" id="nav-burger" aria-label="פתח תפריט" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -43,11 +43,11 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <ul>
-      <li><a href="#services" class="mobile-menu__link">שירותים</a></li>
-      <li><a href="#plans" class="mobile-menu__link">מסלולים</a></li>
-      <li><a href="#works" class="mobile-menu__link">עבודות</a></li>
+      <li><a href="#solution" class="mobile-menu__link">הפתרון</a></li>
+      <li><a href="#how" class="mobile-menu__link">איך זה עובד</a></li>
+      <li><a href="#works" class="mobile-menu__link">דוגמאות</a></li>
       <li><a href="#testimonials" class="mobile-menu__link">חוות דעת</a></li>
-      <li><a href="#contact" class="mobile-menu__link mobile-menu__link--cta">צור קשר</a></li>
+      <li><a href="#contact" class="mobile-menu__link mobile-menu__link--cta">דברו איתנו</a></li>
     </ul>
   </div>
 
@@ -55,6 +55,15 @@
   <section id="hero" class="hero">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="hero__bg" aria-hidden="true"></div>
+    <img src="logo.png" alt="KLIX" class="hero__logo" id="hero-logo" aria-hidden="true" />
+    <div class="hero__content">
+      <h1 class="hero__title">הקמפיין שלך במטא מביא פניות.<br /><em>הדף שלנו סוגר אותן.</em></h1>
+      <p class="hero__sub">דף עסק דיגיטלי שמחמם את הלידים שלך לפני שהם מגיעים לוואטסאפ — ומכפיל את אחוזי הסגירה שלך.</p>
+      <div class="hero__cta-group">
+        <a href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20KLIX%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" class="hero__cta" target="_blank" rel="noopener">דברו איתנו בוואטסאפ ←</a>
+        <a href="#works" class="hero__cta-ghost">ראו דוגמאות ↓</a>
+      </div>
+    </div>
   </section>
 
   <!-- LOGO STRIP -->
@@ -82,82 +91,66 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services" class="services">
+  <!-- PAIN -->
+  <section id="pain" class="pain">
+    <div class="pain__inner">
+      <h2 class="pain__title">אתה משלם על כל ליד פעמיים.</h2>
+      <div class="pain__body">
+        <p>פעם ראשונה — למטא, על הקמפיין.</p>
+        <p>פעם שנייה — בזמן ובאנרגיה שאתה משקיע בלשכנע כל ליד קר מחדש מי אתה, מה אתה עושה, ולמה שווה לעבוד איתך.</p>
+        <p>הלידים מגיעים אליך לוואטסאפ בלי שום רקע. שואלים "כמה זה עולה?" לפני שהם בכלל יודעים מה אתה נותן. מבקשים הצעת מחיר ונעלמים.</p>
+        <p class="pain__highlight">זה לא בעיה של הקמפיין. זו בעיה של מה שקורה בין הקמפיין לוואטסאפ.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution" class="services">
     <div class="services__inner">
       <div class="section-heading">
-        <h2 class="section-heading__title">מה אנחנו עושים</h2>
-        <p class="section-heading__sub">מעטפת שיווקית מלאה — ללא הגבלה, ללא תשלום נוסף</p>
+        <h2 class="section-heading__title">דף שעושה את העבודה המלוכלכת במקומך.</h2>
       </div>
-      <div class="services__grid">
+      <div class="services__grid services__grid--3col">
         <div class="scard">
-          <div class="scard__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          </div>
-          <h3 class="scard__title">קידום ממומן Google</h3>
-          <p class="scard__desc">קמפיינים ממוקדים שמניעים לידים ומכירות בעלות נמוכה לרכישה.</p>
+          <div class="scard__emoji">🎯</div>
+          <h3 class="scard__title">מסנן לידים קרים</h3>
+          <p class="scard__desc">מי שמגיע לוואטסאפ כבר יודע מי אתה, מה אתה עושה, וכמה זה עולה בגדול. אתה לא מבזבז זמן על סקרנים.</p>
         </div>
         <div class="scard">
-          <div class="scard__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <h3 class="scard__title">פרסום ברשתות חברתיות</h3>
-          <p class="scard__desc">Meta, TikTok ואינסטגרם — קמפיינים שמגיעים לקהל הנכון בזמן הנכון.</p>
+          <div class="scard__emoji">📈</div>
+          <h3 class="scard__title">בונה סמכות לפני השיחה</h3>
+          <p class="scard__desc">המלצות, תיק עבודות, סיפור אישי — הכל מסודר במקום אחד. הליד מגיע אליך חם, לא קר.</p>
         </div>
         <div class="scard">
-          <div class="scard__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <h3 class="scard__title">SEO קידום אורגני</h3>
-          <p class="scard__desc">עמוד ראשון בגוגל לצמיתות — תוכן, קישורים ואופטימיזציה טכנית.</p>
-        </div>
-        <div class="scard">
-          <div class="scard__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </div>
-          <h3 class="scard__title">עיצוב ותוכן</h3>
-          <p class="scard__desc">באנרים, דפי נחיתה, תוכן ברשתות — עיצוב ברמת פרסומאים ללא הגבלה.</p>
-        </div>
-        <div class="scard">
-          <div class="scard__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </div>
-          <h3 class="scard__title">בניית אתרים ודפי נחיתה</h3>
-          <p class="scard__desc">אתרים מהירים, מרשימים וממוקדי המרות שממשיכים למכור 24/7.</p>
-        </div>
-        <div class="scard">
-          <div class="scard__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-          </div>
-          <h3 class="scard__title">אנליטיקה ודיווח</h3>
-          <p class="scard__desc">דשבורד חי, דוחות שבועיים ושקיפות מלאה על כל שקל שמוצא.</p>
+          <div class="scard__emoji">⚡</div>
+          <h3 class="scard__title">מוכן לקמפיין הבא שלך</h3>
+          <p class="scard__desc">בלי "תתקדם אלינו עוד שבועיים". שולח קמפיין? יש לך דף שמוכן לקבל את הלידים.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WHY KLIX -->
-  <section id="about" class="why">
+  <!-- HOW IT WORKS -->
+  <section id="how" class="why">
     <div class="why__inner">
       <div class="section-heading">
-        <h2 class="section-heading__title">למה KLIX?</h2>
-        <p class="section-heading__sub">לא ספקים — שותפים אמיתיים שחיים את ההצלחה שלכם</p>
+        <h2 class="section-heading__title">3 שלבים. אפס כאב ראש.</h2>
       </div>
       <div class="why__grid">
         <div class="why__card">
           <div class="why__num">01</div>
-          <h3 class="why__title">המודל ההפוך</h3>
-          <p class="why__desc">אפס עלות הקמה. אנחנו משקיעים בהצלחה שלכם ולא גובים על נקודת ההתחלה.</p>
+          <h3 class="why__title">שיחת התנעה</h3>
+          <p class="why__desc">אנחנו מבינים את העסק שלך, הקהל, ההצעה, והמתחרים. אתה שולח לנו תמונות, לוגו, והמלצות.</p>
         </div>
         <div class="why__card">
           <div class="why__num">02</div>
-          <h3 class="why__title">שקיפות מלאה</h3>
-          <p class="why__desc">דוחות שבועיים, גישה לדשבורד חי ומנהל אישי — תמיד יודעים לאן הולך כל שקל.</p>
+          <h3 class="why__title">בנייה</h3>
+          <p class="why__desc">אנחנו כותבים את הקופי, בונים את העיצוב, ומחברים לוואטסאפ שלך. אתה לא נוגע בכלום.</p>
         </div>
         <div class="why__card">
           <div class="why__num">03</div>
-          <h3 class="why__title">מעטפת ללא הגבלה</h3>
-          <p class="why__desc">עיצוב, כתיבה, אחסון, תחזוקה — הכל כלול בתשלום חודשי אחד קבוע ונוח.</p>
+          <h3 class="why__title">השקה</h3>
+          <p class="why__desc">הדף עולה לאוויר. אתה מחבר את הקמפיין, ומתחיל לקבל לידים חמים. כל שינוי שתרצה בהמשך — כלול.</p>
         </div>
       </div>
     </div>
@@ -190,6 +183,23 @@
         </div>
         <span class="stats__lbl">עמלת מדיה נוספת</span>
       </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section id="fit" class="fit">
+    <div class="fit__inner">
+      <div class="section-heading">
+        <h2 class="section-heading__title">זה בשבילך אם:</h2>
+      </div>
+      <ul class="fit__list">
+        <li class="fit__item"><span class="fit__check">✓</span>יש לך מעל 2,000 עוקבים ברשתות</li>
+        <li class="fit__item"><span class="fit__check">✓</span>אתה כבר משקיע בממומן במטא</li>
+        <li class="fit__item"><span class="fit__check">✓</span>אתה נותן שירות (לא מוצר פיזי)</li>
+        <li class="fit__item"><span class="fit__check">✓</span>שווי עסקה ממוצע אצלך מעל ₪1,000</li>
+        <li class="fit__item"><span class="fit__check">✓</span>אתה מפנה כרגע ישר לוואטסאפ ולא מרוצה מאחוזי הסגירה</li>
+      </ul>
+      <p class="fit__note">לא מתאים למי שרק מתחיל, או למי שמוכר מוצרים פיזיים בדף מוצר. אנחנו מתמחים בשירותים.</p>
     </div>
   </section>
 
@@ -239,68 +249,23 @@
     </div>
   </section>
 
-  <!-- PLANS -->
+  <!-- INCLUDES -->
   <section id="plans" class="plans">
     <div class="plans__inner">
       <div class="section-heading">
-        <h2 class="section-heading__title">מסלולים</h2>
-        <p class="section-heading__sub">בחרו את המסלול המתאים לכם — ללא דמי הקמה, ללא הפתעות</p>
+        <h2 class="section-heading__title">הכל במקום אחד.</h2>
       </div>
-      <div class="plans__grid">
-
-        <div class="plan">
-          <div class="plan__head">
-            <h3 class="plan__name">שיווק בסיסי</h3>
-            <div class="plan__price">789 <span class="plan__currency">₪</span><span class="plan__per">לחודש + מע"מ</span></div>
-          </div>
-          <ul class="plan__list">
-            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
-            <li>מעטפת ליווי, אחסון, טיפול בתקלות ותחזוקה יום יומית</li>
-            <li>אפליקציה לניהול הזמנות, לקוחות ומוצרים</li>
-            <li>דומיין ללא עלות</li>
-            <li>הדרכות וסדנאות להצלחת העסק</li>
-          </ul>
-          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
-          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
-        </div>
-
-        <div class="plan plan--featured">
-          <div class="plan__badge">הכי פופולרי</div>
-          <div class="plan__head">
-            <h3 class="plan__name">שיווק מורחב</h3>
-            <div class="plan__price">1,520 <span class="plan__currency">₪</span><span class="plan__per">לחודש + מע"מ</span></div>
-          </div>
-          <ul class="plan__list">
-            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
-            <li>מעטפת ליווי מלאה, אחסון ותחזוקה יום יומית</li>
-            <li>אפליקציה לניהול הזמנות, לקוחות ומוצרים</li>
-            <li>דומיין ללא עלות</li>
-            <li>הדרכות וסדנאות להצלחת העסק</li>
-            <li>קידום אורגני SEO בגוגל</li>
-            <li>מאמרים וקישורים חיצוניים</li>
-          </ul>
-          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
-          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
-        </div>
-
-        <div class="plan">
-          <div class="plan__head">
-            <h3 class="plan__name">שיווק מורחב + SEO</h3>
-            <div class="plan__price">2,980 <span class="plan__currency">₪</span><span class="plan__per">לחודש + מע"מ</span></div>
-          </div>
-          <ul class="plan__list">
-            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
-            <li>מעטפת ליווי מלאה, אחסון ותחזוקה יום יומית</li>
-            <li>אפליקציה לניהול הזמנות, לקוחות ומוצרים</li>
-            <li>דומיין ללא עלות</li>
-            <li>הדרכות וסדנאות להצלחת העסק</li>
-            <li>קידום אורגני SEO מלא ומעמיק</li>
-            <li>מאמרים וקישורים חיצוניים</li>
-          </ul>
-          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
-          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
-        </div>
-
+      <ul class="include__list">
+        <li class="include__item"><span class="include__check">✓</span>בניית דף עסק דיגיטלי מותאם אישית</li>
+        <li class="include__item"><span class="include__check">✓</span>כתיבת קופי מקצועית</li>
+        <li class="include__item"><span class="include__check">✓</span>עיצוב פרימיום + אנימציות</li>
+        <li class="include__item"><span class="include__check">✓</span>חיבור לוואטסאפ העסקי שלך</li>
+        <li class="include__item"><span class="include__check">✓</span>עדכונים ושינויים שוטפים</li>
+        <li class="include__item"><span class="include__check">✓</span>אחסון, דומיין, ותחזוקה</li>
+        <li class="include__item"><span class="include__check">✓</span>תמיכה בוואטסאפ</li>
+      </ul>
+      <div class="include__cta">
+        <a href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20KLIX%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" class="hero__cta" target="_blank" rel="noopener">בוא נדבר ←</a>
       </div>
     </div>
   </section>
@@ -308,8 +273,7 @@
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="testi">
     <div class="section-heading">
-      <h2 class="section-heading__title">מה אומרים הלקוחות</h2>
-      <p class="section-heading__sub">מאות עסקים כבר סומכים על KLIX</p>
+      <h2 class="section-heading__title">עסקים שכבר עובדים איתנו:</h2>
     </div>
     <div class="testi__marquee">
       <div class="testi__track testi__track--fwd">
@@ -387,37 +351,24 @@
   <section id="faq" class="faq">
     <div class="faq__inner">
       <div class="faq__head">
-        <h2 class="faq__title">שאלות נפוצות</h2>
-        <p class="faq__sub">כל מה שרציתם לדעת על המודל ההפוך</p>
+        <h2 class="faq__title">שאלות שאנחנו מקבלים:</h2>
       </div>
       <div class="faq__list">
         <div class="faq__item">
-          <button class="faq__q" aria-expanded="false"><span>למה אתם לא גובים תשלום על הקמת הקמפיין?</span><span class="faq__icon">↓</span></button>
-          <div class="faq__a"><p>אנחנו מאמינים במודל ההפוך — ההצלחה שלכם היא ההצלחה שלנו. לכן אנחנו לא גובים עלויות הקמה, אלא מתמקדים בשירות חודשי איכותי.</p></div>
+          <button class="faq__q" aria-expanded="false"><span>למה ריטיינר ולא תשלום חד פעמי?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>כי דף נחיתה זה לא תמונה שתולים על הקיר. הוא צריך להתעדכן, להשתנות עם העסק, ולהיבדק כל הזמן. במודל ריטיינר אתה מקבל שותף, לא קבלן.</p></div>
         </div>
         <div class="faq__item">
-          <button class="faq__q" aria-expanded="false"><span>איך מתנהלים מולכם ברמה החודשית?</span><span class="faq__icon">↓</span></button>
-          <div class="faq__a"><p>אנו מספקים מעטפת ליווי מלאה ללא הגבלה, כולל טיפול בתקלות, תחזוקה יום יומית, ועדכונים שוטפים. הכל כלול במחיר החודשי.</p></div>
+          <button class="faq__q" aria-expanded="false"><span>הדף נשאר בבעלות שלי?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>התוכן, הקופי, והתמונות — שלך. הפלטפורמה והאחסון שלנו. אם תעזוב, נעביר לך את כל התוכן.</p></div>
         </div>
         <div class="faq__item">
-          <button class="faq__q" aria-expanded="false"><span>מה כוללת המעטפת והליווי המקיף?</span><span class="faq__icon">↓</span></button>
-          <div class="faq__a"><p>המעטפת כוללת עיצוב, כתיבה, ניהול, אחסון, טיפול בתקלות, הדרכות וסדנאות להצלחת העסק שלכם.</p></div>
+          <button class="faq__q" aria-expanded="false"><span>אתם עובדים עם כל תחום?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>לא. אנחנו מתמחים בנותני שירות עם שווי עסקה מעל ₪1,000 שמריצים ממומן. אם אתה לא בקטגוריה הזאת — נגיד לך בכנות שזה לא בשבילנו.</p></div>
         </div>
         <div class="faq__item">
-          <button class="faq__q" aria-expanded="false"><span>האם ניתן לבצע שינויים בקמפיין לאחר ההקמה?</span><span class="faq__icon">↓</span></button>
-          <div class="faq__a"><p>כן, אנו מאפשרים שינויי עיצוב בכל שלב וללא הגבלה, כחלק מהמודל ההפוך.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__q" aria-expanded="false"><span>האם המודל ההפוך מתאים לכל העסקים?</span><span class="faq__icon">↓</span></button>
-          <div class="faq__a"><p>המודל מתאים לעסקים שרוצים שירות שיווק דיגיטלי מקיף ללא עלויות נוספות, עם התמקדות בהצלחה לטווח ארוך.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__q" aria-expanded="false"><span>כמה זמן לוקח להקים קמפיין?</span><span class="faq__icon">↓</span></button>
-          <div class="faq__a"><p>תהליך ההקמה לוקח בדרך כלל 2-4 שבועות, תלוי במורכבות הקמפיין והצרכים שלכם.</p></div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__q" aria-expanded="false"><span>איך מצטרפים לתהליך?</span><span class="faq__icon">↓</span></button>
-          <div class="faq__a"><p>פשוט צרו קשר איתנו דרך הטופס או בוואטסאפ, ונקבע שיחת היכרות לבחירת המסלול המתאים.</p></div>
+          <button class="faq__q" aria-expanded="false"><span>אני לא מבין בטכנולוגיה. זה בעיה?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>לא. אתה לא צריך לגעת בכלום. אנחנו מטפלים בהכל — מהבנייה ועד החיבור לקמפיין.</p></div>
         </div>
       </div>
     </div>
@@ -427,11 +378,11 @@
   <section id="contact" class="contact">
     <div class="contact__inner">
       <div class="contact__text">
-        <h2 class="contact__title">מוכנים להתחיל?<br /><em>בואו נדבר.</em></h2>
-        <p class="contact__sub">השאירו פרטים ונחזור אליכם תוך 24 שעות</p>
+        <h2 class="contact__title">הקמפיין הבא שלך כבר רץ.<br /><em>הדף צריך להיות מוכן.</em></h2>
+        <p class="contact__sub">דברו איתנו בוואטסאפ. שיחת היכרות של 15 דקות, בלי מחויבות.</p>
         <a class="contact__wa" href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20KLIX%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.104.548 4.076 1.502 5.79L0 24l6.344-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.374l-.36-.213-3.768.988.988-3.668-.233-.38A9.818 9.818 0 1112 21.818z"/></svg>
-          שלחו הודעה בוואטסאפ
+          💬 שלח הודעה בוואטסאפ
         </a>
         <div class="contact__info">
           <p>📍 משה לוי 14, ראשון-לציון</p>
