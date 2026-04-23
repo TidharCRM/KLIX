@@ -39,7 +39,7 @@
 
     function getIdx(accum) {
       var t = Math.min(1, accum / SCROLL_TOT);
-      return Math.round(Math.pow(t, 1.5) * (TOTAL - 1)); // gentle ease-in
+      return Math.round(Math.pow(t, 1.15) * (TOTAL - 1)); // very gentle ease-in
     }
 
     function setLogoState(showHero) {
