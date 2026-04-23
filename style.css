@@ -74,6 +74,44 @@
   font-weight: 800; font-style: normal;
 }
 
+/* FUP Erez */
+@font-face {
+  font-family: 'FUP Erez';
+  src: url('fonts/FUP Erez - For Web/FUP Erez - Light/FUP Erez - Light.woff2') format('woff2'),
+       url('fonts/FUP Erez - For Web/FUP Erez - Light/FUP Erez - Light.woff') format('woff');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'FUP Erez';
+  src: url('fonts/FUP Erez - For Web/FUP Erez - Regular/FUP Erez - Regular.woff2') format('woff2'),
+       url('fonts/FUP Erez - For Web/FUP Erez - Regular/FUP Erez - Regular.woff') format('woff');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'FUP Erez';
+  src: url('fonts/FUP Erez - For Web/FUP Erez - Medium/FUP Erez - Medium.woff2') format('woff2'),
+       url('fonts/FUP Erez - For Web/FUP Erez - Medium/FUP Erez - Medium.woff') format('woff');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'FUP Erez';
+  src: url('fonts/FUP Erez - For Web/FUP Erez - SemiBold/FUP Erez - SemiBold.woff2') format('woff2'),
+       url('fonts/FUP Erez - For Web/FUP Erez - SemiBold/FUP Erez - SemiBold.woff') format('woff');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'FUP Erez';
+  src: url('fonts/FUP Erez - For Web/FUP Erez - Bold/FUP Erez - Bold.woff2') format('woff2'),
+       url('fonts/FUP Erez - For Web/FUP Erez - Bold/FUP Erez - Bold.woff') format('woff');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'FUP Erez';
+  src: url('fonts/FUP Erez - For Web/FUP Erez - ExtraBold/FUP Erez - ExtraBold.woff2') format('woff2'),
+       url('fonts/FUP Erez - For Web/FUP Erez - ExtraBold/FUP Erez - ExtraBold.woff') format('woff');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+
 /* ─── TOKENS ──────────────────────────────────────────────── */
 :root {
   --bg:          #0A0D10;
@@ -88,8 +126,8 @@
   --border:      rgba(255, 255, 255, .07);
   --border-2:    rgba(255, 255, 255, .12);
   --nav-h:       68px;
-  --font:        'FUP Sataf', system-ui, sans-serif;
-  --font-head:   'FUP Galil', system-ui, sans-serif;
+  --font:        'FUP Erez', system-ui, sans-serif;
+  --font-head:   'FUP Erez', system-ui, sans-serif;
   --radius:      14px;
   --section-pad: 100px 24px;
 }
