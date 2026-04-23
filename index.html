@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KLIX — סוכנות שיווק דיגיטלי פרמיום</title>
   <meta name="description" content="KLIX — סוכנות שיווק דיגיטלי פרמיום. אסטרטגיה, קמפיינים, ואנליטיקה שמניעים תוצאות אמיתיות." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 
 <body>
@@ -18,183 +16,220 @@
     <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
   </div>
 
+  <!-- WHATSAPP FLOAT -->
+  <a class="wa-float" href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20KLIX%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" target="_blank" rel="noopener" aria-label="שלחו הודעה בוואטסאפ">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.104.548 4.076 1.502 5.79L0 24l6.344-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.374l-.36-.213-3.768.988.988-3.668-.233-.38A9.818 9.818 0 1112 21.818z"/></svg>
+  </a>
+
   <!-- TOP NAV -->
   <nav class="nav" id="nav">
     <div class="nav__inner">
-      <a href="#top" class="nav__logo" aria-label="KLIX">
+      <a href="#hero" class="nav__logo" aria-label="KLIX">
         <img src="logo.png" alt="KLIX" class="nav__logo-img" />
       </a>
-      <ul class="nav__links">
-        <li><a href="#content">דלג לתוכן</a></li>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#services">שירותים</a></li>
         <li><a href="#plans">מסלולים</a></li>
-        <li><a href="#works">ההצלחות שלנו</a></li>
+        <li><a href="#works">עבודות</a></li>
         <li><a href="#testimonials">חוות דעת</a></li>
         <li><a href="#contact" class="nav__cta-link">צור קשר</a></li>
       </ul>
+      <button class="nav__burger" id="nav-burger" aria-label="פתח תפריט" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <ul>
+      <li><a href="#services" class="mobile-menu__link">שירותים</a></li>
+      <li><a href="#plans" class="mobile-menu__link">מסלולים</a></li>
+      <li><a href="#works" class="mobile-menu__link">עבודות</a></li>
+      <li><a href="#testimonials" class="mobile-menu__link">חוות דעת</a></li>
+      <li><a href="#contact" class="mobile-menu__link mobile-menu__link--cta">צור קשר</a></li>
+    </ul>
+  </div>
+
   <!-- HERO -->
-  <div class="hero-pin" id="hero-pin">
-    <section id="hero" class="hero">
-      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
-      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
-      <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
-      <div class="hero__content" id="hero-content">
-        <h1 class="hero__title">להצליח בדיגיטל<br />צריך יותר מקמפיינים —<br />צריך שותף אמיתי</h1>
-        <div class="hero__divider"></div>
-        <p class="hero__sub">KLIX מנהלת את השיווק הדיגיטלי שלך מקצה לקצה — אסטרטגיה, קמפיינים, תוכן ואנליטיקה, בתשלום חודשי קבוע ונוח</p>
-        <p class="hero__sub">אפס עלות הקמה | ניהול צמוד | מעטפת ללא הגבלה | קידום אורגני | עדכוני עיצוב</p>
-        <div class="hero__cta-group">
-          <a href="#contact" class="hero__cta">בואו נדבר</a>
-          <a href="#plans" class="hero__cta-ghost">המסלולים שלנו</a>
+  <section id="hero" class="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__content">
+      <div class="hero__badge">✦ סוכנות שיווק דיגיטלי פרמיום</div>
+      <h1 class="hero__title">
+        להצליח בדיגיטל<br />
+        צריך <em>שותף אמיתי</em>
+      </h1>
+      <p class="hero__sub">KLIX מנהלת את השיווק הדיגיטלי שלך מקצה לקצה — אסטרטגיה, קמפיינים, תוכן ואנליטיקה, בתשלום חודשי קבוע ונוח</p>
+      <div class="hero__cta-group">
+        <a href="#contact" class="hero__cta">בואו נדבר</a>
+        <a href="#plans" class="hero__cta-ghost">המסלולים שלנו</a>
+      </div>
+      <div class="hero__trust">
+        <div class="hero__trust-item">
+          <span class="hero__trust-stars">★★★★★</span>
+          <span>דירוג 5.0 מלקוחותינו</span>
+        </div>
+        <div class="hero__trust-sep" aria-hidden="true"></div>
+        <div class="hero__trust-item">
+          <span>150+ עסקים שמשגשגים</span>
+        </div>
+        <div class="hero__trust-sep" aria-hidden="true"></div>
+        <div class="hero__trust-item">
+          <span>אפס עמלת מדיה</span>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+    <a href="#services" class="hero__scroll" aria-label="גלול למטה">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
 
   <!-- LOGO STRIP -->
   <section class="logos" aria-label="לקוחות ומותגים">
-    <p class="logos__label">עובדים עם המותגים המובילים</p>
+    <p class="logos__label">עובדים עם מאות עסקים מצליחים</p>
     <div class="logos__track" aria-hidden="true">
       <div class="logos__inner">
-        <span class="logos__item">BrandOne</span>
-        <span class="logos__item">TechCorp</span>
-        <span class="logos__item">MediaGroup</span>
-        <span class="logos__item">StartupX</span>
+        <span class="logos__item">TechStart</span>
         <span class="logos__item">RetailPlus</span>
         <span class="logos__item">FinanceHub</span>
-        <span class="logos__item">BrandOne</span>
-        <span class="logos__item">TechCorp</span>
         <span class="logos__item">MediaGroup</span>
         <span class="logos__item">StartupX</span>
+        <span class="logos__item">BrandOne</span>
+        <span class="logos__item">EcomStore</span>
+        <span class="logos__item">LegalPro</span>
+        <span class="logos__item">TechStart</span>
         <span class="logos__item">RetailPlus</span>
         <span class="logos__item">FinanceHub</span>
+        <span class="logos__item">MediaGroup</span>
+        <span class="logos__item">StartupX</span>
+        <span class="logos__item">BrandOne</span>
+        <span class="logos__item">EcomStore</span>
+        <span class="logos__item">LegalPro</span>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="cards-section">
-    <div class="section-heading">
-      <h2 class="section-heading__title">מה אנחנו עושים</h2>
-      <p class="section-heading__sub">מעטפת שיווקית מלאה — ללא הגבלה, ללא תשלום נוסף</p>
-    </div>
-    <div class="cards">
-      <article class="bigcard">
-        <div class="bigcard__icon"></div>
-        <div class="bigcard__body">
-          <h3 class="bigcard__title">מעצבים</h3>
-          <p>קמפיין, דפי נחיתה, באנרים — עיצוב ללא הגבלה בכל שלב.</p>
+  <section id="services" class="services">
+    <div class="services__inner">
+      <div class="section-heading">
+        <h2 class="section-heading__title">מה אנחנו עושים</h2>
+        <p class="section-heading__sub">מעטפת שיווקית מלאה — ללא הגבלה, ללא תשלום נוסף</p>
+      </div>
+      <div class="services__grid">
+        <div class="scard">
+          <div class="scard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <h3 class="scard__title">קידום ממומן Google</h3>
+          <p class="scard__desc">קמפיינים ממוקדים שמניעים לידים ומכירות בעלות נמוכה לרכישה.</p>
         </div>
-      </article>
-      <article class="bigcard">
-        <div class="bigcard__icon"></div>
-        <div class="bigcard__body">
-          <h3 class="bigcard__title">כותבים</h3>
-          <p>תוכן קמפיין, מאמרי SEO, עדכונים שוטפים — הכל כלול.</p>
+        <div class="scard">
+          <div class="scard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="scard__title">פרסום ברשתות חברתיות</h3>
+          <p class="scard__desc">Meta, TikTok ואינסטגרם — קמפיינים שמגיעים לקהל הנכון בזמן הנכון.</p>
         </div>
-      </article>
-      <article class="bigcard">
-        <div class="bigcard__icon"></div>
-        <div class="bigcard__body">
-          <h3 class="bigcard__title">מלווים</h3>
-          <p>מנהל פרויקטים ייעודי, זמין לכם בכל עת.</p>
+        <div class="scard">
+          <div class="scard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="scard__title">SEO קידום אורגני</h3>
+          <p class="scard__desc">עמוד ראשון בגוגל לצמיתות — תוכן, קישורים ואופטימיזציה טכנית.</p>
         </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- PLANS -->
-  <section id="plans" class="plans">
-    <div class="plans__inner">
-      <h2>מסלולים</h2>
-      <div class="plans__grid">
-        <div class="plan">
-          <h3>שיווק בסיסי</h3>
-          <div class="plan__price">789 ₪<span>לחודש + מע"מ</span></div>
-          <ul>
-            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
-            <li>מעטפת ליווי, אחסון, טיפול בתקלות ותחזוקה יום יומית ללא הגבלה</li>
-            <li>אפליקציה לטלפון הנייד לניהול ההזמנות, הלקוחות והמוצרים בקמפיין</li>
-            <li>דומיין (כתובת קמפיין) ללא עלות</li>
-            <li>הדרכות וסדנאות להצלחת העסק</li>
-          </ul>
-          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
-          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        <div class="scard">
+          <div class="scard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3 class="scard__title">עיצוב ותוכן</h3>
+          <p class="scard__desc">באנרים, דפי נחיתה, תוכן ברשתות — עיצוב ברמת פרסומאים ללא הגבלה.</p>
         </div>
-        <div class="plan plan--featured">
-          <h3>שיווק מורחב</h3>
-          <div class="plan__price">1,520 ₪<span>לחודש + מע"מ</span></div>
-          <ul>
-            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
-            <li>מעטפת ליווי לקמפיין, אחסון, טיפול בתקלות ותחזוקה יום יומית ללא הגבלה</li>
-            <li>אפליקציה לטלפון הנייד לניהול ההזמנות, הלקוחות והמוצרים בקמפיין</li>
-            <li>דומיין (כתובת קמפיין) ללא עלות</li>
-            <li>הדרכות וסדנאות להצלחת העסק</li>
-            <li>קידום אורגני SEO בגוגל לקמפיין</li>
-            <li>מאמרים וקישורים חיצוניים</li>
-          </ul>
-          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
-          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        <div class="scard">
+          <div class="scard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="scard__title">בניית אתרים ודפי נחיתה</h3>
+          <p class="scard__desc">אתרים מהירים, מרשימים וממוקדי המרות שממשיכים למכור 24/7.</p>
         </div>
-        <div class="plan">
-          <h3>שיווק מורחב + SEO</h3>
-          <div class="plan__price">2,980 ₪<span>לחודש + מע"מ</span></div>
-          <ul>
-            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
-            <li>מעטפת ליווי לקמפיין, אחסון, טיפול בתקלות ותחזוקה יום יומית ללא הגבלה</li>
-            <li>אפליקציה לטלפון הנייד לניהול ההזמנות, הלקוחות והמוצרים בקמפיין</li>
-            <li>דומיין (כתובת קמפיין) ללא עלות</li>
-            <li>הדרכות וסדנאות להצלחת העסק</li>
-            <li>קידום אורגני SEO בגוגל לקמפיין</li>
-            <li>מאמרים וקישורים חיצוניים</li>
-          </ul>
-          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
-          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        <div class="scard">
+          <div class="scard__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+          </div>
+          <h3 class="scard__title">אנליטיקה ודיווח</h3>
+          <p class="scard__desc">דשבורד חי, דוחות שבועיים ושקיפות מלאה על כל שקל שמוצא.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CLIENTS -->
-  <section id="clients" class="clients">
-    <div class="clients__inner">
-      <h2>הלקוחות שלנו</h2>
-      <div class="clients__types">
-        <div class="client-type">
-          <h3>לכל הלקוחות שלנו</h3>
-          <p>קמפייני שיווק דיגיטלי מצליחים דורשים עדכון מתמיד.</p>
-          <p>ב-KLIX אנחנו מטפלים בעדכון שוטף של הקמפיינים, התכנים וחוויית המשתמש, כדי להבטיח חוויית שיווק מושכת ויחס המרה חיובי.</p>
-          <p>עם המודל ההפוך, הקמפיין עובד בשבילכם כל הזמן, במטרה להמיר לידים.</p>
-          <a href="#contact" class="client-type__cta">לשיחה עם נציג</a>
+  <!-- WHY KLIX -->
+  <section id="about" class="why">
+    <div class="why__inner">
+      <div class="section-heading">
+        <h2 class="section-heading__title">למה KLIX?</h2>
+        <p class="section-heading__sub">לא ספקים — שותפים אמיתיים שחיים את ההצלחה שלכם</p>
+      </div>
+      <div class="why__grid">
+        <div class="why__card">
+          <div class="why__num">01</div>
+          <h3 class="why__title">המודל ההפוך</h3>
+          <p class="why__desc">אפס עלות הקמה. אנחנו משקיעים בהצלחה שלכם ולא גובים על נקודת ההתחלה.</p>
         </div>
-        <div class="client-type">
-          <h3>קמפייני תוכן</h3>
-          <p>קמפיין תוכן הוא כלי עוצמתי לפיתוח העסק, אך כדי שלא יאבד רלוונטיות ודירוג בגוגל, חשוב לשמור אותו מעודכן, חדשני ותואם לתקופה.</p>
-          <p>ב-KLIX אנו מטפלים בכל תכני הקמפיין באופן שוטף, כך שהתדמית שלכם נשארת תמיד אטרקטיבית.</p>
-          <a href="#contact" class="client-type__cta">לשיחה עם נציג</a>
+        <div class="why__card">
+          <div class="why__num">02</div>
+          <h3 class="why__title">שקיפות מלאה</h3>
+          <p class="why__desc">דוחות שבועיים, גישה לדשבורד חי ומנהל אישי — תמיד יודעים לאן הולך כל שקל.</p>
+        </div>
+        <div class="why__card">
+          <div class="why__num">03</div>
+          <h3 class="why__title">מעטפת ללא הגבלה</h3>
+          <p class="why__desc">עיצוב, כתיבה, אחסון, תחזוקה — הכל כלול בתשלום חודשי אחד קבוע ונוח.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WORKS / KLIX SUCCESSES — portfolio grid
-       ══════════════════════════════════════════════════════════════
-       To add a new project: copy one <a class="work">…</a> block,
-       drop the screenshot into works/<name>.jpg (or .png / .webp),
-       and update the href + image src + title.
-       That's it — no JS, no config.
-       ══════════════════════════════════════════════════════════════ -->
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats__inner">
+      <div class="stats__item">
+        <div class="stats__top">
+          <span class="stats__num" data-target="10">0</span><span class="stats__suf">M+$</span>
+        </div>
+        <span class="stats__lbl">בניהול תקציבי מדיה</span>
+      </div>
+      <div class="stats__item">
+        <div class="stats__top">
+          <span class="stats__num" data-target="150">0</span><span class="stats__suf">+</span>
+        </div>
+        <span class="stats__lbl">לקוחות עסקיים</span>
+      </div>
+      <div class="stats__item">
+        <div class="stats__top">
+          <span class="stats__num" data-target="97">0</span><span class="stats__suf">%</span>
+        </div>
+        <span class="stats__lbl">שיעור שימור לקוחות</span>
+      </div>
+      <div class="stats__item">
+        <div class="stats__top">
+          <span class="stats__num" data-target="0">0</span><span class="stats__suf">₪</span>
+        </div>
+        <span class="stats__lbl">עמלת מדיה נוספת</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
   <section id="works" class="works">
     <div class="works__inner">
-      <div class="section-heading section-heading--light">
+      <div class="section-heading">
         <h2 class="section-heading__title">ההצלחות שלנו</h2>
         <p class="section-heading__sub">פרויקטים חיים שהקמנו ומקדמים — הקליקו על כל אחד כדי לבקר</p>
       </div>
       <div class="works__grid">
 
-        <!-- ── WORK ITEM ── (duplicate this block per project) -->
         <a class="work" href="https://klix-nu.vercel.app" target="_blank" rel="noopener">
           <div class="work__frame">
             <img class="work__shot" src="works/placeholder.svg" alt="KLIX" loading="lazy" />
@@ -227,55 +262,73 @@
             <p class="work__domain">example.com</p>
           </div>
         </a>
-        <!-- ── END WORK ITEM ── -->
 
       </div>
     </div>
   </section>
 
-  <!-- PHILOSOPHY — 3 pillars -->
-  <section id="about" class="philosophy">
-    <div class="section-heading section-heading--light">
-      <h2 class="section-heading__title">למה KLIX?</h2>
-      <p class="section-heading__sub">לא ספקים. שותפים אמיתיים.</p>
-    </div>
-    <div class="philosophy__grid">
-      <div class="philosophy__card">
-        <div class="philosophy__icon">🧠</div>
-        <h3 class="philosophy__title">חושבים אסטרטגיה</h3>
-        <p class="philosophy__desc">לפני שאנחנו מוציאים שקל אחד, אנחנו מבינים לאיפה צריך להגיע ולמה.</p>
+  <!-- PLANS -->
+  <section id="plans" class="plans">
+    <div class="plans__inner">
+      <div class="section-heading">
+        <h2 class="section-heading__title">מסלולים</h2>
+        <p class="section-heading__sub">בחרו את המסלול המתאים לכם — ללא דמי הקמה, ללא הפתעות</p>
       </div>
-      <div class="philosophy__card">
-        <div class="philosophy__icon">📈</div>
-        <h3 class="philosophy__title">מחליטים לפי דאטה</h3>
-        <p class="philosophy__desc">כל החלטה מגובה בנתונים. לא ניחושים, לא אינטואיציה — עובדות.</p>
-      </div>
-      <div class="philosophy__card">
-        <div class="philosophy__icon">🤝</div>
-        <h3 class="philosophy__title">שותפים, לא ספקים</h3>
-        <p class="philosophy__desc">ההצלחה שלכם היא ההצלחה שלנו. כי ככה זה אמור לעבוד.</p>
-      </div>
-    </div>
-  </section>
+      <div class="plans__grid">
 
-  <!-- STATS -->
-  <section class="stats">
-    <div class="stats__inner">
-      <div class="stats__item">
-        <span class="stats__num">$10M+</span>
-        <span class="stats__lbl">בניהול תקציבי מדיה</span>
-      </div>
-      <div class="stats__item">
-        <span class="stats__num">150+</span>
-        <span class="stats__lbl">לקוחות עסקיים</span>
-      </div>
-      <div class="stats__item">
-        <span class="stats__num">97%</span>
-        <span class="stats__lbl">שיעור שימור לקוחות</span>
-      </div>
-      <div class="stats__item">
-        <span class="stats__num">0</span>
-        <span class="stats__lbl">עמלת מדיה נוספת</span>
+        <div class="plan">
+          <div class="plan__head">
+            <h3 class="plan__name">שיווק בסיסי</h3>
+            <div class="plan__price">789 <span class="plan__currency">₪</span><span class="plan__per">לחודש + מע"מ</span></div>
+          </div>
+          <ul class="plan__list">
+            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
+            <li>מעטפת ליווי, אחסון, טיפול בתקלות ותחזוקה יום יומית</li>
+            <li>אפליקציה לניהול הזמנות, לקוחות ומוצרים</li>
+            <li>דומיין ללא עלות</li>
+            <li>הדרכות וסדנאות להצלחת העסק</li>
+          </ul>
+          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
+          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        </div>
+
+        <div class="plan plan--featured">
+          <div class="plan__badge">הכי פופולרי</div>
+          <div class="plan__head">
+            <h3 class="plan__name">שיווק מורחב</h3>
+            <div class="plan__price">1,520 <span class="plan__currency">₪</span><span class="plan__per">לחודש + מע"מ</span></div>
+          </div>
+          <ul class="plan__list">
+            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
+            <li>מעטפת ליווי מלאה, אחסון ותחזוקה יום יומית</li>
+            <li>אפליקציה לניהול הזמנות, לקוחות ומוצרים</li>
+            <li>דומיין ללא עלות</li>
+            <li>הדרכות וסדנאות להצלחת העסק</li>
+            <li>קידום אורגני SEO בגוגל</li>
+            <li>מאמרים וקישורים חיצוניים</li>
+          </ul>
+          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
+          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        </div>
+
+        <div class="plan">
+          <div class="plan__head">
+            <h3 class="plan__name">שיווק מורחב + SEO</h3>
+            <div class="plan__price">2,980 <span class="plan__currency">₪</span><span class="plan__per">לחודש + מע"מ</span></div>
+          </div>
+          <ul class="plan__list">
+            <li>עיצוב ובניית קמפיין מותאם אישית ללא הגבלת ערוצים</li>
+            <li>מעטפת ליווי מלאה, אחסון ותחזוקה יום יומית</li>
+            <li>אפליקציה לניהול הזמנות, לקוחות ומוצרים</li>
+            <li>דומיין ללא עלות</li>
+            <li>הדרכות וסדנאות להצלחת העסק</li>
+            <li>קידום אורגני SEO מלא ומעמיק</li>
+            <li>מאמרים וקישורים חיצוניים</li>
+          </ul>
+          <a href="#contact" class="plan__cta">התחילו עכשיו</a>
+          <p class="plan__note">ללא דמי הקמה | התחייבות לשנה</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -284,9 +337,9 @@
   <section id="testimonials" class="testi">
     <div class="section-heading">
       <h2 class="section-heading__title">מה אומרים הלקוחות</h2>
+      <p class="section-heading__sub">מאות עסקים כבר סומכים על KLIX</p>
     </div>
     <div class="testi__marquee">
-      <!-- Row 1 — scrolls left -->
       <div class="testi__track testi__track--fwd">
         <div class="testi__set">
           <article class="tcard">
@@ -321,7 +374,6 @@
           </article>
         </div>
       </div>
-      <!-- Row 2 — scrolls right, offset card order -->
       <div class="testi__track testi__track--rev">
         <div class="testi__set">
           <article class="tcard">
@@ -361,101 +413,109 @@
 
   <!-- FAQ -->
   <section id="faq" class="faq">
-    <div class="faq__head">
-      <h2 class="faq__title">כל מה שרציתם לדעת על המודל ההפוך</h2>
-    </div>
-    <div class="faq__list">
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false"><span>למה אתם לא גובים תשלום על הקמת הקמפיין?</span><span class="faq__icon">↓</span></button>
-        <div class="faq__a"><p>אנחנו מאמינים במודל ההפוך — ההצלחה שלכם היא ההצלחה שלנו. לכן אנחנו לא גובים עלויות הקמה, אלא מתמקדים בשירות חודשי איכותי.</p></div>
+    <div class="faq__inner">
+      <div class="faq__head">
+        <h2 class="faq__title">שאלות נפוצות</h2>
+        <p class="faq__sub">כל מה שרציתם לדעת על המודל ההפוך</p>
       </div>
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false"><span>איך מתנהלים מולכם ברמה החודשית?</span><span class="faq__icon">↓</span></button>
-        <div class="faq__a"><p>אנו מספקים מעטפת ליווי מלאה ללא הגבלה, כולל טיפול בתקלות, תחזוקה יום יומית, ועדכונים שוטפים. הכל כלול במחיר החודשי.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false"><span>מה כוללת המעטפת והליווי המקיף?</span><span class="faq__icon">↓</span></button>
-        <div class="faq__a"><p>המעטפת כוללת עיצוב, כתיבה, ניהול, אחסון, טיפול בתקלות, הדרכות וסדנאות להצלחת העסק שלכם.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false"><span>האם ניתן לבצע שינויים בקמפיין לאחר ההקמה?</span><span class="faq__icon">↓</span></button>
-        <div class="faq__a"><p>כן, אנו מאפשרים שינויי עיצוב בכל שלב וללא הגבלה, כחלק מהמודל ההפוך.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false"><span>האם המודל ההפוך מתאים לכל העסקים?</span><span class="faq__icon">↓</span></button>
-        <div class="faq__a"><p>המודל מתאים לעסקים שרוצים שירות שיווק דיגיטלי מקיף ללא עלויות נוספות, עם התמקדות בהצלחה לטווח ארוך.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false"><span>כמה זמן לוקח להקים קמפיין?</span><span class="faq__icon">↓</span></button>
-        <div class="faq__a"><p>תהליך ההקמה לוקח בדרך כלל 2-4 שבועות, תלוי במורכבות הקמפיין והצרכים שלכם.</p></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" aria-expanded="false"><span>איך מצטרפים לתהליך?</span><span class="faq__icon">↓</span></button>
-        <div class="faq__a"><p>פשוט צרו קשר איתנו דרך הטופס או בוואטסאפ, ונקבע שיחת היכרות לבחירת המסלול המתאים.</p></div>
+      <div class="faq__list">
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>למה אתם לא גובים תשלום על הקמת הקמפיין?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>אנחנו מאמינים במודל ההפוך — ההצלחה שלכם היא ההצלחה שלנו. לכן אנחנו לא גובים עלויות הקמה, אלא מתמקדים בשירות חודשי איכותי.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>איך מתנהלים מולכם ברמה החודשית?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>אנו מספקים מעטפת ליווי מלאה ללא הגבלה, כולל טיפול בתקלות, תחזוקה יום יומית, ועדכונים שוטפים. הכל כלול במחיר החודשי.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>מה כוללת המעטפת והליווי המקיף?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>המעטפת כוללת עיצוב, כתיבה, ניהול, אחסון, טיפול בתקלות, הדרכות וסדנאות להצלחת העסק שלכם.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>האם ניתן לבצע שינויים בקמפיין לאחר ההקמה?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>כן, אנו מאפשרים שינויי עיצוב בכל שלב וללא הגבלה, כחלק מהמודל ההפוך.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>האם המודל ההפוך מתאים לכל העסקים?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>המודל מתאים לעסקים שרוצים שירות שיווק דיגיטלי מקיף ללא עלויות נוספות, עם התמקדות בהצלחה לטווח ארוך.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>כמה זמן לוקח להקים קמפיין?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>תהליך ההקמה לוקח בדרך כלל 2-4 שבועות, תלוי במורכבות הקמפיין והצרכים שלכם.</p></div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__q" aria-expanded="false"><span>איך מצטרפים לתהליך?</span><span class="faq__icon">↓</span></button>
+          <div class="faq__a"><p>פשוט צרו קשר איתנו דרך הטופס או בוואטסאפ, ונקבע שיחת היכרות לבחירת המסלול המתאים.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT FORM -->
+  <!-- CONTACT -->
   <section id="contact" class="contact">
-    <div class="contact__box">
-      <h2 class="contact__title">מוכנים להתחיל?<br /><em>בואו נדבר.</em></h2>
-      <p class="contact__sub">השאירו פרטים ונחזור אליכם תוך 24 שעות</p>
-      <form class="leadf" id="lead-form" action="https://formspree.io/f/placeholder" method="POST" novalidate>
-        <label class="leadf__row"><span>שם מלא</span><input type="text" name="name" required autocomplete="name" placeholder="השם שלך" /></label>
-        <label class="leadf__row"><span>חברה</span><input type="text" name="company" placeholder="שם החברה" /></label>
-        <label class="leadf__row"><span>טלפון</span><input type="tel" name="phone" required autocomplete="tel" placeholder="05X-XXXXXXX" /></label>
-        <label class="leadf__row"><span>אימייל</span><input type="email" name="email" autocomplete="email" placeholder="your@email.com" /></label>
-        <button class="leadf__btn" type="submit" id="lead-submit">שלחו לי פרטים</button>
-      </form>
-      <div class="leadf__ok" id="lead-success" hidden>✓ קיבלנו! נחזור אליכם בקרוב</div>
+    <div class="contact__inner">
+      <div class="contact__text">
+        <h2 class="contact__title">מוכנים להתחיל?<br /><em>בואו נדבר.</em></h2>
+        <p class="contact__sub">השאירו פרטים ונחזור אליכם תוך 24 שעות</p>
+        <a class="contact__wa" href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20KLIX%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.104.548 4.076 1.502 5.79L0 24l6.344-1.663A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.016-1.374l-.36-.213-3.768.988.988-3.668-.233-.38A9.818 9.818 0 1112 21.818z"/></svg>
+          שלחו הודעה בוואטסאפ
+        </a>
+        <div class="contact__info">
+          <p>📍 משה לוי 14, ראשון-לציון</p>
+          <p>📞 03-381-1170</p>
+        </div>
+      </div>
+      <div class="contact__form-wrap">
+        <form class="leadf" id="lead-form" action="https://formspree.io/f/placeholder" method="POST" novalidate>
+          <label class="leadf__row"><span>שם מלא *</span><input type="text" name="name" required autocomplete="name" placeholder="השם שלך" /></label>
+          <label class="leadf__row"><span>חברה</span><input type="text" name="company" placeholder="שם החברה" /></label>
+          <label class="leadf__row"><span>טלפון *</span><input type="tel" name="phone" required autocomplete="tel" placeholder="05X-XXXXXXX" /></label>
+          <label class="leadf__row"><span>אימייל</span><input type="email" name="email" autocomplete="email" placeholder="your@email.com" /></label>
+          <button class="leadf__btn" type="submit" id="lead-submit">שלחו לי פרטים</button>
+        </form>
+        <div class="leadf__ok" id="lead-success" hidden>✓ קיבלנו! נחזור אליכם בקרוב</div>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="foot">
     <div class="foot__inner">
-      <div class="foot__contact">
-        <h3>צור קשר</h3>
-        <p>סניף ראשי<br />משה לוי 14, ראשון-לציון</p>
-        <p>קפצו אלינו<br />
-          <a href="#">ניווט ב-Waze</a><br />
-          <a href="#">ניווט ב-Google Maps</a>
-        </p>
-        <p>אנחנו ברשתות<br />
-          <a href="#">Facebook</a> <a href="#">Instagram</a> <a href="#">Youtube</a> <a href="#">Linkedin</a> <a href="#">Whatsapp</a> <a href="#">Envelope</a>
-        </p>
-        <p>5852*<br />03-381-1170</p>
+      <div class="foot__brand-col">
+        <img src="logo.png" alt="KLIX" class="foot__logo" />
+        <p class="foot__tagline">שיווק דיגיטלי פרמיום שמניע תוצאות אמיתיות</p>
+        <a class="foot__wa" href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20KLIX" target="_blank" rel="noopener">
+          וואטסאפ — שלחו הודעה
+        </a>
+        <p class="foot__phone">03-381-1170</p>
       </div>
-      <div class="foot__nav">
-        <h3>ניווט אתר</h3>
-        <ul>
-          <li><a href="#clients">לקוחות שלנו</a></li>
-          <li><a href="#works">ההצלחות שלנו</a></li>
-          <li><a href="#plans">מסלולים</a></li>
-          <li><a href="#faq">שאלות ותשובות</a></li>
-          <li><a href="#contact">צור קשר</a></li>
-        </ul>
+      <div class="foot__col">
+        <h4 class="foot__col-title">ניווט</h4>
+        <a href="#services">שירותים</a>
+        <a href="#plans">מסלולים</a>
+        <a href="#works">ההצלחות שלנו</a>
+        <a href="#testimonials">חוות דעת</a>
+        <a href="#faq">שאלות ותשובות</a>
+        <a href="#contact">צור קשר</a>
       </div>
-      <div class="foot__topics">
-        <h3>נושאים</h3>
-        <ul>
-          <li><a href="#">שיווק דיגיטלי</a></li>
-          <li><a href="#">עיצוב</a></li>
-          <li><a href="#">SEO</a></li>
-          <li><a href="#">קמפיינים</a></li>
-          <li><a href="#">אנליטיקה</a></li>
-        </ul>
+      <div class="foot__col">
+        <h4 class="foot__col-title">שירותים</h4>
+        <a href="#services">קידום ממומן Google</a>
+        <a href="#services">פרסום ברשתות חברתיות</a>
+        <a href="#services">SEO קידום אורגני</a>
+        <a href="#services">עיצוב ותוכן</a>
+        <a href="#services">בניית אתרים</a>
+        <a href="#services">אנליטיקה ודיווח</a>
       </div>
     </div>
     <div class="foot__bottom">
-      <p class="foot__copy">כל הזכויות שמורות © 2026 | KLIX — סוכנות שיווק דיגיטלי</p>
-    </div>
-    <div class="foot__credit">
-      פותח באהבה על ידי
-      <a href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20%D7%91%D7%90%D7%AA%D7%99%20%D7%9E%D7%93%D7%A3%20%D7%94%D7%A0%D7%97%D7%99%D7%AA%D7%94%20%D7%A9%D7%9C%20KLIX"
-        target="_blank" rel="noopener" class="foot__klix">KLIX</a>
-      <button class="admin-gear" id="admin-gear" aria-label="הגדרות" title="הגדרות">⚙</button>
+      <p class="foot__copy">© 2026 KLIX — כל הזכויות שמורות | סוכנות שיווק דיגיטלי</p>
+      <p class="foot__credit">
+        פותח באהבה על ידי
+        <a href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20%D7%91%D7%90%D7%AA%D7%99%20%D7%9E%D7%93%D7%A3%20%D7%94%D7%A0%D7%97%D7%99%D7%AA%D7%94%20%D7%A9%D7%9C%20KLIX" target="_blank" rel="noopener" class="foot__klix">KLIX</a>
+        <button class="admin-gear" id="admin-gear" aria-label="הגדרות" title="הגדרות">⚙</button>
+      </p>
     </div>
   </footer>
 
@@ -476,7 +536,6 @@
   <div class="admin-overlay" id="admin-panel" hidden>
     <div class="admin-box admin-box--wide" role="dialog" aria-label="ניהול הצלחות">
       <h3 class="admin-box__title">ניהול ההצלחות</h3>
-
       <form class="admin-form" id="admin-add-form">
         <label class="admin-field">
           <span>שם הפרויקט</span>
@@ -496,12 +555,9 @@
         </label>
         <button class="admin-btn admin-btn--primary" type="submit">הוסף פרויקט</button>
       </form>
-
       <hr class="admin-sep" />
-
       <h4 class="admin-subtitle">פרויקטים קיימים</h4>
       <ul class="admin-list" id="admin-list"></ul>
-
       <div class="admin-actions">
         <button class="admin-btn" id="admin-close" type="button">סגור</button>
       </div>
@@ -554,7 +610,7 @@
               </div>
               <button class="admin-item__del" type="button">מחק</button>
             </li>`).join('')
-        : '<li class="admin-empty">עדיין אין פרויקטים ב-Supabase. יוצגו ברירות המחדל מה-HTML עד שתוסיף ראשון.</li>';
+        : `<li class="admin-empty">אין פרויקטים — הוסף את הראשון למעלה</li>`;
     }
 
     async function loadWorks() {
@@ -562,138 +618,85 @@
         .from('works')
         .select('*')
         .order('created_at', { ascending: false });
-      if (error) { console.error('Supabase select:', error); return; }
-      currentWorks = data || [];
-      if (currentWorks.length) {
-        grid.innerHTML = currentWorks.map(cardHTML).join('');
-      }
-      renderAdminList();
+      if (error || !data || !data.length) return;
+      currentWorks = data;
+      if (grid) grid.innerHTML = data.map(cardHTML).join('');
     }
+    loadWorks();
 
-    await loadWorks();
+    // Admin gear
+    const gearBtn    = document.getElementById('admin-gear');
+    const pwOverlay  = document.getElementById('admin-pw');
+    const panelOverlay = document.getElementById('admin-panel');
+    const pwInput    = document.getElementById('admin-pw-input');
+    const pwErr      = document.getElementById('admin-pw-err');
+    const pwOk       = document.getElementById('admin-pw-ok');
+    const pwCancel   = document.getElementById('admin-pw-cancel');
+    const closeBtn   = document.getElementById('admin-close');
+    const addForm    = document.getElementById('admin-add-form');
 
-    // Live sync — refetch on any works-table change
-    supabase
-      .channel('works-live')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'works' }, () => loadWorks())
-      .subscribe();
-
-    // Admin UI wiring
-    const gear     = document.getElementById('admin-gear');
-    const pwBox    = document.getElementById('admin-pw');
-    const pwInput  = document.getElementById('admin-pw-input');
-    const pwOk     = document.getElementById('admin-pw-ok');
-    const pwCancel = document.getElementById('admin-pw-cancel');
-    const pwErr    = document.getElementById('admin-pw-err');
-    const panel    = document.getElementById('admin-panel');
-    const form     = document.getElementById('admin-add-form');
-    const closeBtn = document.getElementById('admin-close');
-
-    const showPw = () => { pwBox.hidden = false; pwErr.hidden = true; pwInput.value = ''; setTimeout(()=>pwInput.focus(),10); };
-    const hidePw = () => { pwBox.hidden = true; };
-    const showPanel = () => { panel.hidden = false; renderAdminList(); };
-    const hidePanel = () => { panel.hidden = true; form.reset(); };
-
-    gear?.addEventListener('click', showPw);
-    pwCancel?.addEventListener('click', hidePw);
-    pwOk?.addEventListener('click', () => {
-      if (pwInput.value === ADMIN_PW) { hidePw(); showPanel(); }
-      else pwErr.hidden = false;
+    if (gearBtn) gearBtn.addEventListener('click', () => {
+      pwInput.value = ''; pwErr.hidden = true;
+      pwOverlay.hidden = false;
+      setTimeout(() => pwInput.focus(), 50);
     });
-    pwInput?.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') { e.preventDefault(); pwOk.click(); }
-      if (e.key === 'Escape') hidePw();
-    });
-    closeBtn?.addEventListener('click', hidePanel);
-    panel?.addEventListener('click', (e) => { if (e.target === panel) hidePanel(); });
-    pwBox?.addEventListener('click', (e) => { if (e.target === pwBox) hidePw(); });
-
-    // Downscale to max 1280px, JPEG q=0.85 — keeps storage/bandwidth low
-    function resizeImage(file, maxW = 1280, quality = 0.85) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onerror = reject;
-        reader.onload = () => {
-          const img = new Image();
-          img.onload = () => {
-            let w = img.width, h = img.height;
-            if (w > maxW) { h = Math.round(h * (maxW / w)); w = maxW; }
-            const c = document.createElement('canvas');
-            c.width = w; c.height = h;
-            c.getContext('2d').drawImage(img, 0, 0, w, h);
-            c.toBlob(b => b ? resolve(b) : reject(new Error('blob failed')), 'image/jpeg', quality);
-          };
-          img.onerror = reject;
-          img.src = reader.result;
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    form?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const orig = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'מעלה…';
-      try {
-        const fd = new FormData(form);
-        const title  = fd.get('title').trim();
-        const domain = fd.get('domain').trim();
-        const url    = fd.get('url').trim();
-        const file   = fd.get('image');
-        if (!file || !file.size) throw new Error('חסר צילום מסך');
-
-        const blob = await resizeImage(file);
-        const path = Date.now() + '-' + Math.random().toString(36).slice(2, 8) + '.jpg';
-
-        const { error: upErr } = await supabase
-          .storage
-          .from(BUCKET)
-          .upload(path, blob, { contentType: 'image/jpeg', upsert: false });
-        if (upErr) throw upErr;
-
-        const { data: pub } = supabase.storage.from(BUCKET).getPublicUrl(path);
-        const image_url = pub.publicUrl;
-
-        const { error: insErr } = await supabase
-          .from('works')
-          .insert({ title, domain, url, image_url, image_path: path });
-        if (insErr) throw insErr;
-
-        form.reset();
-        await loadWorks();
-      } catch (err) {
-        console.error(err);
-        alert('שגיאה: ' + (err.message || err));
-      } finally {
-        btn.disabled = false;
-        btn.textContent = orig;
+    if (pwCancel) pwCancel.addEventListener('click', () => { pwOverlay.hidden = true; });
+    if (pwOk) pwOk.addEventListener('click', () => {
+      if (pwInput.value === ADMIN_PW) {
+        pwOverlay.hidden = true;
+        renderAdminList();
+        panelOverlay.hidden = false;
+      } else {
+        pwErr.hidden = false;
+        pwInput.select();
       }
     });
+    if (pwInput) pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') pwOk.click(); });
+    if (closeBtn) closeBtn.addEventListener('click', () => { panelOverlay.hidden = true; });
 
-    listEl?.addEventListener('click', async (e) => {
-      const del = e.target.closest('.admin-item__del');
-      if (!del) return;
-      const li = del.closest('.admin-item');
+    if (listEl) listEl.addEventListener('click', async (e) => {
+      const delBtn = e.target.closest('.admin-item__del');
+      if (!delBtn) return;
+      const li = delBtn.closest('.admin-item');
       const id = li.dataset.id;
-      const path = li.dataset.path;
-      if (!confirm('למחוק את "' + (li.querySelector('.admin-item__title')?.textContent || '') + '"?')) return;
-      try {
-        if (path) {
-          const { error: stErr } = await supabase.storage.from(BUCKET).remove([path]);
-          if (stErr) console.warn('storage delete:', stErr);
-        }
-        const { error: dbErr } = await supabase.from('works').delete().eq('id', id);
-        if (dbErr) throw dbErr;
-        await loadWorks();
-      } catch (err) {
-        alert('שגיאה במחיקה: ' + (err.message || err));
-      }
+      const path = li
+      
+      .dataset.path;
+      if (!confirm('למחוק פרויקט זה?')) return;
+      delBtn.disabled = true; delBtn.textContent = '...';
+      if (path) await supabase.storage.from(BUCKET).remove([path]);
+      const { error } = await supabase.from('works').delete().eq('id', id);
+      if (error) { alert('שגיאה במחיקה'); delBtn.disabled = false; delBtn.textContent = 'מחק'; return; }
+      currentWorks = currentWorks.filter(w => String(w.id) !== String(id));
+      renderAdminList();
+      await loadWorks();
+    });
+
+    if (addForm) addForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(addForm);
+      const title  = fd.get('title').trim();
+      const domain = fd.get('domain').trim();
+      const url    = fd.get('url').trim();
+      const file   = fd.get('image');
+      if (!title || !domain || !url || !file || !file.size) return;
+      const submitBtn = addForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true; submitBtn.textContent = 'שומר...';
+      const ext  = file.name.split('.').pop();
+      const path = `works/${Date.now()}.${ext}`;
+      const { error: upErr } = await supabase.storage.from(BUCKET).upload(path, file, { upsert: true });
+      if (upErr) { alert('שגיאה בהעלאת תמונה'); submitBtn.disabled = false; submitBtn.textContent = 'הוסף פרויקט'; return; }
+      const { data: { publicUrl } } = supabase.storage.from(BUCKET).getPublicUrl(path);
+      const { error: dbErr } = await supabase.from('works').insert([{ title, domain, url, image_url: publicUrl, image_path: path }]);
+      if (dbErr) { alert('שגיאה בשמירה'); submitBtn.disabled = false; submitBtn.textContent = 'הוסף פרויקט'; return; }
+      addForm.reset();
+      submitBtn.disabled = false; submitBtn.textContent = 'הוסף פרויקט';
+      await loadWorks();
+      currentWorks = (await supabase.from('works').select('*').order('created_at', { ascending: false })).data || [];
+      renderAdminList();
     });
   </script>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
