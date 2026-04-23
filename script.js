@@ -1,6 +1,62 @@
 (function () {
   'use strict';
 
+  // ── HERO SCROLL ANIMATION ────────────────────────────────────
+  (function () {
+    var TOTAL = 97;
+    var canvas = document.getElementById('hero-canvas');
+    var pin    = document.getElementById('hero-pin');
+    if (!canvas || !pin) return;
+    var ctx = canvas.getContext('2d');
+    var frames = new Array(TOTAL);
+    var currentFrame = 0;
+
+    function pad(n) { return n < 10 ? '00' + n : n < 100 ? '0' + n : '' + n; }
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      drawFrame(currentFrame);
+    }
+
+    function drawFrame(idx) {
+      var img = frames[idx];
+      if (!img || !img.complete || !img.naturalWidth) return;
+      var cw = canvas.width, ch = canvas.height;
+      var iw = img.naturalWidth, ih = img.naturalHeight;
+      var scale = Math.max(cw / iw, ch / ih);
+      var dw = iw * scale, dh = ih * scale;
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+    }
+
+    function onScroll() {
+      var scrolled = window.scrollY - pin.offsetTop;
+      var range    = pin.offsetHeight - window.innerHeight;
+      var progress = Math.max(0, Math.min(1, scrolled / range));
+      var idx = Math.round(progress * (TOTAL - 1));
+      if (idx !== currentFrame) {
+        currentFrame = idx;
+        drawFrame(idx);
+      }
+    }
+
+    for (var i = 1; i <= TOTAL; i++) {
+      (function (index) {
+        var img = new Image();
+        img.onload = function () {
+          if (index === 1) resize();
+        };
+        img.src = 'hero-frames/' + pad(index) + '.jpg';
+        frames[index - 1] = img;
+      })(i);
+    }
+
+    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    resize();
+  })();
+
   // ── SCROLL PROGRESS BAR ──────────────────────────────────────
   var progressBar = document.getElementById('scroll-progress-bar');
   if (progressBar) {
