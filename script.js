@@ -3,9 +3,10 @@
 
   // ── HERO SCROLL ANIMATION ────────────────────────────────────
   (function () {
-    var TOTAL      = 97;
-    var LOGO_FRAME = 82; // frame at which nav logo fades out + hero logo fades in
-    var SCROLL_TOT = 700; // virtual px needed to complete animation
+    var TOTAL        = 97;
+    var LOGO_FRAME   = 82;
+    var SCROLL_TOT   = 900;  // virtual px to complete animation
+    var TOUCH_SCALE  = 3.5;  // multiplier so one thumb swipe covers the full range
     var canvas    = document.getElementById('hero-canvas');
     if (!canvas) return;
     var ctx       = canvas.getContext('2d');
@@ -37,9 +38,8 @@
     }
 
     function getIdx(accum) {
-      var t = accum / SCROLL_TOT;
-      var eased = t < 0.6 ? (t / 0.6) * 0.5 : 0.5 + ((t - 0.6) / 0.4) * 0.5;
-      return Math.round(eased * (TOTAL - 1));
+      var t = Math.min(1, accum / SCROLL_TOT);
+      return Math.round(t * t * (TOTAL - 1)); // ease-in: slow start → fast end
     }
 
     function setLogoState(showHero) {
@@ -96,7 +96,7 @@
       e.preventDefault();
       var delta = touchStartY - e.touches[0].clientY;
       touchStartY = e.touches[0].clientY;
-      advance(delta);
+      advance(delta * TOUCH_SCALE);
     }
 
     for (var i = 1; i <= TOTAL; i++) {
