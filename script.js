@@ -5,7 +5,7 @@
   (function () {
     var TOTAL        = 97;
     var LOGO_FRAME   = 82;
-    var SCROLL_TOT   = 1400; // virtual px to complete animation
+    var SCROLL_TOT   = 1200; // virtual px to complete animation
     var TOUCH_SCALE  = 2;    // multiplier for forward touch swipe
     var canvas    = document.getElementById('hero-canvas');
     if (!canvas) return;
@@ -39,7 +39,7 @@
 
     function getIdx(accum) {
       var t = Math.min(1, accum / SCROLL_TOT);
-      return Math.round(Math.pow(t, 1.15) * (TOTAL - 1)); // very gentle ease-in
+      return Math.round(Math.pow(t, 1.5) * (TOTAL - 1)); // slow first frames, accelerates
     }
 
     function setLogoState(showHero) {
