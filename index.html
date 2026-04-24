@@ -514,24 +514,9 @@
     <script>
       (function () {
         try {
-          var stored = localStorage.getItem("klix_age");
-          if (stored === "over") {
-            location.replace("./over30/");
-            return;
-          }
-          if (stored === "under") {
-            location.replace("./under30/");
-            return;
-          }
+          localStorage.removeItem("klix_age");
+          sessionStorage.removeItem("klix_age");
         } catch (e) {}
-
-        document.querySelectorAll("[data-age]").forEach(function (link) {
-          link.addEventListener("click", function () {
-            try {
-              localStorage.setItem("klix_age", link.dataset.age);
-            } catch (e) {}
-          });
-        });
       })();
     </script>
   </body>
