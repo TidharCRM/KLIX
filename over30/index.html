@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KLIX — דפי נחיתה שסוגרים לקוחות</title>
+    <meta
+      name="description"
+      content="דף עסק דיגיטלי שמחמם לידים לפני וואטסאפ ומעלה אחוזי סגירה לנותני שירות. אספקה תוך 48 שעות."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css?v=11" />
+  </head>
+  <body>
+    <a class="sticky-wa" href="#contact" aria-label="וואטסאפ">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M20.5 3.5A11.77 11.77 0 0 0 12 0C5.4 0 .1 5.4.1 12a11.9 11.9 0 0 0 1.6 6L0 24l6.2-1.6A11.9 11.9 0 0 0 12 24c6.6 0 11.9-5.4 11.9-12 0-3.2-1.3-6.2-3.4-8.5ZM12 22a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1 1 12 22Zm5.4-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.8.1-.9 1-1 1.2-.3.2-.6 0a8.1 8.1 0 0 1-4-3.5c-.3-.5.3-.5.8-1.5a.6.6 0 0 0 0-.6c0-.1-.8-1.9-1-2.6-.3-.7-.5-.6-.8-.6H7.5a1.3 1.3 0 0 0-1 .4 4 4 0 0 0-1.3 3 7 7 0 0 0 1.4 3.7c.2.2 2.5 3.8 6 5.3a19.5 19.5 0 0 0 2 .7 4.9 4.9 0 0 0 2.1.1 3.6 3.6 0 0 0 2.4-1.7 3 3 0 0 0 .2-1.7c-.1-.2-.3-.3-.7-.5Z"
+        />
+      </svg>
+      <span>שלח הודעה</span>
+    </a>
+
+    <a class="sticky-chat" href="#contact" aria-label="פתח צ'אט">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm4 6h2v2H8v-2Zm4 0h2v2h-2v-2Zm4 0h2v2h-2v-2Z"
+        />
+      </svg>
+      <span class="sticky-chat__badge" aria-hidden="true">1</span>
+    </a>
+
+    <nav class="nav" aria-hidden="true">
+      <a href="#top" class="nav__brand">
+        <span class="nav__mark">K</span>
+        <span>KLIX</span>
+      </a>
+      <div class="nav__links">
+        <a href="#proof">השוואה</a>
+        <a href="#how">איך זה עובד</a>
+        <a href="#pricing">מחיר</a>
+        <a href="#faq">שאלות</a>
+      </div>
+      <a href="#contact" class="nav__cta">וואטסאפ ←</a>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+      <nav class="menu-overlay__inner">
+        <a href="#proof">השוואה Before / After</a>
+        <a href="#how">איך זה עובד</a>
+        <a href="#pricing">מחיר</a>
+        <a href="#testi">לקוחות</a>
+        <a href="#faq">שאלות נפוצות</a>
+        <a href="#contact" class="menu-overlay__cta">דברו איתנו בוואטסאפ ←</a>
+      </nav>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="hero__bg-grid" aria-hidden="true"></div>
+      <div class="hero__bg-glow hero__bg-glow--1" aria-hidden="true"></div>
+      <div class="hero__bg-glow hero__bg-glow--2" aria-hidden="true"></div>
+      <div class="hero__bg-glow hero__bg-glow--3" aria-hidden="true"></div>
+
+      <header class="hero__top">
+        <a href="#top" class="hero__logo">
+          <span class="hero__logo-mark">K</span>
+          <span class="hero__logo-text">KLIX</span>
+        </a>
+        <button
+          type="button"
+          class="hero__menu"
+          id="menuBtn"
+          aria-label="פתח תפריט"
+          aria-expanded="false"
+          aria-controls="menuOverlay"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </header>
+
+      <div class="hero__kicker">מיתוג, עיצוב ובניית דפי נחיתה</div>
+
+      <h1 class="hero__title">
+        <span class="hero__title-line">מקסימום תדמית,</span>
+        <span class="hero__title-line hero__title-line--accent">
+          מקסימום הצלחה.
+        </span>
+      </h1>
+
+      <div class="hero__figure-wrap" aria-hidden="true">
+        <div class="hero__figure-halo"></div>
+        <img class="hero__figure" src="./heropicture.png" alt="" />
+      </div>
+
+      <div class="hero__browsers" aria-hidden="true">
+        <div class="browser browser--side browser--left">
+          <div class="browser__bar">
+            <i></i><i></i><i></i>
+            <span>yael-aesthetic.co.il</span>
+          </div>
+          <div class="browser__screen browser__screen--1"></div>
+        </div>
+        <div class="browser browser--mid">
+          <div class="browser__bar">
+            <i></i><i></i><i></i>
+            <span>klix.co.il</span>
+          </div>
+          <div class="browser__screen browser__screen--2"></div>
+        </div>
+        <div class="browser browser--side browser--right">
+          <div class="browser__bar">
+            <i></i><i></i><i></i>
+            <span>roey-fit.co.il</span>
+          </div>
+          <div class="browser__screen browser__screen--3"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>מאמני כושר</span><i>◆</i>
+        <span>מטפלים רגשיים</span><i>◆</i>
+        <span>קוסמטיקה רפואית</span><i>◆</i>
+        <span>צלמי אירועים</span><i>◆</i>
+        <span>יועצים עסקיים</span><i>◆</i>
+        <span>יועצי זוגיות</span><i>◆</i>
+        <span>שפים פרטיים</span><i>◆</i>
+        <span>NLP וטיפולים</span><i>◆</i>
+        <span>קייטרינג בוטיק</span><i>◆</i>
+        <span>מאמני כושר</span><i>◆</i>
+        <span>מטפלים רגשיים</span><i>◆</i>
+        <span>קוסמטיקה רפואית</span><i>◆</i>
+        <span>צלמי אירועים</span><i>◆</i>
+        <span>יועצים עסקיים</span><i>◆</i>
+        <span>יועצי זוגיות</span><i>◆</i>
+        <span>שפים פרטיים</span><i>◆</i>
+      </div>
+    </div>
+
+    <section class="section pain" id="pain">
+      <div class="container pain__grid">
+        <div class="pain__side" data-reveal>
+          <div class="eyebrow mono">01 · הבעיה</div>
+          <h2 class="pain__title">
+            אתה משלם על כל ליד
+            <span class="ink">פעמיים</span>.
+          </h2>
+        </div>
+        <div class="pain__body" data-reveal data-delay="100">
+          <p class="lead">
+            פעם ראשונה — למטא, על הקמפיין. פעם שנייה — בזמן ובאנרגיה שאתה
+            משקיע בלשכנע כל ליד קר מחדש מי אתה, מה אתה עושה, ולמה שווה
+            לעבוד איתך.
+          </p>
+          <p>
+            הלידים מגיעים אליך לוואטסאפ בלי שום רקע. שואלים
+            <q>כמה זה עולה?</q> לפני שהם בכלל יודעים מה אתה נותן. מבקשים
+            הצעת מחיר, נעלמים, וההשקעה של הקמפיין מתנדפת.
+          </p>
+          <p class="pain__punch">
+            זה לא בעיה של הקמפיין. זו בעיה של מה שקורה
+            <em>בין</em> הקמפיין לוואטסאפ.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section proof" id="proof">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div class="eyebrow mono">02 · הוכחה</div>
+          <h2>
+            אותו קמפיין, אותו תקציב.<br />
+            <span class="ink">שיחה אחרת לגמרי.</span>
+          </h2>
+          <p class="section__sub">
+            זה ההבדל בין ליד שפונה בלי רקע לליד שכבר קרא הכל. ההבדל הזה —
+            הוא ה-ROI.
+          </p>
+        </div>
+
+        <div class="proof__grid">
+          <article class="proof__col proof__col--cold" data-reveal>
+            <header>
+              <span class="proof__tag proof__tag--cold mono">קר · לפני</span>
+              <h3>קמפיין → וואטסאפ</h3>
+              <p class="proof__desc">הליד לא יודע עליך כלום. אתה מתחיל מאפס בכל שיחה.</p>
+            </header>
+            <div class="chat chat--mini">
+              <div class="chat__stream">
+                <div class="bubble bubble--in">היי</div>
+                <div class="bubble bubble--in">כמה עולה?</div>
+                <div class="bubble bubble--out">היי, תוכל לפרט מה אתה מחפש?</div>
+                <div class="bubble bubble--in">בקיצור כמה</div>
+                <div class="bubble bubble--out">זה תלוי בכמה פרמטרים…</div>
+                <div class="bubble bubble--in bubble--ghost">נעלם</div>
+              </div>
+            </div>
+            <ul class="proof__stats">
+              <li><span class="mono">~6%</span> אחוז סגירה</li>
+              <li><span class="mono">₪54</span> עלות לליד</li>
+              <li><span class="mono">45m</span> זמן לליד</li>
+            </ul>
+          </article>
+
+          <article class="proof__col proof__col--warm" data-reveal data-delay="120">
+            <header>
+              <span class="proof__tag proof__tag--warm mono">חם · אחרי KLIX</span>
+              <h3>קמפיין → דף → וואטסאפ</h3>
+              <p class="proof__desc">הליד כבר מכיר אותך, ראה המלצות, הבין מחיר בגדול.</p>
+            </header>
+            <div class="chat chat--mini">
+              <div class="chat__stream">
+                <div class="bubble bubble--in">היי, ראיתי את הדף שלך.</div>
+                <div class="bubble bubble--in">
+                  ההמלצות סגרו לי את הפינה — אני רוצה להתחיל.
+                </div>
+                <div class="bubble bubble--out">
+                  יופי. מועד בשני ב־10:00 מתאים?
+                </div>
+                <div class="bubble bubble--in">מעולה, קבענו.</div>
+                <div class="bubble bubble--out">
+                  שלחתי לינק ליומן ✓✓
+                </div>
+              </div>
+            </div>
+            <ul class="proof__stats">
+              <li><span class="mono">~24%</span> אחוז סגירה</li>
+              <li><span class="mono">₪54</span> עלות לליד</li>
+              <li><span class="mono">8m</span> זמן לליד</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section solution" id="solution">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div class="eyebrow mono">03 · הפתרון</div>
+          <h2>דף אחד. שלוש עבודות שהוא עושה במקומך.</h2>
+        </div>
+        <div class="grid3">
+          <article class="tile" data-reveal>
+            <div class="tile__num mono">01</div>
+            <h3>מסנן את הסקרנים.</h3>
+            <p>
+              הדף מסביר מה אתה עושה, למי זה מתאים, וכמה זה עולה
+              <em>בגדול</em>. מי שפונה — כבר החליט שהוא רציני.
+            </p>
+          </article>
+          <article class="tile tile--lit" data-reveal data-delay="80">
+            <div class="tile__num mono">02</div>
+            <h3>בונה סמכות לפני השיחה.</h3>
+            <p>
+              המלצות, תיק עבודות, תהליך עבודה מסודר — הכל במקום אחד.
+              הליד מגיע עם אמון, לא עם ספקות.
+            </p>
+          </article>
+          <article class="tile" data-reveal data-delay="160">
+            <div class="tile__num mono">03</div>
+            <h3>עולה לאוויר תוך 48 שעות.</h3>
+            <p>
+              בלי "תתקדם אלינו עוד שבועיים". שולח קמפיין חדש ביום ראשון?
+              הדף מוכן לקבל את הלידים.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto" data-reveal>
+      <div class="container">
+        <figure>
+          <blockquote>
+            "עיצוב יפה הוא הבונוס. המטרה היא שיחה אחרת בוואטסאפ —
+            <em>קצרה יותר, בטוחה יותר, סגורה יותר.</em>"
+          </blockquote>
+          <figcaption class="mono">— KLIX · 2026</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section how" id="how">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div class="eyebrow mono">04 · התהליך</div>
+          <h2>3 שלבים. 48 שעות. אפס כאב ראש.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <div class="step__head">
+              <span class="step__tag mono">STEP 01 · 30m</span>
+              <h3>שיחת התנעה.</h3>
+            </div>
+            <p>
+              נבין את העסק, הקהל, ההצעה, המתחרים. אתה שולח תמונות, לוגו,
+              והמלצות. אנחנו עושים את החשיבה.
+            </p>
+          </li>
+          <li class="step" data-reveal data-delay="90">
+            <div class="step__head">
+              <span class="step__tag mono">STEP 02 · 24–48h</span>
+              <h3>כותבים, מעצבים, מחברים.</h3>
+            </div>
+            <p>
+              קופי חד, עיצוב פרימיום, חיבור לוואטסאפ העסקי. אתה לא נוגע
+              בכלום.
+            </p>
+          </li>
+          <li class="step" data-reveal data-delay="180">
+            <div class="step__head">
+              <span class="step__tag mono">STEP 03 · LIVE</span>
+              <h3>הדף עולה לאוויר.</h3>
+            </div>
+            <p>
+              אתה מחבר קמפיין ומתחיל לקבל לידים חמים. כל שינוי בהמשך —
+              כלול בריטיינר.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section fit" id="fit">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div class="eyebrow mono">05 · ההתאמה</div>
+          <h2>אנחנו לא לכולם. <span class="ink">וזה בכוונה.</span></h2>
+        </div>
+        <div class="fit__grid">
+          <article class="fit__col fit__col--yes" data-reveal>
+            <header>
+              <h3>בשבילך אם...</h3>
+              <span class="fit__badge fit__badge--yes mono">FIT</span>
+            </header>
+            <ul>
+              <li>מעל 2,000 עוקבים ברשתות חברתיות</li>
+              <li>כבר משקיע בקמפיינים ממומנים במטא</li>
+              <li>אתה נותן שירות — לא מוצר פיזי</li>
+              <li>שווי עסקה ממוצע מעל ₪1,000</li>
+              <li>מפנה לידים ישר לוואטסאפ היום</li>
+              <li>לא מרוצה מיחס הסגירה הנוכחי</li>
+            </ul>
+          </article>
+          <article class="fit__col fit__col--no" data-reveal data-delay="100">
+            <header>
+              <h3>פחות מתאים אם...</h3>
+              <span class="fit__badge fit__badge--no mono">NOT FIT</span>
+            </header>
+            <ul>
+              <li>אתה ממש בתחילת הדרך, בלי קהל קיים</li>
+              <li>המוצר שלך פיזי ודורש דף מוצר</li>
+              <li>שווי עסקה ממוצע נמוך מ־₪500</li>
+              <li>מחפש פרויקט חד־פעמי, לא ליווי</li>
+              <li>לא מתכוון להריץ ממומן</li>
+              <li>הדרישה העיקרית שלך היא "רק שיהיה יפה"</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testi" id="testi">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div class="eyebrow mono">06 · לקוחות</div>
+          <h2>מה שעובד לאחרים. בלשון שלהם.</h2>
+        </div>
+        <div class="testi__wrap">
+          <button class="testi__arrow" id="prev" aria-label="הקודם">‹</button>
+          <div class="testi__deck" id="deck">
+            <article class="tcard active" data-i="0">
+              <div class="tcard__meta mono">Case 001 · יועץ עסקי</div>
+              <p>
+                "סגרתי 4 לקוחות בשבוע הראשון מאז שעברנו לדף של KLIX. השיחות
+                מגיעות הרבה יותר מוכנות."
+              </p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#4caf50">ל</div>
+                <div>
+                  <strong>ליאב בן־ארי</strong>
+                  <span>ליווי יזמים</span>
+                </div>
+                <span class="tcard__kpi mono">+280% סגירה</span>
+              </footer>
+            </article>
+            <article class="tcard" data-i="1">
+              <div class="tcard__meta mono">Case 002 · מטפל רגשי</div>
+              <p>
+                "הפסקתי להסביר מי אני בכל שיחה. הלידים מגיעים אחרי שקראו
+                הכל וסוגרים מהר."
+              </p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#f5a623">ז</div>
+                <div>
+                  <strong>זיו רוטמן</strong>
+                  <span>טיפול רגשי / NLP</span>
+                </div>
+                <span class="tcard__kpi mono">×2.4 סגירה</span>
+              </footer>
+            </article>
+            <article class="tcard" data-i="2">
+              <div class="tcard__meta mono">Case 003 · קוסמטיקה רפואית</div>
+              <p>
+                "תוך 48 שעות היה לי דף חי עם קופי מדויק. יחס ההמרה של
+                הקמפיין עלה פי 3."
+              </p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#7bb2ff">י</div>
+                <div>
+                  <strong>יעל דיין</strong>
+                  <span>קליניקת אסתטיקה</span>
+                </div>
+                <span class="tcard__kpi mono">×3 המרה</span>
+              </footer>
+            </article>
+            <article class="tcard" data-i="3">
+              <div class="tcard__meta mono">Case 004 · מאמן כושר</div>
+              <p>
+                "הכי אהבתי שזה לא חד־פעמי. כל שינוי — מטופל מהר, בלי
+                כאב ראש, בלי הצעות מחיר."
+              </p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#e06abf">ר</div>
+                <div>
+                  <strong>רועי שמש</strong>
+                  <span>אימון אישי</span>
+                </div>
+                <span class="tcard__kpi mono">+70% לידים</span>
+              </footer>
+            </article>
+          </div>
+          <button class="testi__arrow" id="next" aria-label="הבא">›</button>
+        </div>
+        <div class="dots" id="dots" aria-label="ניווט המלצות"></div>
+      </div>
+    </section>
+
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div class="eyebrow mono">07 · המחיר</div>
+          <h2>מחיר אחד. הכל כלול.</h2>
+          <p class="section__sub">
+            בלי תוספות. בלי שעות פיתוח. בלי הפתעות בחשבונית.
+          </p>
+        </div>
+        <article class="price" data-reveal>
+          <div class="price__tag mono">KLIX · RETAINER</div>
+          <header class="price__head">
+            <div class="price__amount">
+              <span class="price__currency">₪</span>
+              <span class="price__num">490</span>
+              <span class="price__period">/ חודש</span>
+            </div>
+            <p class="price__line">ריטיינר לנותני שירות שמריצים ממומן</p>
+          </header>
+          <ul class="price__list">
+            <li>בניית דף עסק דיגיטלי מותאם אישית</li>
+            <li>אספקה תוך 48 שעות</li>
+            <li>כתיבת קופי מקצועית</li>
+            <li>עיצוב פרימיום + אנימציות</li>
+            <li>חיבור לוואטסאפ העסקי שלך</li>
+            <li>עדכונים ושינויים ללא הגבלה</li>
+            <li>אחסון, דומיין ותחזוקה שוטפת</li>
+            <li>תמיכה אישית בוואטסאפ</li>
+          </ul>
+          <a class="btn btn--primary btn--lg btn--block" href="#contact">
+            התחל עכשיו ←
+          </a>
+          <p class="price__note mono">
+            &gt; ללא התחייבות · אפשר לסיים בכל חודש
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <div class="eyebrow mono">08 · שאלות</div>
+          <h2>שאלות שאנחנו מקבלים.</h2>
+        </div>
+        <div class="faq__list" data-reveal>
+          <details>
+            <summary>
+              <span>למה ריטיינר ולא תשלום חד־פעמי?</span>
+              <span class="faq__plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              כי דף נחיתה זה לא תמונה שתולים על הקיר. הוא צריך להתעדכן,
+              להשתנות עם העסק, ולהיבדק כל הזמן. במודל ריטיינר אתה מקבל
+              שותף, לא קבלן.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>מה קורה אם אני רוצה לעזוב אחרי חודש?</span>
+              <span class="faq__plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              אין בעיה. אתה מודיע, משלם על החודש הנוכחי, ואנחנו נפרדים
+              בטוב. בלי קנסות ובלי שאלות.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>הדף נשאר בבעלות שלי?</span>
+              <span class="faq__plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              התוכן, הקופי, והתמונות — שלך. הפלטפורמה והאחסון שלנו. אם
+              תעזוב, נעביר לך את כל התוכן.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>אתם עובדים עם כל תחום?</span>
+              <span class="faq__plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              לא. אנחנו מתמחים בנותני שירות עם שווי עסקה מעל ₪1,000
+              שמריצים ממומן. אם אתה לא בקטגוריה הזאת — נגיד לך בכנות שזה
+              לא בשבילנו.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>כמה זמן לוקח להתחיל?</span>
+              <span class="faq__plus" aria-hidden="true"></span>
+            </summary>
+            <p>מרגע שסגרנו שיחת התנעה — 48 שעות עד שהדף באוויר.</p>
+          </details>
+          <details>
+            <summary>
+              <span>אני לא מבין בטכנולוגיה. זה בעיה?</span>
+              <span class="faq__plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              לא. אתה לא צריך לגעת בכלום. אנחנו מטפלים בהכל — מהבנייה
+              ועד החיבור לקמפיין.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="finalcta" id="contact">
+      <div class="finalcta__grid" aria-hidden="true"></div>
+      <div class="container finalcta__inner" data-reveal>
+        <div class="eyebrow mono">09 · צור קשר</div>
+        <h2>
+          הקמפיין הבא שלך כבר רץ.<br />
+          <span class="ink">הדף צריך להיות מוכן.</span>
+        </h2>
+        <p>שיחת היכרות של 15 דקות. בלי מחויבות. בלי מצגת.</p>
+        <a
+          class="btn btn--wa btn--lg"
+          href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20KLIX%2C%20%D7%91%D7%90%D7%AA%D7%99%20%D7%9E%D7%90%D7%AA%D7%A8%20%D7%94%D7%91%D7%99%D7%AA%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA."
+          target="_blank"
+          rel="noopener"
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M20.5 3.5A11.77 11.77 0 0 0 12 0C5.4 0 .1 5.4.1 12a11.9 11.9 0 0 0 1.6 6L0 24l6.2-1.6A11.9 11.9 0 0 0 12 24c6.6 0 11.9-5.4 11.9-12 0-3.2-1.3-6.2-3.4-8.5ZM12 22a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.9 9.9 0 1 1 12 22Zm5.4-7.4c-.3-.2-1.8-.9-2-1s-.5-.2-.8.1-.9 1-1 1.2-.3.2-.6 0a8.1 8.1 0 0 1-4-3.5c-.3-.5.3-.5.8-1.5a.6.6 0 0 0 0-.6c0-.1-.8-1.9-1-2.6-.3-.7-.5-.6-.8-.6H7.5a1.3 1.3 0 0 0-1 .4 4 4 0 0 0-1.3 3 7 7 0 0 0 1.4 3.7c.2.2 2.5 3.8 6 5.3a19.5 19.5 0 0 0 2 .7 4.9 4.9 0 0 0 2.1.1 3.6 3.6 0 0 0 2.4-1.7 3 3 0 0 0 .2-1.7c-.1-.2-.3-.3-.7-.5Z"
+            />
+          </svg>
+          שלח הודעה בוואטסאפ
+        </a>
+        <small class="mono">TYPICAL REPLY ~1h · GMT+3</small>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="container foot__inner">
+        <div class="foot__brand-line">
+          <span class="foot__brand">KLIX</span>
+          <span class="foot__div mono">//</span>
+          <span class="foot__tag">דפי נחיתה שסוגרים לקוחות.</span>
+        </div>
+        <div class="foot__links">
+          <a href="mailto:hello@klix.co.il">hello@klix.co.il</a>
+          <span class="foot__div mono">·</span>
+          <a href="#">תנאי שימוש</a>
+          <span class="foot__div mono">·</span>
+          <a href="#">מדיניות פרטיות</a>
+        </div>
+        <p class="foot__copy mono">© 2026 KLIX · ALL RIGHTS RESERVED</p>
+      </div>
+    </footer>
+
+    <script src="./script.js?v=6"></script>
+  </body>
+</html>
