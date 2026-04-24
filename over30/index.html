@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=11" />
+    <link rel="stylesheet" href="./style.css?v=12" />
   </head>
   <body>
     <a class="sticky-wa" href="#contact" aria-label="וואטסאפ">
@@ -38,9 +38,8 @@
     </a>
 
     <nav class="nav" aria-hidden="true">
-      <a href="#top" class="nav__brand">
-        <span class="nav__mark">K</span>
-        <span>KLIX</span>
+      <a href="#top" class="nav__brand" aria-label="KLIX">
+        <img class="nav__logo-img" src="../logo.png" alt="" width="120" height="40" />
       </a>
       <div class="nav__links">
         <a href="#proof">השוואה</a>
@@ -69,9 +68,15 @@
       <div class="hero__bg-glow hero__bg-glow--3" aria-hidden="true"></div>
 
       <header class="hero__top">
-        <a href="#top" class="hero__logo">
-          <span class="hero__logo-mark">K</span>
-          <span class="hero__logo-text">KLIX</span>
+        <a href="#top" class="hero__logo" aria-label="KLIX">
+          <img
+            class="hero__logo-img"
+            src="../logo.png"
+            alt=""
+            width="140"
+            height="48"
+            loading="eager"
+          />
         </a>
         <button
           type="button"
@@ -586,7 +591,14 @@
     <footer class="foot">
       <div class="container foot__inner">
         <div class="foot__brand-line">
-          <span class="foot__brand">KLIX</span>
+          <img
+            class="foot__logo"
+            src="../logo.png"
+            alt="KLIX"
+            width="120"
+            height="40"
+            loading="lazy"
+          />
           <span class="foot__div mono">//</span>
           <span class="foot__tag">דפי נחיתה שסוגרים לקוחות.</span>
         </div>

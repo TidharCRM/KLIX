@@ -316,24 +316,16 @@ em {
 .nav__brand {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 4px 8px;
+  padding: 4px 0;
   text-decoration: none;
-  font-weight: 800;
-  letter-spacing: 2px;
 }
 
-.nav__mark {
-  width: 26px;
-  height: 26px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #4caf50, #2f7d33);
-  border-radius: 7px;
-  color: #0a1b0c;
-  font-weight: 800;
-  font-family: var(--ff-mono);
-  box-shadow: 0 6px 18px rgba(76, 175, 80, 0.35);
+.nav__logo-img {
+  display: block;
+  height: 28px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
 }
 
 .nav__links {
@@ -451,33 +443,17 @@ em {
 .hero__logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.05rem;
-  letter-spacing: 4px;
-  font-family: var(--ff-mono);
+  line-height: 0;
 }
 
-.hero__logo-mark {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(135deg, #aef77c 0%, #2d7a30 100%);
-  color: #05170a;
-  border-radius: 10px;
-  font-family: var(--ff-mono);
-  font-weight: 800;
-  font-size: 1rem;
-  box-shadow: 0 10px 26px rgba(119, 211, 77, 0.45);
-}
-
-.hero__logo-text {
-  font-family: var(--ff-body);
-  font-weight: 800;
-  letter-spacing: 5px;
+.hero__logo-img {
+  display: block;
+  height: clamp(32px, 5vw, 44px);
+  width: auto;
+  max-width: min(160px, 42vw);
+  object-fit: contain;
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.35));
 }
 
 .hero__menu {
@@ -1983,11 +1959,13 @@ h2 {
   flex-wrap: wrap;
 }
 
-.foot__brand {
-  font-weight: 800;
-  letter-spacing: 3px;
-  color: #fff;
-  font-size: 1.3rem;
+.foot__logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  opacity: 0.95;
 }
 
 .foot__tag {
@@ -2069,13 +2047,8 @@ h2 {
   .hero__top {
     padding: 18px 18px;
   }
-  .hero__logo {
-    font-size: 0.95rem;
-    letter-spacing: 3px;
-  }
-  .hero__logo-mark {
-    width: 32px;
-    height: 32px;
+  .hero__logo-img {
+    max-width: 38vw;
   }
   .hero__menu {
     width: 66px;
