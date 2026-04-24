@@ -17,6 +17,10 @@
     var accumDelta   = 0;
     var locked       = true;
     var touchStartY  = 0;
+    var touchLastY   = 0;
+    var touchLastT   = 0;
+    var touchVel     = 0; // px per ms (positive = scrolling down)
+    var inertiaId    = null;
 
     function pad(n) { return n < 10 ? '00' + n : n < 100 ? '0' + n : '' + n; }
 
@@ -62,6 +66,8 @@
       window.addEventListener('wheel',      onWheel,      { passive: false });
       window.addEventListener('touchstart', onTouchStart, { passive: true  });
       window.addEventListener('touchmove',  onTouchMove,  { passive: false });
+      window.addEventListener('touchend',   onTouchEnd,   { passive: true  });
+      window.addEventListener('touchcancel',onTouchEnd,   { passive: true  });
     }
 
     function onScrollAfterUnlock() {
@@ -76,11 +82,45 @@
 
     function unlock() {
       locked = false;
+      stopInertia();
       window.removeEventListener('wheel',      onWheel);
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove',  onTouchMove);
+      window.removeEventListener('touchend',   onTouchEnd);
+      window.removeEventListener('touchcancel',onTouchEnd);
       document.body.style.overflow = '';
       window.addEventListener('scroll', onScrollAfterUnlock, { passive: true });
+    }
+
+    function stopInertia() {
+      if (inertiaId) { cancelAnimationFrame(inertiaId); inertiaId = null; }
+    }
+
+    function runInertia() {
+      // Decay factor per frame (≈ 95% every 16ms → feels like native momentum)
+      var DECAY = 0.95;
+      var MIN_VEL = 0.02; // px/ms, below this we stop
+      var lastT = performance.now();
+      function step(now) {
+        if (!locked) { inertiaId = null; return; }
+        var dt = Math.max(1, now - lastT);
+        lastT = now;
+        // Consume velocity as delta in px (velocity is px/ms, dt in ms)
+        var delta = touchVel * dt;
+        if (delta > 0) {
+          advance(delta * TOUCH_SCALE);
+        } else {
+          advance(delta);
+        }
+        // Decay velocity. Scale decay by dt so it behaves consistently.
+        touchVel *= Math.pow(DECAY, dt / 16);
+        if (Math.abs(touchVel) < MIN_VEL || accumDelta >= SCROLL_TOT || accumDelta <= 0) {
+          inertiaId = null;
+          return;
+        }
+        inertiaId = requestAnimationFrame(step);
+      }
+      inertiaId = requestAnimationFrame(step);
     }
 
     function onWheel(e) {
@@ -89,14 +129,33 @@
     }
 
     function onTouchStart(e) {
+      stopInertia();
       touchStartY = e.touches[0].clientY;
+      touchLastY  = touchStartY;
+      touchLastT  = performance.now();
+      touchVel    = 0;
     }
 
     function onTouchMove(e) {
       e.preventDefault();
-      var delta = touchStartY - e.touches[0].clientY;
-      touchStartY = e.touches[0].clientY;
+      var y  = e.touches[0].clientY;
+      var now = performance.now();
+      var delta = touchLastY - y; // positive = finger moved up → scroll forward
+      var dt    = Math.max(1, now - touchLastT);
+      // Exponential smoothing of velocity so the release value feels natural
+      var instVel = delta / dt; // px per ms
+      touchVel = touchVel * 0.7 + instVel * 0.3;
+      touchLastY = y;
+      touchLastT = now;
+      touchStartY = y;
       advance(delta > 0 ? delta * TOUCH_SCALE : delta); // scale only forward
+    }
+
+    function onTouchEnd() {
+      // Start momentum only if velocity is meaningful
+      if (Math.abs(touchVel) > 0.05 && locked) {
+        runInertia();
+      }
     }
 
     for (var i = 1; i <= TOTAL; i++) {
@@ -112,6 +171,8 @@
     window.addEventListener('wheel',      onWheel,      { passive: false });
     window.addEventListener('touchstart', onTouchStart, { passive: true  });
     window.addEventListener('touchmove',  onTouchMove,  { passive: false });
+    window.addEventListener('touchend',   onTouchEnd,   { passive: true  });
+    window.addEventListener('touchcancel',onTouchEnd,   { passive: true  });
     window.addEventListener('resize',     resize,       { passive: true  });
     resize();
   })();
