@@ -14,9 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=15" />
+    <link rel="stylesheet" href="./style.css?v=18" />
   </head>
   <body>
+    <a class="skip-link" href="#main">דלג לתוכן</a>
     <a class="sticky-wa" href="#contact" aria-label="וואטסאפ">
       <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
         <path
@@ -50,8 +51,15 @@
       <a href="#contact" class="nav__cta">וואטסאפ ←</a>
     </nav>
 
-    <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-      <nav class="menu-overlay__inner">
+    <div
+      class="menu-overlay"
+      id="menuOverlay"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-label="תפריט"
+    >
+      <nav class="menu-overlay__inner" aria-label="ניווט">
         <a href="#proof">השוואה Before / After</a>
         <a href="#how">איך זה עובד</a>
         <a href="#pricing">מחיר</a>
@@ -61,6 +69,7 @@
       </nav>
     </div>
 
+    <main id="main" tabindex="-1" aria-label="תוכן עמוד">
     <section class="hero" id="top">
       <div class="hero__bg-grid" aria-hidden="true"></div>
       <div class="hero__bg-glow hero__bg-glow--1" aria-hidden="true"></div>
@@ -155,12 +164,13 @@
     <section class="section pain pain--art" id="pain">
       <img
         class="section-art section-art--coin"
-        src="img/deco-coin.png"
+        src="אופציות-מטבע1.png"
         alt=""
         width="220"
         height="220"
         loading="lazy"
         decoding="async"
+        aria-hidden="true"
       />
       <div class="container pain__grid">
         <div class="pain__side" data-reveal>
@@ -191,13 +201,14 @@
 
     <section class="section proof proof--art" id="proof">
       <img
-        class="section-art section-art--chess"
-        src="img/deco-chess-board.png"
+        class="section-art section-art--coins-row"
+        src="אופציות-מטבעות2.png"
         alt=""
-        width="280"
-        height="280"
+        width="420"
+        height="300"
         loading="lazy"
         decoding="async"
+        aria-hidden="true"
       />
       <div class="container">
         <div class="section__head" data-reveal>
@@ -269,13 +280,14 @@
 
     <section class="section solution solution--art" id="solution">
       <img
-        class="section-art section-art--lenses"
-        src="img/deco-lenses.png"
+        class="section-art section-art--coin3"
+        src="אופציות-מטבע3.png"
         alt=""
         width="360"
         height="260"
         loading="lazy"
         decoding="async"
+        aria-hidden="true"
       />
       <div class="container">
         <div class="section__head" data-reveal>
@@ -313,13 +325,14 @@
 
     <section class="manifesto manifesto--art" data-reveal>
       <img
-        class="section-art section-art--chess2"
-        src="img/deco-chess-tiles.png"
+        class="section-art section-art--shachmat"
+        src="אופציות-שחמט2.webp"
         alt=""
-        width="220"
-        height="220"
+        width="260"
+        height="260"
         loading="lazy"
         decoding="async"
+        aria-hidden="true"
       />
       <div class="container">
         <figure>
@@ -334,13 +347,14 @@
 
     <section class="section how how--art" id="how">
       <img
-        class="section-art section-art--king"
-        src="img/deco-chess-king.png"
+        class="section-art section-art--dani"
+        src="אופציות-דניאל-קליין-הגיע-הזמן.webp"
         alt=""
-        width="260"
-        height="260"
+        width="400"
+        height="280"
         loading="lazy"
         decoding="async"
+        aria-hidden="true"
       />
       <div class="container">
         <div class="section__head" data-reveal>
@@ -421,14 +435,24 @@
       </div>
     </section>
 
-    <section class="section testi" id="testi">
+    <section class="section testi" id="testi" aria-labelledby="testi-heading">
       <div class="container">
         <div class="section__head" data-reveal>
           <div class="eyebrow mono">06 · לקוחות</div>
-          <h2>מה שעובד לאחרים. בלשון שלהם.</h2>
+          <h2 id="testi-heading">מה שעובד לאחרים. בלשון שלהם.</h2>
         </div>
-        <div class="testi__wrap">
-          <button class="testi__arrow" id="prev" aria-label="הקודם">‹</button>
+        <div
+          class="testi__wrap"
+          role="group"
+          aria-label="המלצות מלקוחות — בחר קודם או הבא, או החלק את הכרטיס"
+        >
+          <button
+            class="testi__arrow"
+            type="button"
+            id="prev"
+            aria-controls="deck"
+            aria-label="המלצה קודמת"
+          >‹</button>
           <div class="testi__deck" id="deck">
             <article class="tcard active" data-i="0">
               <div class="tcard__meta mono">Case 001 · יועץ עסקי</div>
@@ -491,9 +515,15 @@
               </footer>
             </article>
           </div>
-          <button class="testi__arrow" id="next" aria-label="הבא">›</button>
+          <button
+            class="testi__arrow"
+            type="button"
+            id="next"
+            aria-controls="deck"
+            aria-label="המלצה הבאה"
+          >›</button>
         </div>
-        <div class="dots" id="dots" aria-label="ניווט המלצות"></div>
+        <div class="dots" id="dots" role="group" aria-label="בחירת המלצה לפי מספר"></div>
       </div>
     </section>
 
@@ -619,7 +649,7 @@
           class="btn btn--wa btn--lg"
           href="https://wa.me/972526331295?text=%D7%94%D7%99%D7%99%20KLIX%2C%20%D7%91%D7%90%D7%AA%D7%99%20%D7%9E%D7%90%D7%AA%D7%A8%20%D7%94%D7%91%D7%99%D7%AA%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%99%D7%9B%D7%A8%D7%95%D7%AA."
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
             <path
@@ -632,6 +662,7 @@
         <small class="mono">TYPICAL REPLY ~1h · GMT+3</small>
       </div>
     </section>
+    </main>
 
     <footer class="foot">
       <div class="container foot__inner">
@@ -658,6 +689,6 @@
       </div>
     </footer>
 
-    <script src="./script.js?v=6"></script>
+    <script src="./script.js?v=7"></script>
   </body>
 </html>

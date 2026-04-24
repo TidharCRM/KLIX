@@ -14,7 +14,8 @@ function renderDots() {
     const dot = document.createElement("button");
     dot.className = `dot${i === idx ? " active" : ""}`;
     dot.type = "button";
-    dot.setAttribute("aria-label", `מעבר להמלצה ${i + 1}`);
+    dot.setAttribute("aria-label", `המלצה ${i + 1} מתוך ${cards.length}`);
+    dot.setAttribute("aria-current", i === idx ? "true" : "false");
     dot.addEventListener("click", () => {
       setIndex(i);
       restartAutoplay();
@@ -27,7 +28,12 @@ function setIndex(nextIndex) {
   if (!cards.length) return;
   idx = (nextIndex + cards.length) % cards.length;
   cards.forEach((card, i) => {
-    card.classList.toggle("active", i === idx);
+    const active = i === idx;
+    card.classList.toggle("active", active);
+    card.setAttribute("aria-hidden", active ? "false" : "true");
+    if ("inert" in card) {
+      card.inert = !active;
+    }
   });
   renderDots();
 }
@@ -134,12 +140,37 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeMenu();
 });
 
+const smoothScroll = () =>
+  !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  if (link.classList.contains("skip-link")) return;
   link.addEventListener("click", (e) => {
-    const target = document.querySelector(link.getAttribute("href"));
+    const href = link.getAttribute("href");
+    if (!href || href === "#") return;
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.scrollIntoView({
+        behavior: smoothScroll() ? "smooth" : "auto",
+        block: "start",
+      });
     }
   });
+});
+
+const mainEl = document.getElementById("main");
+document.querySelector(".skip-link")?.addEventListener("click", (e) => {
+  if (!mainEl) return;
+  e.preventDefault();
+  mainEl.focus({ preventScroll: true });
+  mainEl.scrollIntoView({
+    behavior: smoothScroll() ? "smooth" : "auto",
+    block: "start",
+  });
+  try {
+    history.replaceState(null, "", "#main");
+  } catch {
+    /* ignore */
+  }
 });
