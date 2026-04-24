@@ -382,103 +382,6 @@
         margin: 0 0 22px;
       }
 
-      .card__preview {
-        position: relative;
-        height: clamp(160px, 20vh, 220px);
-        border-radius: 14px;
-        overflow: hidden;
-        border: 1px solid var(--line);
-        margin-bottom: 24px;
-      }
-
-      .card--over .card__preview {
-        background:
-          radial-gradient(600px 300px at 50% 15%, rgba(90, 70, 190, 0.55), transparent 60%),
-          radial-gradient(400px 200px at 80% 80%, rgba(245, 166, 35, 0.3), transparent 60%),
-          linear-gradient(180deg, #0e0d2f 0%, #1a1248 60%, #07061c 100%);
-      }
-
-      .card--under .card__preview {
-        background:
-          radial-gradient(500px 300px at 50% 30%, rgba(76, 175, 80, 0.3), transparent 60%),
-          linear-gradient(180deg, #0a0d12 0%, #14181c 100%);
-      }
-
-      .preview-figure {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 82%;
-        width: auto;
-        object-fit: contain;
-        object-position: bottom center;
-        filter: drop-shadow(0 0 24px rgba(245, 166, 35, 0.2))
-          drop-shadow(0 14px 28px rgba(0, 0, 0, 0.5));
-      }
-
-      .preview-headline {
-        position: absolute;
-        top: 28%;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-weight: 800;
-        font-size: clamp(0.9rem, 1.4vw, 1.15rem);
-        line-height: 1;
-        letter-spacing: -0.03em;
-        z-index: 1;
-      }
-
-      .preview-headline span {
-        background: linear-gradient(135deg, #c7b3ff 0%, #fff 45%, var(--orange) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-
-      .preview-scroll {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        padding: 20px;
-      }
-
-      .preview-scroll__phrase {
-        font-weight: 800;
-        font-size: clamp(1.2rem, 2vw, 1.6rem);
-        line-height: 1.1;
-        text-align: center;
-        letter-spacing: -0.03em;
-      }
-
-      .preview-scroll__phrase i {
-        display: block;
-        font-style: normal;
-        color: var(--green);
-      }
-
-      .preview-scroll__dots {
-        position: absolute;
-        bottom: 14px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 6px;
-      }
-
-      .preview-scroll__dots span {
-        width: 24px;
-        height: 3px;
-        border-radius: 2px;
-        background: var(--line-2);
-      }
-
-      .preview-scroll__dots span:first-child {
-        background: var(--green);
-      }
-
       .card__cta {
         margin-top: auto;
         display: inline-flex;
@@ -539,9 +442,6 @@
           grid-template-columns: 1fr;
           gap: 14px;
         }
-        .card__preview {
-          height: 140px;
-        }
       }
     </style>
   </head>
@@ -574,19 +474,6 @@
           <span>AUTHORITY</span>
         </span>
 
-        <div class="card__preview" aria-hidden="true">
-          <div class="preview-headline">
-            מקסימום תדמית,<br />
-            <span>מקסימום הצלחה.</span>
-          </div>
-          <img
-            class="preview-figure"
-            src="./over30/heropicture.png"
-            alt=""
-            loading="lazy"
-          />
-        </div>
-
         <div class="card__age">30+<em>שנים</em></div>
         <h2 class="card__title">יוקרה, שקט וסמכות מקצועית</h2>
         <p class="card__desc">
@@ -605,20 +492,6 @@
           <i></i>
           <span>CINEMATIC</span>
         </span>
-
-        <div class="card__preview" aria-hidden="true">
-          <div class="preview-scroll">
-            <div class="preview-scroll__phrase">
-              אנימציה שזזה איתך
-              <i>בגלילה.</i>
-            </div>
-          </div>
-          <div class="preview-scroll__dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
 
         <div class="card__age">
           &lt;30<em>שנים</em>
