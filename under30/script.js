@@ -5,7 +5,9 @@
   (function () {
     var TOTAL        = 97;
     var LOGO_FRAME   = 82;
-    var SCROLL_TOT   = 1200; // virtual px to complete animation
+    var SCROLL_TOT   = 700;  // total virtual px — sized for a single thumb flick
+    var SPLIT_ACCUM  = 450;  // px spent on the slow first segment
+    var SPLIT_FRAME  = 20;   // first N frames are the slow segment
     var TOUCH_SCALE  = 2;    // multiplier for forward touch swipe
     var canvas    = document.getElementById('hero-canvas');
     if (!canvas) return;
@@ -42,8 +44,13 @@
     }
 
     function getIdx(accum) {
-      var t = Math.min(1, accum / SCROLL_TOT);
-      return Math.round(Math.pow(t, 1.5) * (TOTAL - 1)); // slow first frames, accelerates
+      // Piecewise: slow over the first SPLIT_ACCUM px (covers SPLIT_FRAME frames),
+      // then fast through the rest of the frames.
+      if (accum <= SPLIT_ACCUM) {
+        return Math.round((accum / SPLIT_ACCUM) * SPLIT_FRAME);
+      }
+      var t = Math.min(1, (accum - SPLIT_ACCUM) / (SCROLL_TOT - SPLIT_ACCUM));
+      return SPLIT_FRAME + Math.round(t * (TOTAL - 1 - SPLIT_FRAME));
     }
 
     function setLogoState(showHero) {
@@ -97,12 +104,13 @@
     }
 
     function runInertia() {
-      // Heavier decay = slower, shorter glide.
-      var DECAY   = 0.88;
-      var MIN_VEL = 0.04; // px/ms
-      var MAX_VEL = 1.2;  // cap release velocity
-      if (touchVel >  MAX_VEL) touchVel =  MAX_VEL;
-      if (touchVel < -MAX_VEL) touchVel = -MAX_VEL;
+      // Reverse inertia: velocity grows instead of decays, so one thumb flick
+      // carries the animation all the way through.
+      var ACCEL      = 1.035; // grows ~3.5% every 16ms
+      var BOOST_VEL  = 0.25;  // minimum release velocity (px/ms) — short flicks still carry
+      var MAX_VEL    = 3.0;   // cap runaway speed
+      if (touchVel >= 0 && touchVel < BOOST_VEL) touchVel = BOOST_VEL;
+      if (touchVel <  0 && touchVel > -BOOST_VEL) touchVel = -BOOST_VEL;
       var lastT = performance.now();
       function step(now) {
         if (!locked) { inertiaId = null; return; }
@@ -110,8 +118,10 @@
         lastT = now;
         var delta = touchVel * dt;
         advance(delta);
-        touchVel *= Math.pow(DECAY, dt / 16);
-        if (Math.abs(touchVel) < MIN_VEL || accumDelta >= SCROLL_TOT || accumDelta <= 0) {
+        touchVel *= Math.pow(ACCEL, dt / 16);
+        if (touchVel >  MAX_VEL) touchVel =  MAX_VEL;
+        if (touchVel < -MAX_VEL) touchVel = -MAX_VEL;
+        if (accumDelta >= SCROLL_TOT || accumDelta <= 0) {
           inertiaId = null;
           return;
         }
@@ -149,10 +159,11 @@
     }
 
     function onTouchEnd() {
-      // Start momentum only if velocity is meaningful
-      if (Math.abs(touchVel) > 0.05 && locked) {
-        runInertia();
-      }
+      // Always carry forward after release — a short flick is enough to
+      // complete the animation thanks to the accelerating inertia.
+      if (!locked) return;
+      if (touchVel === 0) return; // no real movement → user just tapped
+      runInertia();
     }
 
     for (var i = 1; i <= TOTAL; i++) {
