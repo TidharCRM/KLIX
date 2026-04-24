@@ -97,22 +97,19 @@
     }
 
     function runInertia() {
-      // Decay factor per frame (≈ 95% every 16ms → feels like native momentum)
-      var DECAY = 0.95;
-      var MIN_VEL = 0.02; // px/ms, below this we stop
+      // Heavier decay = slower, shorter glide.
+      var DECAY   = 0.88;
+      var MIN_VEL = 0.04; // px/ms
+      var MAX_VEL = 1.2;  // cap release velocity
+      if (touchVel >  MAX_VEL) touchVel =  MAX_VEL;
+      if (touchVel < -MAX_VEL) touchVel = -MAX_VEL;
       var lastT = performance.now();
       function step(now) {
         if (!locked) { inertiaId = null; return; }
         var dt = Math.max(1, now - lastT);
         lastT = now;
-        // Consume velocity as delta in px (velocity is px/ms, dt in ms)
         var delta = touchVel * dt;
-        if (delta > 0) {
-          advance(delta * TOUCH_SCALE);
-        } else {
-          advance(delta);
-        }
-        // Decay velocity. Scale decay by dt so it behaves consistently.
+        advance(delta);
         touchVel *= Math.pow(DECAY, dt / 16);
         if (Math.abs(touchVel) < MIN_VEL || accumDelta >= SCROLL_TOT || accumDelta <= 0) {
           inertiaId = null;
