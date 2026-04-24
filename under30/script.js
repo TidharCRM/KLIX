@@ -5,8 +5,8 @@
   (function () {
     var TOTAL        = 97;
     var LOGO_FRAME   = 82;
-    var SCROLL_TOT   = 700;  // total virtual px — sized for a single thumb flick
-    var SPLIT_ACCUM  = 450;  // px spent on the slow first segment
+    var SCROLL_TOT   = 900;  // total virtual px — sized for a single thumb flick
+    var SPLIT_ACCUM  = 600;  // px spent on the slow first segment
     var SPLIT_FRAME  = 20;   // first N frames are the slow segment
     var TOUCH_SCALE  = 2;    // multiplier for forward touch swipe
     var canvas    = document.getElementById('hero-canvas');
@@ -104,11 +104,11 @@
     }
 
     function runInertia() {
-      // Reverse inertia: velocity grows instead of decays, so one thumb flick
-      // carries the animation all the way through.
-      var ACCEL      = 1.035; // grows ~3.5% every 16ms
-      var BOOST_VEL  = 0.25;  // minimum release velocity (px/ms) — short flicks still carry
-      var MAX_VEL    = 3.0;   // cap runaway speed
+      // Reverse inertia: velocity grows gently so one thumb flick carries
+      // the animation through without feeling rushed.
+      var ACCEL      = 1.012; // grows ~1.2% every 16ms (gentle ramp)
+      var BOOST_VEL  = 0.12;  // minimum release velocity (px/ms)
+      var MAX_VEL    = 1.1;   // cap — keeps the tail calm
       if (touchVel >= 0 && touchVel < BOOST_VEL) touchVel = BOOST_VEL;
       if (touchVel <  0 && touchVel > -BOOST_VEL) touchVel = -BOOST_VEL;
       var lastT = performance.now();
