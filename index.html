@@ -4,224 +4,639 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>KLIX — בחר חוויה</title>
+    <title>KLIX — בחר את החוויה שלך</title>
     <meta
       name="description"
-      content="בחר את הגרסה המתאימה ביותר עבורך להמשך הגלישה."
+      content="שני עולמות. חוויה אחת בשבילך. בחר את הגיל שלך ונתאים עבורך את הדף המדויק."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <style>
-      * { box-sizing: border-box; }
-      html, body { height: 100%; }
+      @font-face {
+        font-family: "FUP Galil";
+        src: url("./over30/fonts/FUP Galil - ExtraBold.otf") format("opentype");
+        font-weight: 800;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "FUP Galil";
+        src: url("./over30/fonts/FUP Galil - Bold.otf") format("opentype");
+        font-weight: 700;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "FUP Galil";
+        src: url("./over30/fonts/FUP Galil - Medium.otf") format("opentype");
+        font-weight: 500;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "FUP Galil";
+        src: url("./over30/fonts/FUP Galil - Regular.otf") format("opentype");
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      :root {
+        --bg-1: #06081e;
+        --bg-2: #0e0d2f;
+        --bg-3: #07061c;
+        --ink: #fff;
+        --muted: rgba(255, 255, 255, 0.65);
+        --muted-2: rgba(255, 255, 255, 0.42);
+        --line: rgba(255, 255, 255, 0.1);
+        --line-2: rgba(255, 255, 255, 0.18);
+        --green: #aef77c;
+        --green-2: #77d34d;
+        --orange: #f5a623;
+        --purple: #a285ff;
+        --ff-body: "FUP Galil", "Heebo", -apple-system, Segoe UI, Arial,
+          sans-serif;
+        --ff-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+          Consolas, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
       body {
         margin: 0;
-        font-family: "Heebo", -apple-system, Segoe UI, Arial, sans-serif;
+        font-family: var(--ff-body);
         background:
-          radial-gradient(900px 500px at 50% 10%, rgba(90, 70, 190, 0.35), transparent 60%),
-          radial-gradient(700px 450px at 15% 85%, rgba(40, 25, 95, 0.5), transparent 65%),
-          radial-gradient(600px 400px at 85% 70%, rgba(30, 20, 75, 0.5), transparent 65%),
-          linear-gradient(180deg, #06081e 0%, #0e0d2f 50%, #07061c 100%);
-        color: #fff;
+          radial-gradient(
+            1100px 580px at 20% 15%,
+            rgba(90, 70, 190, 0.42),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 560px at 85% 85%,
+            rgba(245, 166, 35, 0.16),
+            transparent 65%
+          ),
+          radial-gradient(
+            700px 500px at 80% 10%,
+            rgba(76, 175, 80, 0.22),
+            transparent 65%
+          ),
+          linear-gradient(
+            180deg,
+            var(--bg-1) 0%,
+            var(--bg-2) 50%,
+            var(--bg-3) 100%
+          );
+        color: var(--ink);
         min-height: 100vh;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         position: relative;
+        overflow-x: hidden;
+        padding: 40px 20px;
       }
 
       body::before {
         content: "";
-        position: absolute;
+        position: fixed;
         inset: 0;
         background-image:
           linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
         background-size: 54px 54px;
-        mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 0%, transparent 78%);
-        -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 0%, transparent 78%);
+        mask-image: radial-gradient(
+          ellipse 80% 70% at 50% 50%,
+          #000 0%,
+          transparent 78%
+        );
+        -webkit-mask-image: radial-gradient(
+          ellipse 80% 70% at 50% 50%,
+          #000 0%,
+          transparent 78%
+        );
         opacity: 0.5;
         pointer-events: none;
+        z-index: 0;
       }
 
-      .gate {
+      .top {
         position: relative;
-        z-index: 1;
-        width: min(560px, 92vw);
-        padding: 0 20px;
-        text-align: center;
-        animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-      }
-
-      @keyframes rise {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      .gate__brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        font-family: "JetBrains Mono", monospace;
-        font-weight: 700;
-        letter-spacing: 4px;
-        font-size: 1rem;
-        color: #fff;
-        margin-bottom: 40px;
-      }
-
-      .gate__brand-mark {
-        width: 36px;
-        height: 36px;
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, #aef77c 0%, #2d7a30 100%);
-        color: #05170a;
-        border-radius: 10px;
-        font-weight: 800;
-        font-size: 1rem;
-        box-shadow: 0 10px 26px rgba(119, 211, 77, 0.45);
-      }
-
-      .gate__kicker {
-        color: rgba(255, 255, 255, 0.65);
-        font-size: 0.95rem;
-        letter-spacing: 1px;
-        margin-bottom: 14px;
-        font-weight: 500;
-      }
-
-      .gate__title {
-        font-size: clamp(2.2rem, 7vw, 3.8rem);
-        font-weight: 900;
-        line-height: 1;
-        letter-spacing: -0.03em;
-        margin: 0 0 16px;
-      }
-
-      .gate__sub {
-        color: rgba(255, 255, 255, 0.72);
-        font-size: clamp(1rem, 1.5vw, 1.15rem);
-        line-height: 1.6;
-        max-width: 460px;
-        margin: 0 auto 44px;
-      }
-
-      .gate__options {
-        display: grid;
-        gap: 14px;
-        max-width: 380px;
-        margin: 0 auto;
-      }
-
-      .gate__btn {
-        appearance: none;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        background: rgba(255, 255, 255, 0.04);
-        color: #fff;
-        padding: 22px 26px;
-        border-radius: 16px;
-        font-family: inherit;
-        font-size: 1.15rem;
-        font-weight: 700;
-        cursor: pointer;
+        z-index: 2;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 14px;
-        transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-        text-decoration: none;
+        width: min(1120px, 100%);
+        margin-bottom: clamp(32px, 6vh, 64px);
+        padding: 0 6px;
       }
 
-      .gate__btn:hover {
-        transform: translateY(-2px);
-        background: rgba(255, 255, 255, 0.07);
-        border-color: rgba(174, 247, 124, 0.5);
-        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--ff-mono);
+        font-weight: 700;
+        letter-spacing: 4px;
+        font-size: 1rem;
       }
 
-      .gate__btn-label {
+      .brand__mark {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--green) 0%, #2d7a30 100%);
+        color: #05170a;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 1.05rem;
+        box-shadow: 0 10px 26px rgba(119, 211, 77, 0.45);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--line-2);
+        border-radius: 999px;
+        font-family: var(--ff-mono);
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        color: var(--muted);
+      }
+
+      .badge__dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 0 4px rgba(174, 247, 124, 0.22);
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.3); }
+      }
+
+      .hero {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        width: min(1120px, 100%);
+        margin-bottom: clamp(40px, 6vh, 72px);
+        animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero__kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--ff-mono);
+        font-size: 0.78rem;
+        letter-spacing: 3px;
+        color: var(--muted);
+        margin-bottom: 22px;
+      }
+
+      .hero__kicker::before,
+      .hero__kicker::after {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--line-2);
+      }
+
+      .hero__title {
+        font-size: clamp(2.6rem, 7.5vw, 5.2rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        margin: 0 0 22px;
+      }
+
+      .hero__title em {
+        font-style: normal;
+        background: linear-gradient(
+          135deg,
+          #c7b3ff 0%,
+          #ffffff 45%,
+          var(--orange) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero__sub {
+        color: var(--muted);
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        line-height: 1.7;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      .cards {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(16px, 2vw, 24px);
+        width: min(1120px, 100%);
+        animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
+      }
+
+      .card {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 2px;
+        position: relative;
+        overflow: hidden;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        border: 1px solid var(--line-2);
+        border-radius: 22px;
+        padding: clamp(24px, 3vw, 36px);
+        text-decoration: none;
+        color: var(--ink);
+        transition:
+          transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+        backdrop-filter: blur(8px);
       }
 
-      .gate__btn-age {
-        font-weight: 900;
-        font-size: 1.2rem;
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
       }
 
-      .gate__btn-hint {
-        font-size: 0.8rem;
-        color: rgba(255, 255, 255, 0.55);
-        font-weight: 500;
-        font-family: "JetBrains Mono", monospace;
-        letter-spacing: 0.5px;
+      .card--over::before {
+        background: radial-gradient(
+          circle at 70% 30%,
+          rgba(245, 166, 35, 0.18),
+          transparent 65%
+        );
       }
 
-      .gate__btn-arrow {
-        width: 32px;
-        height: 32px;
+      .card--under::before {
+        background: radial-gradient(
+          circle at 30% 30%,
+          rgba(76, 175, 80, 0.2),
+          transparent 65%
+        );
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(174, 247, 124, 0.4);
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.4),
+          0 0 0 1px rgba(174, 247, 124, 0.15);
+      }
+
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .card__tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--line-2);
+        border-radius: 999px;
+        font-family: var(--ff-mono);
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+        color: var(--muted);
+        align-self: flex-start;
+      }
+
+      .card__tag i {
+        display: block;
+        width: 6px;
+        height: 6px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #aef77c 0%, #77d34d 100%);
+      }
+
+      .card--over .card__tag i {
+        background: var(--orange);
+      }
+
+      .card--under .card__tag i {
+        background: var(--green);
+      }
+
+      .card__age {
+        font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+        font-weight: 800;
+        line-height: 1;
+        margin: 18px 0 6px;
+        letter-spacing: -0.04em;
+      }
+
+      .card__age em {
+        font-style: normal;
+        font-weight: 500;
+        color: var(--muted);
+        font-size: 0.55em;
+        margin-left: 6px;
+      }
+
+      .card__title {
+        font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+        font-weight: 700;
+        margin: 8px 0 10px;
+        letter-spacing: -0.01em;
+      }
+
+      .card__desc {
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 0.95rem;
+        margin: 0 0 22px;
+      }
+
+      .card__preview {
+        position: relative;
+        height: clamp(160px, 20vh, 220px);
+        border-radius: 14px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        margin-bottom: 24px;
+      }
+
+      .card--over .card__preview {
+        background:
+          radial-gradient(600px 300px at 50% 15%, rgba(90, 70, 190, 0.55), transparent 60%),
+          radial-gradient(400px 200px at 80% 80%, rgba(245, 166, 35, 0.3), transparent 60%),
+          linear-gradient(180deg, #0e0d2f 0%, #1a1248 60%, #07061c 100%);
+      }
+
+      .card--under .card__preview {
+        background:
+          radial-gradient(500px 300px at 50% 30%, rgba(76, 175, 80, 0.3), transparent 60%),
+          linear-gradient(180deg, #0a0d12 0%, #14181c 100%);
+      }
+
+      .preview-figure {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 82%;
+        width: auto;
+        object-fit: contain;
+        object-position: bottom center;
+        filter: drop-shadow(0 0 24px rgba(245, 166, 35, 0.2))
+          drop-shadow(0 14px 28px rgba(0, 0, 0, 0.5));
+      }
+
+      .preview-headline {
+        position: absolute;
+        top: 28%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-weight: 800;
+        font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+        line-height: 1;
+        letter-spacing: -0.03em;
+        z-index: 1;
+      }
+
+      .preview-headline span {
+        background: linear-gradient(135deg, #c7b3ff 0%, #fff 45%, var(--orange) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .preview-scroll {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+      }
+
+      .preview-scroll__phrase {
+        font-weight: 800;
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+        line-height: 1.1;
+        text-align: center;
+        letter-spacing: -0.03em;
+      }
+
+      .preview-scroll__phrase i {
+        display: block;
+        font-style: normal;
+        color: var(--green);
+      }
+
+      .preview-scroll__dots {
+        position: absolute;
+        bottom: 14px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 6px;
+      }
+
+      .preview-scroll__dots span {
+        width: 24px;
+        height: 3px;
+        border-radius: 2px;
+        background: var(--line-2);
+      }
+
+      .preview-scroll__dots span:first-child {
+        background: var(--green);
+      }
+
+      .card__cta {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 14px 18px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--line-2);
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: background 0.2s ease, border-color 0.2s ease;
+      }
+
+      .card:hover .card__cta {
+        background: rgba(174, 247, 124, 0.1);
+        border-color: rgba(174, 247, 124, 0.4);
+      }
+
+      .card__cta-arrow {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--green) 0%, var(--green-2) 100%);
         color: #0a1b0c;
         display: grid;
         place-items: center;
         font-weight: 900;
+        font-size: 1.15rem;
         flex-shrink: 0;
-        transition: transform 0.2s ease;
+        transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
       }
 
-      .gate__btn:hover .gate__btn-arrow {
-        transform: translateX(-4px);
+      .card:hover .card__cta-arrow {
+        transform: translateX(-6px);
       }
 
-      .gate__foot {
-        margin-top: 40px;
-        color: rgba(255, 255, 255, 0.4);
-        font-size: 0.8rem;
-        font-family: "JetBrains Mono", monospace;
-        letter-spacing: 1px;
+      .foot {
+        position: relative;
+        z-index: 2;
+        margin-top: clamp(32px, 5vh, 56px);
+        color: var(--muted-2);
+        font-family: var(--ff-mono);
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        text-align: center;
+      }
+
+      @media (max-width: 780px) {
+        .top {
+          margin-bottom: 28px;
+        }
+        .badge {
+          display: none;
+        }
+        .cards {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+        .card__preview {
+          height: 140px;
+        }
       }
     </style>
   </head>
   <body>
-    <main class="gate" role="main">
-      <div class="gate__brand">
-        <span class="gate__brand-mark">K</span>
+    <header class="top">
+      <a class="brand" href="./">
+        <span class="brand__mark">K</span>
         <span>KLIX</span>
-      </div>
+      </a>
+      <span class="badge">
+        <span class="badge__dot"></span>
+        <span>EXPERIENCE&nbsp;PICKER</span>
+      </span>
+    </header>
 
-      <p class="gate__kicker">רגע לפני שנתחיל</p>
-      <h1 class="gate__title">בן כמה אתה?</h1>
-      <p class="gate__sub">
-        בחר את הגיל שלך ונתאים עבורך את החוויה המתאימה ביותר.
+    <section class="hero">
+      <div class="hero__kicker">רגע לפני שנתחיל</div>
+      <h1 class="hero__title">
+        שני עולמות. <em>חוויה אחת בשבילך.</em>
+      </h1>
+      <p class="hero__sub">
+        בחר את הגיל שלך — ונתאים עבורך את הגרסה של האתר שמדברת אליך בשפה שלך.
       </p>
+    </section>
 
-      <div class="gate__options">
-        <a href="./over30/" class="gate__btn" data-age="over">
-          <span class="gate__btn-label">
-            <span class="gate__btn-age">מעל 30</span>
-            <span class="gate__btn-hint">30+ YEARS</span>
-          </span>
-          <span class="gate__btn-arrow" aria-hidden="true">←</span>
-        </a>
-        <a href="./under30/" class="gate__btn" data-age="under">
-          <span class="gate__btn-label">
-            <span class="gate__btn-age">מתחת ל־30</span>
-            <span class="gate__btn-hint">UNDER 30</span>
-          </span>
-          <span class="gate__btn-arrow" aria-hidden="true">←</span>
-        </a>
-      </div>
+    <div class="cards">
+      <a href="./over30/" class="card card--over" data-age="over">
+        <span class="card__tag">
+          <i></i>
+          <span>AUTHORITY</span>
+        </span>
 
-      <p class="gate__foot">KLIX · AGE GATE · V1</p>
-    </main>
+        <div class="card__preview" aria-hidden="true">
+          <div class="preview-headline">
+            מקסימום תדמית,<br />
+            <span>מקסימום הצלחה.</span>
+          </div>
+          <img
+            class="preview-figure"
+            src="./over30/heropicture.png"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+
+        <div class="card__age">30+<em>שנים</em></div>
+        <h2 class="card__title">יוקרה, שקט וסמכות מקצועית</h2>
+        <p class="card__desc">
+          דף תדמית דרמטי שמציב אותך כסמכות. טיפוגרפיה נקייה, תמונה מרכזית עם
+          עומק אמיתי, ותחושת מותג בוגרת.
+        </p>
+
+        <div class="card__cta">
+          <span>כניסה לגרסה הקלאסית</span>
+          <span class="card__cta-arrow" aria-hidden="true">←</span>
+        </div>
+      </a>
+
+      <a href="./under30/" class="card card--under" data-age="under">
+        <span class="card__tag">
+          <i></i>
+          <span>CINEMATIC</span>
+        </span>
+
+        <div class="card__preview" aria-hidden="true">
+          <div class="preview-scroll">
+            <div class="preview-scroll__phrase">
+              אנימציה שזזה איתך
+              <i>בגלילה.</i>
+            </div>
+          </div>
+          <div class="preview-scroll__dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="card__age">
+          &lt;30<em>שנים</em>
+        </div>
+        <h2 class="card__title">אנרגיה, תנועה וחוויה קולנועית</h2>
+        <p class="card__desc">
+          אתר שזז איתך — אנימציות סקרול, מעברים חלקים, השוואות אינטראקטיביות
+          וקצב שמחזיק אותך דבוק למסך.
+        </p>
+
+        <div class="card__cta">
+          <span>כניסה לגרסה הקינטית</span>
+          <span class="card__cta-arrow" aria-hidden="true">←</span>
+        </div>
+      </a>
+    </div>
+
+    <footer class="foot">KLIX · AGE&nbsp;GATE · V2</footer>
 
     <script>
       (function () {
@@ -237,10 +652,10 @@
           }
         } catch (e) {}
 
-        document.querySelectorAll("[data-age]").forEach(function (btn) {
-          btn.addEventListener("click", function (e) {
+        document.querySelectorAll("[data-age]").forEach(function (link) {
+          link.addEventListener("click", function () {
             try {
-              localStorage.setItem("klix_age", btn.dataset.age);
+              localStorage.setItem("klix_age", link.dataset.age);
             } catch (e) {}
           });
         });

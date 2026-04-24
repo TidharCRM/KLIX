@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../Downloads/Fontup-Bundle-Web-and-Apps-Single-User-3owqs0/Fontup Bundle - Web and Apps - Single User"
+		}
+	],
+	"settings": {
+		"files.readonlyInclude": {
+			"{**/.c4z/.extsrcs/*.PROTSYM.cbl,**/.c4z/.extsrcs/*.PROTSYM.listing}": true
+		}
+	}
+}
