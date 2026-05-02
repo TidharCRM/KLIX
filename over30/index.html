@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./style.css?v=48" />
+    <link rel="stylesheet" href="./style.css?v=54" />
   </head>
   <body>
     <a class="skip-link" href="#main">דלג לתוכן</a>
@@ -64,7 +64,6 @@
         <a href="#offer">המודל</a>
         <a href="#projects">פרויקטים אחרונים</a>
         <a href="#testi">המלצות לקוחות</a>
-        <a href="#brief">טופס אפיון</a>
         <a href="#contact" class="menu-overlay__cta">השאר פרטים ←</a>
       </nav>
     </div>
@@ -138,12 +137,17 @@
           <div class="browser__screen browser__screen--3"></div>
         </div>
       </div>
+
+      <a class="hero__scroll" href="#why" aria-label="גלול למטה">
+        <span class="hero__scroll-mouse" aria-hidden="true">
+          <span class="hero__scroll-wheel"></span>
+        </span>
+      </a>
     </section>
 
     <section class="section argument" id="why" aria-labelledby="why-heading">
       <div class="container">
         <div class="argument__intro" data-reveal>
-          <span class="argument__kicker">לנותני שירות</span>
           <h2 id="why-heading" class="argument__title">
             יש לכם עסק טוב. לקוחות מרוצים.
             <span class="argument__title-accent">אולי אפילו קמפיין שרץ.</span>
@@ -155,18 +159,15 @@
         </div>
 
         <ul class="argument__nope" data-reveal data-delay="120" aria-label="מה לא יפתור את זה">
-          <li class="argument__nope-card">
-            <span class="argument__nope-x" aria-hidden="true">×</span>
+          <li class="argument__nope-row">
             <strong>עוד פוסט</strong>
             <span>לא יפתור את זה.</span>
           </li>
-          <li class="argument__nope-card">
-            <span class="argument__nope-x" aria-hidden="true">×</span>
+          <li class="argument__nope-row">
             <strong>עוד סטורי</strong>
             <span>לא יבנה אמון.</span>
           </li>
-          <li class="argument__nope-card">
-            <span class="argument__nope-x" aria-hidden="true">×</span>
+          <li class="argument__nope-row">
             <strong>עוד רילס</strong>
             <span>לא יסביר למה דווקא אתם.</span>
           </li>
@@ -187,10 +188,9 @@
 
     <section class="section solution" id="solution" aria-labelledby="solution-heading">
       <div class="container">
-        <div class="section__head section__head--accent" data-reveal>
-          <span class="solution__kicker">בדיוק בשביל זה</span>
-          <h2 id="solution-heading">יש <span class="ink">דף נחיתה</span><span class="dot-mark" aria-hidden="true"></span></h2>
-          <p class="section__sub">דף אחד שמסביר בצורה חדה, בלי בלגן, בלי מבוכים.</p>
+        <div class="solution__head" data-reveal>
+          <h2 id="solution-heading">בדיוק בשביל זה יש דף נחיתה.</h2>
+          <p class="solution__sub">דף אחד שמסביר בצורה חדה, בלי בלגן, בלי מבוכים.</p>
         </div>
 
         <ol class="solution__grid" aria-label="מה דף הנחיתה עושה">
@@ -226,11 +226,10 @@
           </li>
         </ol>
 
-        <div class="solution__verdict" data-reveal>
-          <span class="solution__verdict-pill solution__verdict-pill--no">לא אתר מסובך</span>
-          <span class="solution__verdict-pill solution__verdict-pill--no">לא עוד כרטיס ביקור</span>
-          <span class="solution__verdict-pill solution__verdict-pill--yes">שכבת אמון לפני וואטסאפ</span>
-        </div>
+        <p class="solution__verdict" data-reveal>
+          לא אתר מסובך. לא עוד כרטיס ביקור.
+          <strong>שכבת אמון לפני וואטסאפ.</strong>
+        </p>
 
         <p class="solution__outcome" data-reveal>
           ככה הקמפיין שלכם <strong>לא נופל ישר לוואטסאפ קר</strong> — אלא למקום
@@ -241,49 +240,83 @@
 
     <section class="section offer" id="offer" aria-labelledby="offer-heading">
       <div class="container">
-        <div class="offer__card" data-reveal>
-          <div class="offer__glow" aria-hidden="true"></div>
-          <span class="offer__kicker">המודל</span>
+        <div class="offer__head" data-reveal>
           <h2 id="offer-heading" class="offer__title">
             דף נחיתה לנותני שירות.
-            <span class="offer__title-accent">ללא עלות הקמה.</span>
+            <span class="offer__title-accent">בחרו את המסלול שלכם.</span>
           </h2>
           <p class="offer__sub">
-            משלמים רק על תחזוקה ושיפורים חודשיים — אז הדף ממשיך להשתפר חודש אחרי
-            חודש, ולא נשאר תקוע על מה שעבד לפני שנה.
+            ללא עלות הקמה. משלמים רק על תחזוקה ושיפורים חודשיים — והדף ממשיך
+            להשתפר חודש אחרי חודש.
           </p>
+        </div>
 
-          <ul class="offer__pills" aria-label="מה כלול">
-            <li class="offer__pill">
-              <span class="offer__pill-icon" aria-hidden="true">∅</span>
-              <strong>0₪ הקמה</strong>
-              <span>אתם לא משלמים מראש על משהו שלא נבחן בשטח.</span>
-            </li>
-            <li class="offer__pill">
-              <span class="offer__pill-icon" aria-hidden="true">↻</span>
-              <strong>תחזוקה חודשית</strong>
-              <span>הדף תמיד עולה, מאובטח ומעודכן — בלי שתחשבו על זה.</span>
-            </li>
-            <li class="offer__pill">
-              <span class="offer__pill-icon" aria-hidden="true">↑</span>
-              <strong>שיפורים שוטפים</strong>
-              <span>כל חודש משפרים מה שלא ממיר, מה שלא נקרא, ומה ששווה להוסיף.</span>
-            </li>
-          </ul>
+        <!-- TIERS: prices/features below are placeholders — update to your actual pricing. -->
+        <div class="tiers" data-reveal data-delay="100" aria-label="מסלולי תחזוקה">
+          <article class="tier">
+            <h3 class="tier__name">בסיסי</h3>
+            <p class="tier__tagline">לעסק שצריך נוכחות דיגיטלית מקצועית ויציבה.</p>
+            <div class="tier__amount">
+              <span class="tier__currency">₪</span>
+              <span class="tier__num">290</span>
+              <span class="tier__period">/ לחודש</span>
+            </div>
+            <div class="tier__divider" aria-hidden="true"></div>
+            <ul class="tier__list">
+              <li>דף נחיתה אחד, רספונסיבי</li>
+              <li>אחסון, דומיין ו־SSL</li>
+              <li>תחזוקה ועדכוני אבטחה</li>
+              <li class="tier__list-muted">ללא שיפורים חודשיים</li>
+              <li class="tier__list-muted">ללא A/B Testing</li>
+            </ul>
+            <a class="tier__cta" href="#contact">בואו נתחיל</a>
+          </article>
 
-          <div class="offer__ctas">
+          <article class="tier tier--featured">
+            <span class="tier__badge">הכי פופולרי</span>
+            <h3 class="tier__name">מקצועי</h3>
+            <p class="tier__tagline">הדף עובד בשבילכם — ומשתפר חודש אחרי חודש.</p>
+            <div class="tier__amount">
+              <span class="tier__currency">₪</span>
+              <span class="tier__num">590</span>
+              <span class="tier__period">/ לחודש</span>
+            </div>
+            <div class="tier__divider" aria-hidden="true"></div>
+            <ul class="tier__list">
+              <li>כל מה שיש בבסיסי</li>
+              <li>שיפורים חודשיים בקופי ובעיצוב</li>
+              <li>A/B Testing על אלמנטים מרכזיים</li>
+              <li>אנליטיקס + דוח חודשי</li>
+              <li>תמיכה תוך יום עסקים</li>
+            </ul>
             <a
-              class="offer__cta offer__cta--primary"
+              class="tier__cta"
               href="https://tally.so/r/gDQO9N"
               target="_blank"
               rel="noopener noreferrer"
             >
-              להקמה מיידית — מלאו טופס אפיון ←
+              למלא טופס אפיון ←
             </a>
-            <a class="offer__cta offer__cta--ghost" href="#contact">
-              מעדיפים לדבר קודם?
-            </a>
-          </div>
+          </article>
+
+          <article class="tier">
+            <h3 class="tier__name">פרימיום</h3>
+            <p class="tier__tagline">פאנל שיווקי מלא לעסק שמייצר לידים בקצב גבוה.</p>
+            <div class="tier__amount">
+              <span class="tier__currency">₪</span>
+              <span class="tier__num">990</span>
+              <span class="tier__period">/ לחודש</span>
+            </div>
+            <div class="tier__divider" aria-hidden="true"></div>
+            <ul class="tier__list">
+              <li>כל מה שיש במקצועי</li>
+              <li>עד 3 דפי נחיתה / מודולים</li>
+              <li>אינטגרציות (CRM, פיקסל, וובהוקים)</li>
+              <li>אופטימיזציה שבועית</li>
+              <li>תמיכה מועדפת בוואטסאפ</li>
+            </ul>
+            <a class="tier__cta" href="#contact">לדבר על פרימיום</a>
+          </article>
         </div>
       </div>
     </section>
@@ -383,59 +416,139 @@
         <div class="section__head" data-reveal>
           <h2 id="testi-heading">מה שעובד לאחרים. בלשון שלהם.</h2>
         </div>
-        <div class="testi__grid">
-          <article class="tcard" data-reveal>
-            <p>
-              "סגרתי 4 לקוחות בשבוע הראשון מאז שעברנו לדף של KLIX. השיחות
-              מגיעות הרבה יותר מוכנות."
-            </p>
-            <footer class="tcard__foot">
-              <div class="tcard__av" style="--ava:#4caf50">ל</div>
-              <div class="tcard__who">
-                <strong>ליאב בן־ארי</strong>
-                <span>ליווי יזמים</span>
-              </div>
-            </footer>
-          </article>
-          <article class="tcard" data-reveal data-delay="80">
-            <p>
-              "הפסקתי להסביר מי אני בכל שיחה. הלידים מגיעים אחרי שקראו
-              הכל וסוגרים מהר."
-            </p>
-            <footer class="tcard__foot">
-              <div class="tcard__av" style="--ava:#f5a623">ז</div>
-              <div class="tcard__who">
-                <strong>זיו רוטמן</strong>
-                <span>טיפול רגשי / NLP</span>
-              </div>
-            </footer>
-          </article>
-          <article class="tcard" data-reveal data-delay="160">
-            <p>
-              "תוך 48 שעות היה לי דף חי עם קופי מדויק. יחס ההמרה של
-              הקמפיין עלה פי 3."
-            </p>
-            <footer class="tcard__foot">
-              <div class="tcard__av" style="--ava:#7bb2ff">י</div>
-              <div class="tcard__who">
-                <strong>יעל דיין</strong>
-                <span>קליניקת אסתטיקה</span>
-              </div>
-            </footer>
-          </article>
-          <article class="tcard" data-reveal data-delay="240">
-            <p>
-              "הכי אהבתי שזה לא חד־פעמי. כל שינוי — מטופל מהר, בלי
-              כאב ראש, בלי הצעות מחיר."
-            </p>
-            <footer class="tcard__foot">
-              <div class="tcard__av" style="--ava:#e06abf">ר</div>
-              <div class="tcard__who">
-                <strong>רועי שמש</strong>
-                <span>אימון אישי</span>
-              </div>
-            </footer>
-          </article>
+      </div>
+
+      <div
+        class="testi-marquee"
+        data-reveal
+        role="region"
+        aria-label="המלצות לקוחות"
+        tabindex="0"
+      >
+        <div class="testi-marquee__row">
+          <div class="testi-marquee__group">
+            <article class="tcard">
+              <p>"סגרתי 4 לקוחות בשבוע הראשון מאז שעברנו לדף של KLIX. השיחות מגיעות הרבה יותר מוכנות."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#4caf50">ל</div>
+                <div class="tcard__who"><strong>ליאב בן־ארי</strong><span>ליווי יזמים</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"הפסקתי להסביר מי אני בכל שיחה. הלידים מגיעים אחרי שקראו הכל וסוגרים מהר."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#f5a623">ז</div>
+                <div class="tcard__who"><strong>זיו רוטמן</strong><span>טיפול רגשי / NLP</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"תוך 48 שעות היה לי דף חי עם קופי מדויק. יחס ההמרה של הקמפיין עלה פי 3."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#7bb2ff">י</div>
+                <div class="tcard__who"><strong>יעל דיין</strong><span>קליניקת אסתטיקה</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"הדף עושה את העבודה לפני השיחה — אני נכנסת לשיחה כשכבר יש לי לקוחה כמעט בפנים."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#5cd6dc">ש</div>
+                <div class="tcard__who"><strong>שני אזולאי</strong><span>סטודיו לעיצוב פנים</span></div>
+              </footer>
+            </article>
+          </div>
+          <div class="testi-marquee__group" aria-hidden="true">
+            <article class="tcard">
+              <p>"סגרתי 4 לקוחות בשבוע הראשון מאז שעברנו לדף של KLIX. השיחות מגיעות הרבה יותר מוכנות."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#4caf50">ל</div>
+                <div class="tcard__who"><strong>ליאב בן־ארי</strong><span>ליווי יזמים</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"הפסקתי להסביר מי אני בכל שיחה. הלידים מגיעים אחרי שקראו הכל וסוגרים מהר."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#f5a623">ז</div>
+                <div class="tcard__who"><strong>זיו רוטמן</strong><span>טיפול רגשי / NLP</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"תוך 48 שעות היה לי דף חי עם קופי מדויק. יחס ההמרה של הקמפיין עלה פי 3."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#7bb2ff">י</div>
+                <div class="tcard__who"><strong>יעל דיין</strong><span>קליניקת אסתטיקה</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"הדף עושה את העבודה לפני השיחה — אני נכנסת לשיחה כשכבר יש לי לקוחה כמעט בפנים."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#5cd6dc">ש</div>
+                <div class="tcard__who"><strong>שני אזולאי</strong><span>סטודיו לעיצוב פנים</span></div>
+              </footer>
+            </article>
+          </div>
+        </div>
+
+        <div class="testi-marquee__row testi-marquee__row--reverse">
+          <div class="testi-marquee__group">
+            <article class="tcard">
+              <p>"הכי אהבתי שזה לא חד־פעמי. כל שינוי — מטופל מהר, בלי כאב ראש, בלי הצעות מחיר."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#e06abf">ר</div>
+                <div class="tcard__who"><strong>רועי שמש</strong><span>אימון אישי</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"המייל הראשון שקיבלתי מליד היה 'ראיתי את הדף, אני בפנים'. זה כל הסיפור."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#8ec4c8">ע</div>
+                <div class="tcard__who"><strong>עומר ברק</strong><span>קואצ'ר עסקי</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"חסכתי שעות של שיחות חינם. מי שמתקשר אחרי שקרא — מתקשר כדי להתחיל."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#b6e3e6">נ</div>
+                <div class="tcard__who"><strong>נועה גרינברג</strong><span>דיאטנית קלינית</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"היה לי דף ישן שלא הביא כלום. תוך שבוע ראיתי לידים ראויים שמגיעים לבד."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#f0c14a">ד</div>
+                <div class="tcard__who"><strong>דניאל חדד</strong><span>שיפוצניק עסקי</span></div>
+              </footer>
+            </article>
+          </div>
+          <div class="testi-marquee__group" aria-hidden="true">
+            <article class="tcard">
+              <p>"הכי אהבתי שזה לא חד־פעמי. כל שינוי — מטופל מהר, בלי כאב ראש, בלי הצעות מחיר."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#e06abf">ר</div>
+                <div class="tcard__who"><strong>רועי שמש</strong><span>אימון אישי</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"המייל הראשון שקיבלתי מליד היה 'ראיתי את הדף, אני בפנים'. זה כל הסיפור."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#8ec4c8">ע</div>
+                <div class="tcard__who"><strong>עומר ברק</strong><span>קואצ'ר עסקי</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"חסכתי שעות של שיחות חינם. מי שמתקשר אחרי שקרא — מתקשר כדי להתחיל."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#b6e3e6">נ</div>
+                <div class="tcard__who"><strong>נועה גרינברג</strong><span>דיאטנית קלינית</span></div>
+              </footer>
+            </article>
+            <article class="tcard">
+              <p>"היה לי דף ישן שלא הביא כלום. תוך שבוע ראיתי לידים ראויים שמגיעים לבד."</p>
+              <footer class="tcard__foot">
+                <div class="tcard__av" style="--ava:#f0c14a">ד</div>
+                <div class="tcard__who"><strong>דניאל חדד</strong><span>שיפוצניק עסקי</span></div>
+              </footer>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -451,19 +564,16 @@
           </p>
         </header>
 
-        <a
-          class="contact__fasttrack"
-          href="https://tally.so/r/gDQO9N"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span class="contact__fasttrack-badge" aria-hidden="true">⚡</span>
-          <span class="contact__fasttrack-text">
-            <strong>יודעים בדיוק מה אתם צריכים?</strong>
-            <span>מלאו את טופס האפיון ונתחיל בהקמה מיידית של דף הנחיתה.</span>
-          </span>
-          <span class="contact__fasttrack-cta" aria-hidden="true">להקמה מיידית ←</span>
-        </a>
+        <p class="contact__fasttrack-line">
+          יודעים בדיוק מה אתם צריכים?
+          <a
+            href="https://tally.so/r/gDQO9N"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            מלאו את טופס האפיון להקמה מיידית ←
+          </a>
+        </p>
 
         <div class="contact__divider" aria-hidden="true">
           <span>או השאירו פרטים לייעוץ</span>
@@ -543,29 +653,6 @@
       </div>
     </section>
 
-    <section class="section brief" id="brief" aria-labelledby="brief-heading">
-      <div class="container">
-        <div class="section__head" data-reveal>
-          <span class="brief__kicker">להקמה מיידית</span>
-          <h2 id="brief-heading">טופס אפיון לדף הנחיתה</h2>
-          <p class="section__sub">
-            ממלאים, ואני מתחיל לבנות את הדף שלכם — בלי להמתין לשיחת מבוא.
-          </p>
-        </div>
-        <div class="brief__embed" data-reveal>
-          <iframe
-            data-tally-src="https://tally.so/embed/gDQO9N?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
-            width="100%"
-            height="800"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="טופס אפיון להקמה מיידית"
-          ></iframe>
-        </div>
-      </div>
-    </section>
     </main>
 
     <footer class="foot">
@@ -593,7 +680,6 @@
       </div>
     </footer>
 
-    <script async src="https://tally.so/widgets/embed.js"></script>
     <script src="./script.js?v=7"></script>
   </body>
 </html>
