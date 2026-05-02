@@ -1709,3 +1709,485 @@ body::after {
   text-align: center;
   margin-top: 48px;
 }
+
+/* ═════════════════════════════════════════════════════════════
+   FLAT EDITORIAL MODE — no cards, no rounded containers
+   Strips every card-like container to editorial typography +
+   dividers. Keeps circles only where they are true circles
+   (avatars, dots, progress bars).
+   ═════════════════════════════════════════════════════════════ */
+
+/* Nuke card chrome globally */
+.scard,
+.why__card,
+.work,
+.work__frame,
+.tcard,
+.faq__item,
+.plan,
+.contact__form-wrap,
+.pain__zuck-card,
+.pain__beat,
+.pain__counter,
+.compare__stage,
+.mockup,
+.mockup__card,
+.include__item,
+.fit__item,
+.pain__eyebrow,
+.pain__zuck-chip,
+.pain__zuck-role,
+.compare__toggle,
+.compare__wa,
+.hero__cta,
+.leadf__btn,
+.contact__wa {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Strip card backgrounds + borders (containers that wrap content) */
+.scard,
+.why__card,
+.tcard,
+.plan,
+.contact__form-wrap,
+.pain__zuck-card,
+.pain__beat,
+.pain__counter,
+.include__item,
+.pain__eyebrow,
+.pain__zuck-chip {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+}
+
+/* Kill decorative pseudo-elements on cards */
+.scard::before, .scard::after,
+.why__card::before, .why__card::after,
+.pain__zuck-card::before, .pain__zuck-card::after,
+.pain__beat::before, .pain__beat::after,
+.pain__counter::before, .pain__counter::after,
+.compare__toggle::before,
+.mockup__card::before, .mockup__card::after {
+  display: none !important;
+}
+
+/* Kill 3D tilt + cursor glow (tilt is a card effect) */
+.has-tilt.has-tilt { transform: none !important; will-change: auto; }
+.has-tilt::after { display: none !important; }
+
+/* ── SERVICES: editorial 3-column with vertical dividers ── */
+.services__grid--3col {
+  gap: 0 !important;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.services__grid--3col > .scard {
+  padding: 56px 36px !important;
+  /* RTL: dividers between columns via border-left on all except last */
+  border-left: 1px solid var(--border) !important;
+  transition: background .25s ease;
+}
+.services__grid--3col > .scard:last-child { border-left: 0 !important; }
+.services__grid--3col > .scard:hover { background: rgba(255,106,44,.03) !important; }
+@media (max-width: 768px) {
+  .services__grid--3col > .scard {
+    border-left: 0 !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .services__grid--3col > .scard:last-child { border-bottom: 0 !important; }
+}
+
+/* ── WHY: flat numbered steps with top borders ── */
+.why__grid { gap: 0 !important; }
+.why__card {
+  padding: 56px 40px !important;
+  border-left: 1px solid var(--border) !important;
+  border-top: 1px solid var(--border);
+}
+.why__card:last-child { border-left: 0 !important; }
+.why__card:hover { background: rgba(255,106,44,.03) !important; }
+.why__num {
+  color: var(--orange) !important;
+  font-size: 14px !important;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+@media (max-width: 768px) {
+  .why__card {
+    border-left: 0 !important;
+    border-top: 1px solid var(--border) !important;
+  }
+  .why__card:first-child { border-top: 0; }
+}
+
+/* ── WORKS: clean image + caption, no frame ── */
+.work { gap: 16px !important; }
+.work__frame {
+  border: 0 !important;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg2);
+}
+.work:hover .work__frame {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.work__title, .work__domain { letter-spacing: .005em; }
+
+/* ── TESTIMONIALS: no bg, type + divider only ── */
+.tcard {
+  padding: 28px 32px !important;
+  border-right: 1px solid var(--border);
+  min-width: 320px;
+}
+.tcard:first-child { border-right: 0; }
+.tcard__stars { color: var(--orange); }
+
+/* ── FAQ: flat rows, bottom borders ── */
+.faq__list { border-top: 1px solid var(--border); }
+.faq__item {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.faq__q {
+  padding: 24px 0 !important;
+  background: transparent !important;
+}
+.faq__a { background: transparent !important; }
+
+/* ── CONTACT FORM: minimalist inputs with bottom borders ── */
+.contact__form-wrap {
+  padding: 0 !important;
+  background: transparent !important;
+}
+.leadf { gap: 22px !important; }
+.leadf__row { gap: 10px !important; }
+.leadf__row input {
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  padding: 12px 2px !important;
+  color: var(--white) !important;
+  font-family: inherit;
+  transition: border-color .2s ease;
+}
+.leadf__row input:focus {
+  outline: none !important;
+  border-bottom-color: var(--orange) !important;
+}
+
+/* ── BUTTONS: flat rectangles (no pill radius) ── */
+.hero__cta,
+.leadf__btn,
+.contact__wa,
+.compare__toggle,
+.compare__wa,
+.admin-btn,
+.admin-btn--primary,
+.mobile-menu__link--cta,
+.nav__cta-link {
+  border-radius: 0 !important;
+}
+/* Keep WhatsApp float circle (it IS a circle icon) — no override */
+
+/* ── INCLUDE LIST: flat rows with dividers ── */
+.include__list { gap: 0 !important; max-width: 680px !important; }
+.include__item {
+  padding: 18px 4px !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+.include__item:last-child { border-bottom: 0 !important; }
+.include__item:hover { background: transparent !important; }
+
+/* ── PAIN SECTION FLATTEN ───────────────────────── */
+/* Zuck: drop the card, center everything as standalone column */
+.pain__zuck-card {
+  padding: 0 !important;
+}
+.pain__zuck-chip,
+.pain__eyebrow {
+  padding: 0 !important;
+  color: var(--orange) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .22em !important;
+  text-transform: uppercase;
+  margin-bottom: 20px !important;
+  display: block;
+}
+.pain__zuck-role {
+  background: transparent !important;
+  padding: 0 !important;
+}
+/* Counter: strip container, keep the big number and progress bar */
+.pain__counter {
+  padding: 20px 0 0 !important;
+  margin-top: 24px !important;
+  border-top: 1px solid var(--border);
+  background: transparent !important;
+}
+/* Pain beats: flat numbered rows separated by bottom borders */
+.pain__beat {
+  padding: 22px 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+  gap: 22px !important;
+}
+.pain__beat:last-child { border-bottom: 0 !important; }
+.pain__beat:hover {
+  transform: none !important;
+  background: transparent !important;
+  border-color: var(--border) !important;
+  border-bottom-color: var(--orange) !important;
+}
+.pain__beat-num {
+  background: transparent !important;
+  color: var(--orange) !important;
+  box-shadow: none !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 14px !important;
+  letter-spacing: .14em;
+  padding-top: 4px !important;
+}
+.pain__body { gap: 0 !important; }
+/* Keep the zuck photo circular — it's a true portrait, not a card */
+/* Keep counter progress bar rounded (it's a bar, not a card) */
+
+/* ── COMPARE: remove mockup rounding in pretty mode ── */
+.compare__stage {
+  border-radius: 0 !important;
+  box-shadow: 0 0 0 1px var(--border-2) !important;
+}
+.mockup__cta,
+.mockup__form input,
+.mockup__form button,
+.mockup__card,
+.mockup__hero-image {
+  border-radius: 0 !important;
+}
+.mockup__card {
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+}
+
+/* Admin modal buttons too */
+.admin-input { border-radius: 0 !important; }
+
+/* Strip nav mobile cta rounding */
+.mobile-menu__link--cta, .nav__cta-link { border-radius: 0 !important; }
+
+/* ═════════════════════════════════════════════════════════════
+   EDITORIAL REBUILD — break the "AI-generated 3-column template"
+   Kills the equal 3-col + emoji + centered pattern in favor of
+   a real editorial magazine rhythm:
+   - Services: horizontal index-led rows with giant outline numerals
+   - How it works: single-column vertical timeline with connecting
+     line + orange dots
+   - Asymmetric alignment, oversized type, no emoji icons
+   ═════════════════════════════════════════════════════════════ */
+
+/* Kill the emojis — single biggest AI tell */
+.scard__emoji { display: none !important; }
+
+/* ── SECTION HEADINGS: editorial left-anchored ── */
+#solution .section-heading,
+#how .section-heading {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: right;
+  padding: 0 36px 56px;
+  position: relative;
+}
+#solution .section-heading::before,
+#how .section-heading::before {
+  content: attr(data-eyebrow);
+  display: block;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+#solution .section-heading__title,
+#how .section-heading__title {
+  font-size: clamp(34px, 5.6vw, 72px) !important;
+  line-height: 1 !important;
+  letter-spacing: -.03em !important;
+  font-weight: 900 !important;
+  max-width: 900px;
+}
+
+/* ── SERVICES: stacked editorial rows with outline numerals ── */
+#solution .services__inner { max-width: 1080px; }
+.services__grid--3col {
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  max-width: 1080px;
+  margin: 0 auto !important;
+  border-top: 1px solid var(--border-2);
+  border-bottom: 0 !important;
+  counter-reset: svc;
+}
+.services__grid--3col > .scard {
+  counter-increment: svc;
+  display: grid !important;
+  grid-template-columns: minmax(120px, 150px) minmax(220px, 1fr) 1.35fr;
+  align-items: start;
+  gap: 48px;
+  padding: 56px 36px !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid var(--border-2) !important;
+  position: relative;
+  transition: background .3s ease;
+}
+.services__grid--3col > .scard:hover {
+  background: transparent !important;
+}
+.services__grid--3col > .scard::before {
+  content: counter(svc, decimal-leading-zero);
+  font-family: var(--font-head);
+  font-size: clamp(72px, 10vw, 128px);
+  font-weight: 900;
+  line-height: .85;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--gray-2);
+  text-stroke: 1.5px var(--gray-2);
+  letter-spacing: -.05em;
+  transition: -webkit-text-stroke-color .35s ease, color .35s ease, transform .35s ease;
+  align-self: start;
+}
+.services__grid--3col > .scard:hover::before {
+  -webkit-text-stroke-color: var(--orange);
+  color: rgba(255,106,44,.06);
+  transform: translateX(6px);
+}
+.scard__title {
+  font-size: clamp(22px, 2.6vw, 32px) !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.02em !important;
+  margin: 0 !important;
+  padding-top: 18px;
+  color: var(--white);
+}
+.scard__desc {
+  font-size: 17px !important;
+  line-height: 1.7 !important;
+  color: var(--gray) !important;
+  margin: 0 !important;
+  padding-top: 22px;
+  max-width: 540px;
+}
+@media (max-width: 860px) {
+  .services__grid--3col > .scard {
+    grid-template-columns: auto 1fr !important;
+    gap: 20px 28px !important;
+    padding: 44px 20px !important;
+  }
+  .services__grid--3col > .scard::before {
+    font-size: clamp(56px, 16vw, 88px);
+  }
+  .scard__desc {
+    grid-column: 1 / -1;
+    padding-top: 8px;
+    max-width: none;
+  }
+  .scard__title { padding-top: 6px; }
+}
+
+/* ── HOW IT WORKS: vertical timeline with connecting line ── */
+#how .why__inner { max-width: 900px; }
+.why__grid {
+  display: block !important;
+  gap: 0 !important;
+  max-width: 720px;
+  margin: 0 auto !important;
+  position: relative;
+}
+.why__grid > .why__card {
+  display: grid !important;
+  grid-template-columns: 80px 1fr;
+  gap: 36px;
+  align-items: start;
+  padding: 44px 32px 44px 0 !important;
+  border: 0 !important;
+  border-right: 1px solid var(--border-2) !important;
+  margin-right: 0;
+  position: relative;
+  background: transparent !important;
+}
+.why__grid > .why__card:last-child { border-right: 1px solid transparent !important; }
+.why__grid > .why__card::before {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 58px;
+  width: 11px; height: 11px;
+  background: var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--bg), 0 0 18px var(--orange-glow);
+  z-index: 2;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.why__grid > .why__card:hover::before {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 28px var(--orange);
+}
+.why__grid > .why__card:hover { background: transparent !important; }
+.why__num {
+  font-family: var(--font-head) !important;
+  font-size: clamp(40px, 5vw, 64px) !important;
+  font-weight: 900 !important;
+  color: var(--orange) !important;
+  letter-spacing: -.04em !important;
+  line-height: .9 !important;
+  padding-top: 4px;
+  margin-bottom: 0 !important;
+}
+.why__title {
+  font-size: clamp(22px, 2.7vw, 30px) !important;
+  font-weight: 800 !important;
+  letter-spacing: -.015em !important;
+  line-height: 1.2 !important;
+  margin: 0 0 10px !important;
+  color: var(--white);
+}
+.why__desc {
+  font-size: 16.5px !important;
+  line-height: 1.7 !important;
+  color: var(--gray) !important;
+  margin: 0 !important;
+  max-width: 520px;
+}
+@media (max-width: 640px) {
+  .why__grid > .why__card {
+    grid-template-columns: 56px 1fr !important;
+    gap: 20px !important;
+    padding: 32px 22px 32px 0 !important;
+  }
+  .why__grid > .why__card::before {
+    top: 46px;
+    right: -5px;
+    width: 9px; height: 9px;
+  }
+}
+
+/* Hide the old border-top from sub-nav on first why card (editorial cleanliness) */
+#how .why__card:first-child { border-top: 0 !important; }
+
+/* Section spacing reset for editorial flow */
+#solution, #how {
+  padding: 120px 24px !important;
+}
+@media (max-width: 768px) {
+  #solution, #how { padding: 80px 16px !important; }
+}
