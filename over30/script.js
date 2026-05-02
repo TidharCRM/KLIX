@@ -79,7 +79,7 @@ deck?.addEventListener(
   { passive: true }
 );
 
-if (cards.length) {
+if (cards.length && deck) {
   setIndex(0);
   restartAutoplay();
 }
